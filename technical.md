@@ -7,7 +7,7 @@ Download Procedures:
 6. Moved the downloaded files into the repository's `data` folder.
 7. Opened each Excel workbook to verify that it downloaded successfully.
 
-
+Downloaded files, size, and format
 - neiss2023.xlsx - 42.5 MB - opened successfully in Excel
 - neiss2024.xlsx - 47.4 MB - opened successfully in Excel
 - neiss2025.xlsx - 54.0 MB - opened successfully in Excel
@@ -18,6 +18,11 @@ The three Excel files opened successfully with no issues. I attempted to verify 
 
 Relevant technical questions:
 - Flat files seem like a good option to investigate because the NEISS data is mostly read-only and the downloaded files are reasonable in size. PostgreSQL could become useful if we need to run repeated queries or have multiple people accessing the same data. Before deciding, we should test how easily and quickly the full dataset can be loaded and analyzed from flat files. 
+
+Course tools that might help:
+PostgreSQL: Could help organize and query the data if working directly with flat files become inefficient of if we need repeated queries.
+Supabase: Could be useful if the team needs a shared PostgreSQL database that everyone can access, especially if we eventually deploy an application.
+Hugging Face Spaces: Could be useful if we build a Streamlit app and want to make it accessible online. 
 
 Next steps:
 1. Test whether the full 3 year dataset loads and runs efficiently using flat files.
