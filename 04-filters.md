@@ -62,7 +62,7 @@ small DataFrame and reused if the sidebar changes.
 |---|---|---|
 | Injury mechanism | Multiselect, using sorted distinct labels from the full loaded cohort, including `Unknown / unclear` when present. | Empty selection: all mechanisms. |
 | Severity | Multiselect: `Severe`, `Other known disposition`, `Unknown`. | Empty selection: all severities. |
-| Search injury narratives | Text input with a hint such as `e.g., belt or fell; enter one phrase`. Match the entire trimmed query as one case-insensitive, literal substring of `Narrative_1`. | Empty text: no text restriction. |
+| Search injury narratives | Text input with a hint such as `Enter one word or phrase, e.g., belt`. Match the entire trimmed query as one case-insensitive, literal substring of `Narrative_1`. | Empty text: no text restriction. |
 | Reset filters | Clear both multiselects and search text using a Streamlit callback before widgets render again. | Available on first load. |
 
 Within each multiselect, selected values are combined with OR. Combine the two
@@ -101,6 +101,7 @@ result to the views. Check behavior using this invented prepared fixture:
 | First load; or reset after changing every control | A, B, C, D, unchanged weights; count `4 of 4`. |
 | Mechanisms `Fall` and `Belt contact` | A, B, C. |
 | Mechanism `Fall`, severity `Severe` | A only. |
+| Severities `Severe` and `Unknown` | A, C, D. |
 | Search `  belt  ` | A and C; trimming and case-insensitive matching work. |
 | Mechanism `Fall`, severity `Severe`, search `belt` | A only: all three restrictions apply together. |
 | Search containing only spaces | A, B, C, D, including the null narrative. |
