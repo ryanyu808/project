@@ -1,4 +1,4 @@
-# 04 — Sidebar Filters and Narrative Search (Parth)
+# 04 — Sidebar Filters and Narrative Search
 
 ## Purpose and boundaries
 
