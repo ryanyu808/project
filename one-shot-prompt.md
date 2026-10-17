@@ -7,13 +7,11 @@ Build the dashboard specified below using this prompt and the NEISS dataset repo
 Do not silently resolve conflicting requirements. Report the affected integration before implementing it; unaffected pieces can be built and checked independently.
 
 - Preparation specifies sample CSVs for development; loader, views, and setup require full annual files for national estimates. The production preparation command remains unspecified.
-- Architecture and setup assign eligibility processing to preparation, but the loader also assigns itself offline preparation duties. Agree this boundary before implementation; no raw preparation belongs in widget reruns.
 - Loader expects three years in the full prepared dataset and mentions age/year filters; filters define mechanism, severity, and narrative controls; setup specifies a single configured year, initially 2025. Agree artifact coverage and period selection without inventing controls.
-- Loader mentions `mechanism`; filters require `Injury_Mechanism` and `Severity`; views require `injury_mechanism` and `is_severe`. Unknown-mechanism labels differ. Reconcile upstream; setup/views must not silently add aliases or recode categories.
 - Loader specifies a DataFrame plus metadata and `full`/`sample` mode; setup proposes a dictionary, CSV/provenance artifacts, and `full_annual`/`sample` provenance. Confirm the exact interface and source-completeness validation.
 - Vision bounds age at 65–120; loader says 65+ without an explicit upper bound. Preparation requires manual narrative/mechanism review, whose production workflow must be documented. Views retain team-review questions about primary-diagnosis composition and the all-visit severity denominator.
 
-These issues are preserved, not decided by this wording polish. All invented fixtures below are test data, not national findings.
+The remaining issues above are unresolved. The shared derived-field contract is settled: preparation creates `injury_mechanism` and `is_severe`; the loader preserves and validates them; filters apply selections using local severity display categories derived from `Disposition`; views aggregate; setup connects the components. Unknown mechanisms use `Unknown/Unclassified`. All invented fixtures below are test data, not national findings.
 
 ## 00 — Vision — CPSC Treadmill Injury Dashboard
 
@@ -173,6 +171,12 @@ counts, percentages, or summed weights as national estimates.
    narrative categories such as fall, belt-related fall, entering/exiting,
    struck by equipment, repair/moving, or unclear, save the rule and label in
    separate columns and require manual review of every candidate narrative.
+   Preparation creates `injury_mechanism` as one nonblank reviewed label per visit;
+   missing or unclassifiable mechanisms use exactly `Unknown/Unclassified`.
+   Preparation also creates `is_severe`, a nonnull Boolean: true exactly when
+   `Disposition` is 2, 4, 5, or 8; false otherwise, including code 9, missing,
+   or unrecognized codes (not recorded severe, not confirmed nonsevere).
+   These are derived columns, not original NEISS columns. Preserve `Disposition`.
 
 9. Clean the code lookup table before joining:
    - trim whitespace from code fields;
@@ -223,7 +227,7 @@ treadmill-injury dashboard.
 The dashboard is designed for a CPSC epidemiology analyst reviewing
 treadmill-related emergency-department visits among adults age 65 and older.
 
-Your component sits between the raw/cleaned NEISS source files and the
+Your component sits between the prepared NEISS case-level artifact and the
 interactive filtering and visualization components.
 
 Do not redesign the dashboard or invent new analytical definitions.
@@ -233,9 +237,9 @@ Implement the loading behavior described below.
 
 The loader must:
 
-1. prepare the three annual NEISS files for efficient use by the app;
-2. identify the records eligible for this treadmill-injury analysis;
-3. create and load a compact app-ready case-level dataset;
+1. load the compact case-level dataset created by data preparation;
+2. validate its eligibility and derived fields without reclassifying records;
+3. preserve the prepared rows and columns needed by downstream components;
 4. precompute the metadata and counts needed by downstream components;
 5. verify the data facts that the rest of the application relies on.
 
@@ -285,9 +289,10 @@ The annual case files contain these fields:
 
 Do not modify the source workbooks.
 
-### Prepare the app-ready rows
+### Validate the prepared rows
 
-For each annual file:
+Data preparation owns the following annual-file steps, including creation of
+`treatment_year`; the loader validates their results rather than repeating them:
 
 1. Read the main NEISS case sheet.
 2. Keep adults age 65 and older.
@@ -321,9 +326,12 @@ The app-ready case-level data must preserve at least:
 - Weight
 - Narrative_1
 
-Also preserve any downstream-created field that the filters require,
-especially the narrative-coded `mechanism` field once it has been created
-by the mechanism-classification component.
+Also preserve preparation-created `injury_mechanism` and `is_severe`.
+Validate that `injury_mechanism` is nonblank, using `Unknown/Unclassified`
+for unknown mechanisms, and `is_severe` is a nonnull Boolean equal to
+`Disposition` membership in {2, 4, 5, 8}, with missing disposition yielding false.
+Reject invalid or inconsistent fields; do not create aliases, repair flags,
+or reclassify mechanisms in the loader.
 
 Do not silently discard columns required by downstream components.
 
@@ -332,8 +340,8 @@ Do not silently discard columns required by downstream components.
 Do not repeatedly scan the three raw Excel workbooks during interactive
 use.
 
-Create a compact prepared dataset that contains only the cases required
-for this project.
+Load the compact dataset created by preparation, containing only the cases
+required for this project.
 
 Also precompute or expose the metadata downstream controls need:
 
@@ -351,8 +359,8 @@ hard-coded.
 When the application starts:
 
 1. Load the prepared case-level dataset.
-2. Do not reload the original annual Excel files unless the prepared
-   artifact does not exist and preparation is explicitly being run.
+2. Do not reload the original annual Excel files. If the prepared artifact
+   is missing, report it; preparation runs separately through section 02.
 3. Return a pandas DataFrame suitable for the filtering component.
 4. Preserve numeric types for `Age`, `Disposition`, product codes, and
    `Weight`.
@@ -449,14 +457,21 @@ the text-search control searches injury narratives instead.
 
 ### Input and output contract
 
-The loader must provide these columns; `Injury_Mechanism` and `Severity` are
-proposed prepared-column names that the preparation and loader pieces must adopt.
+The loader must provide these columns. Preparation creates the two derived
+fields; the loader preserves and validates them.
 
 | Column | Required representation |
 |---|---|
-| `Injury_Mechanism` | One nonblank display label per case, assigned during preparation. Missing or unclassifiable mechanisms use `Unknown / unclear`. |
-| `Severity` | One of `Severe`, `Other known disposition`, or `Unknown`. Preparation maps numeric `Disposition` codes 2, 4, 5, 8 to `Severe`; 0, 1, 6 to `Other known disposition`; code 9, missing, or unrecognized codes to `Unknown`. |
+| `injury_mechanism` | Derived: one nonblank reviewed label per visit; unknown mechanisms use `Unknown/Unclassified`. |
+| `is_severe` | Derived: nonnull Boolean, true exactly for `Disposition` codes 2, 4, 5, 8; false otherwise. |
+| `Disposition` | Original NEISS code, normalized upstream to nullable integer; preserved unchanged by filtering. |
 | `Narrative_1` | Narrative text, possibly null. Treat null as empty text for search only. |
+
+Derive a local severity display Series from `Disposition`: 2, 4, 5, 8 map to
+`Severe`; 0, 1, 6 to `Other known disposition`; 9, missing, or unrecognized
+codes to `Unknown`. Use it for severity selections only; never add a `Severity`
+column, overwrite `is_severe`, or otherwise mutate the input DataFrame.
+Do not derive categories from the Boolean alone: false includes unknown outcomes.
 
 `Other known disposition` is a grouping of the remaining recognized disposition
 codes, not a claim that those injuries were mild. Confirm the disposition mapping
@@ -465,8 +480,8 @@ dataset repository supports the codes above.
 
 Return matching rows with their original columns, values, index, and order,
 including `Weight`, `Stratum`, and `PSU`. Do not aggregate, deduplicate, rescale
-weights, or mutate the input. Missing required columns or invalid severity labels
-must produce an actionable validation error naming the column or value.
+weights, or mutate the input. Missing required columns or invalid selection
+labels must produce an actionable validation error naming the column or value.
 
 Implement in `filters.py` with these public interfaces:
 
@@ -494,7 +509,7 @@ small DataFrame and reused if the sidebar changes.
 
 | Sidebar control | Options and behavior | Initial value |
 |---|---|---|
-| Injury mechanism | Multiselect, using sorted distinct labels from the full loaded cohort, including `Unknown / unclear` when present. | Empty selection: all mechanisms. |
+| Injury mechanism | Multiselect, using sorted distinct labels from the full loaded cohort, including `Unknown/Unclassified` when present. | Empty selection: all mechanisms. |
 | Severity | Multiselect: `Severe`, `Other known disposition`, `Unknown`. | Empty selection: all severities. |
 | Search injury narratives | Text input with a hint such as `Enter one word or phrase, e.g., belt`. Match the entire trimmed query as one case-insensitive, literal substring of `Narrative_1`. | Empty text: no text restriction. |
 | Reset filters | Clear both multiselects and search text using a Streamlit callback before widgets render again. | Available on first load. |
@@ -523,12 +538,12 @@ available.` Keep reset available. A single matching case must still render.
 Implement `apply_filters` first, then the sidebar renderer, then connect its
 result to the views. Check behavior using this invented prepared fixture:
 
-| Case | Injury_Mechanism | Severity | Narrative_1 | Weight |
-|---|---|---|---|---:|
-| A | Fall | Severe | FELL from treadmill belt | 10 |
-| B | Fall | Other known disposition | Tripped beside treadmill | 20 |
-| C | Belt contact | Severe | Hand caught in BELT | 30 |
-| D | Unknown / unclear | Unknown | null | 40 |
+| Case | injury_mechanism | Disposition | is_severe | Narrative_1 | Weight |
+|---|---|---:|---|---|---:|
+| A | Fall | 4 | true | FELL from treadmill belt | 10 |
+| B | Fall | 1 | false | Tripped beside treadmill | 20 |
+| C | Belt contact | 2 | true | Hand caught in BELT | 30 |
+| D | Unknown/Unclassified | 9 | false | null | 40 |
 
 | Selection or interaction | Expected result |
 |---|---|
@@ -543,7 +558,11 @@ result to the views. Check behavior using this invented prepared fixture:
 | Severity `Unknown` | D only; missing severity is not silently treated as non-severe. |
 | Search producing zero matches, then clear search | All rows return and mechanism options remain available. |
 
-Also verify that filtering leaves the source DataFrame unchanged, that every view
+Also verify that filtering leaves the source DataFrame unchanged (including its
+column list and `is_severe` values), creates no `Severity` column, and maps D
+to the `Unknown` display category even though its Boolean flag is false.
+Replacing D's disposition with missing or an unrecognized code must retain that
+category; codes 2, 4, 5, and 8 must each map to `Severe`. Verify that every view
 receives the same selected cases, and that missing required columns fail clearly.
 Use this fixture for filter checks only; national estimates require the full
 prepared dataset and belong to the views component.
@@ -576,8 +595,8 @@ build_view_data(filtered_df: pd.DataFrame, *, context: dict,
 | `Weight` | Original NEISS column, finite positive numeric value; each row's national ED visit contribution. |
 | `Disposition` | Original NEISS code, normalized upstream to nullable integer. |
 | `Diagnosis` | Original NEISS primary diagnosis code, normalized upstream to nullable integer. |
-| `injury_mechanism` | **Derived**, not a NEISS column: one nonblank classification label per visit, assigned by data preparation. Unclassifiable cases must have an explicit upstream category such as `Unknown/Unclassified`. Views accept the supplied taxonomy without keyword matching or recoding. |
-| `is_severe` | **Derived**, not a NEISS column: nonnull Boolean, validated upstream against `Disposition` membership in `{2, 4, 5, 8}`. |
+| `injury_mechanism` | **Derived**, not a NEISS column: one nonblank classification label per visit, assigned by data preparation. Unclassifiable cases must use exactly `Unknown/Unclassified`. Views accept the supplied taxonomy without keyword matching or recoding. |
+| `is_severe` | **Derived**, not a NEISS column: nonnull Boolean, created by preparation and validated by the loader against `Disposition` membership in `{2, 4, 5, 8}`; false otherwise, including missing disposition. |
 
 Original eligibility fields are `Age`, `Product_1`, `Product_2`, `Product_3`, and `Narrative_1`; their rules belong exclusively to data preparation. They need not be passed to views. `Diagnosis_2`, `Other_Diagnosis`, and `Other_Diagnosis_2` are original columns but are not used in this component's diagnosis composition.
 
@@ -699,7 +718,7 @@ Compare unrounded numerical results within `1e-8`. Render checks verify units, c
 
 ### Integration decisions to review
 
-- The adjacent pieces are included in this combined prompt. Confirm the proposed derived names, payload/context fields, single-label mechanism taxonomy, validation ownership, and denominator convention when combining pieces.
+- The adjacent pieces are included in this combined prompt. Derived names and validation ownership follow the shared contract above. Confirm payload/context fields, the remaining single-label mechanism taxonomy, and denominator convention when combining pieces.
 - The vision does not specify an analysis period. Setup must choose the initial year/period and default filters; views support explicit period metadata without assuming a new year control. Prefer within-year mechanism comparisons; multi-year sums require the labels/caution above.
 - Confirm primary-diagnosis-only composition and the treatment of unknown disposition as not recorded severe in an all-visit denominator. These are explicit proposed conventions, not previously documented team decisions.
 - Basis inspected: `00-vision.md`, `01-design.md`, `08-architect/one-shot-prompt-specs.md`, Module 8 README/orientation, dataset README/overview, actual sample headers, and complete DIAG/DISP lookup rows. No separate Module 8 handout was found locally. The copied lookup in this team repository matches the sibling dataset repository.
@@ -768,7 +787,7 @@ The following loader boundary and artifact locations are **proposed integration 
 | Views (`05`) | The single filtered DataFrame, context, lookup | `build_view_data(filtered_df, *, context, diagnosis_lookup) -> dict`, exactly as specified in `05-views.md` | Initial run and every filter change |
 | Setup (`06`) | Validated config and component results | Streamlit page, state messages, and placement of view renderers; no numerical aggregations | Every Streamlit rerun, reusing cached loading |
 
-The loader must supply the union of required columns from `04` and `05`, preserving original `CPSC_Case_Number`, `Treatment_Date`, `Weight`, `Disposition`, `Diagnosis`, `Narrative_1`, `Stratum`, and `PSU`. Views additionally require derived `injury_mechanism` and `is_severe`; filters currently additionally require derived `Injury_Mechanism` and `Severity`. **This naming conflict is unresolved.** Setup must neither derive flags nor add aliases. Once reconciled upstream, each component must receive its documented schema; if both mechanism columns are supplied as an interim agreed contract, the loader must validate identical labels row by row. Severity labels and flags must likewise be consistent under their existing definitions. The unknown-mechanism spelling is a separate team issue; setup must not merge or recode labels.
+The loader must supply the union of required columns from `04` and `05`, preserving original `CPSC_Case_Number`, `Treatment_Date`, `Weight`, `Disposition`, `Diagnosis`, `Narrative_1`, `Stratum`, and `PSU`, plus preparation-created `injury_mechanism` and `is_severe`. The loader validates those derived fields; filters preserve them and derive severity display categories locally from `Disposition` without adding columns. Views aggregate the filtered rows. Setup only connects these components: it must not create aliases, derive flags, or recode mechanism labels. Unknown mechanisms use exactly `Unknown/Unclassified`.
 
 Proposed provenance JSON contains `analysis_years` (one-element integer list), `source_scope` (`full_annual` or `sample`), and `source_files` (nonempty list of source filenames). Preparation records this evidence; the loader validates it against the prepared artifact and configured year. Filename, row count of the small prepared cohort, or a configuration claim alone cannot certify full-file provenance. Loading must reject partial-year or unverified inputs for national estimates. In particular, do not ingest both the XLSX and TSV versions of the same annual file as separate visits.
 
@@ -831,7 +850,7 @@ For later Streamlit hosting, deploy the same entry point and locked dependencies
 
 ### Build order and acceptance checks
 
-Build configuration validation and page skeleton first; integrate the validated loader next; connect `04` and `05` only after their schema disagreement is reconciled; then verify layout and interactions. Use the A–E invented fixture and expected outputs from `05-views.md` in tests with `source_scope="test_fixture"` injected through a test loader, never an end-user configuration option. Extend that fixture in the test loader with the reconciled filter fields and suitable narratives; preserve the original numerical fields.
+Build configuration validation and page skeleton first; integrate the validated loader next; connect `04` and `05` through the shared `injury_mechanism`/`is_severe` contract; then verify layout and interactions. Use the A–E invented fixture and expected outputs from `05-views.md` in tests with `source_scope="test_fixture"` injected through a test loader, never an end-user configuration option. Extend that fixture in the test loader with suitable `Narrative_1` values; it already contains the shared derived fields. Preserve its original numerical fields.
 
 | Check | Expected result |
 |---|---|
@@ -850,7 +869,7 @@ Before handoff, run `05`'s arithmetic and edge-case checks independently, then t
 
 ### Unresolved integration issues / rubric review
 
-- **Required reconciliation:** `04` uses `Injury_Mechanism`, `Severity`, and `Unknown / unclear`; `05` uses `injury_mechanism`, `is_severe`, and an example `Unknown/Unclassified`. Agree one upstream schema or explicitly document compatible additional columns. Setup does not choose a taxonomy or translate it.
+- **Shared contract resolved:** Preparation creates `injury_mechanism` and `is_severe`; loader validates and preserves them; filters derive severity display categories locally from `Disposition` and apply selections without mutation; views aggregate; setup wires the components. Unknown mechanisms use `Unknown/Unclassified`.
 - **Preparation/loader integration:** Sections `02` and `03` are now included. Confirm the proposed CSV/provenance artifacts and loader interface, source-completeness validation, preparation command, and duplicate-source handling. These are whole-prompt completeness blockers, not reasons to fabricate preparation inside setup.
 - **Narrative-search integration:** Section `04` specifies narrative search. Setup wires that control and includes it in context without adding search matching logic.
 - **Team confirmation retained from `05`:** primary-diagnosis-only composition and all-visit weighted severity denominator still need signoff when combining pieces; setup uses those contracts unchanged.
