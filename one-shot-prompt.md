@@ -200,18 +200,34 @@ counts, percentages, or summed weights as national estimates.
       counts at each filtering step;
     - a README describing every derived column and rule.
 
-### Validation checks
+### Validation and done-when checks
 
 Before sharing outputs, verify that:
 
 - no raw rows were overwritten;
 - case IDs remain unique;
 - all treatment dates parse correctly or appear in an exceptions report;
-- all adult-65+ records have ages from 65 through 120;
+- all retained adult records have ages from 65 through 120;
 - product-code flags check all three product columns;
-- narrative-rule results can be traced to the original narrative;
+- narrative-rule results can be traced to the original `Narrative_1`;
 - joins do not unexpectedly multiply case rows;
+- `Weight` is numeric and nonmissing for every retained treadmill case;
+- `injury_mechanism` is nonmissing and contains only the approved mechanism labels, including `Unknown/Unclassified`;
+- `is_severe` contains only boolean values and matches the severe-disposition definition based on codes 2, 4, 5, and 8;
 - raw sample totals are never described as U.S. national totals.
+
+Report the number of records at the major preparation stages:
+1. raw records loaded;
+2. age-eligible records;
+3. product-code 3277 candidates;
+4. narrative-confirmed treadmill cases;
+5. final prepared records.
+
+Also report the number and percentage of final cases classified as `Unknown/Unclassified`, and show a small sample of their `Narrative_1` values for analyst review.
+
+Data preparation is done when all required checks pass, or any failures are clearly reported instead of silently repaired, and the preparation-stage row counts can be reproduced.
+
+Mechanism classification is done when every prepared case has exactly one valid `injury_mechanism`, a small hand-checked set produces the expected classifications, and `Unknown/Unclassified` cases are reported separately for review.
 
 ### AI use rule
 
