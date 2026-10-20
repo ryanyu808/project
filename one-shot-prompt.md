@@ -11,6 +11,15 @@ Build the local dashboard described here from this Markdown file, the [NEISS dat
 - **Prepare once, interact in memory:** keep annual source files unchanged on disk, save the small prepared cohort, cache loading, and recompute only selected summaries. This avoids scanning roughly 1.11 million annual records on widget changes.
 - **Make estimates auditable:** preserve source provenance, record counts, unknown outcomes, and narrative-review decisions. Weighted burden and recorded severity help prioritize investigation; they do not establish causation or defects.
 
+## Unresolved integration issues
+
+Do not silently resolve conflicting requirements. Report the affected integration before implementing it; unaffected pieces can be built and checked independently.
+
+- Preparation specifies sample CSVs for development; loader, views, and setup require full annual files for national estimates. The production preparation command remains unspecified.
+- Loader expects three years in the full prepared dataset and mentions age/year filters; filters define mechanism, severity, and narrative controls; setup specifies a single configured year, initially 2025. Agree artifact coverage and period selection without inventing controls.
+- Loader-to-setup interface resolved: Both components use the four-key dictionary defined in Section 03 (`data`, `diagnosis_lookup`, `provenance`, and `metadata`). Preparation artifact creation, provenance verification, and source-completeness validation still require team confirmation.
+- Vision bounds age at 65–120; loader says 65+ without an explicit upper bound. Preparation requires manual narrative/mechanism review, whose production workflow must be documented. Views retain team-review questions about primary-diagnosis composition and the all-visit severity denominator.
+
 ## 00 — Vision and analyst workflow
 
 A CPSC epidemiology staff member must decide which treadmill injury mechanisms among adults ages 65–120 deserve further investigation. Reading raw narratives and manually reconciling weights and dispositions makes it difficult to compare mechanisms consistently. This dashboard puts estimated national ED burden, recorded severe-outcome percentage, and diagnosis composition together, with the supporting NEISS record count.
@@ -180,6 +189,228 @@ Before returning, verify required source/derived columns, unique/nonmissing IDs,
 Raise `ValueError` with the file, field/check, and remedy for invalid artifacts; preserve ordinary file-not-found errors with the missing path. Never silently deduplicate, repair flags/weights, discard required columns, or load raw files when prepared data is absent. Lookup joins must not multiply visits.
 
 Independent checks: use tiny prepared CSV/provenance fixtures in a temporary test directory with an explicit test-only source validator (never a production flag accepting toy raw counts). Reject a changed CSV digest, mismatched year, missing required field, duplicate ID, invalid Boolean, inconsistent severity, blank mechanism, invalid weight, or failed/incomplete source/review evidence. Exercise codes 2/4/5/8 (true), 0/1/6/9 (false), and missing/unrecognized disposition (false); confirm counts and metadata, including an empty but valid cohort. A successful load must let filters/views operate without reopening source workbooks.
+Mechanism classification is done when every prepared case has exactly one valid `injury_mechanism`, a small hand-checked set produces the expected classifications, and `Unknown/Unclassified` cases are reported separately for review.
+
+### AI use rule
+
+AI may suggest cleaning code, regular expressions, and candidate narrative
+rules. A human must inspect the resulting rows, especially all treadmill and
+mechanism classifications, verify output counts, and document each decision.
+
+## 03 — Loader
+
+You are responsible for implementing the data-loading layer for the NEISS
+treadmill-injury dashboard.
+
+The dashboard is designed for a CPSC epidemiology analyst reviewing
+treadmill-related emergency-department visits among adults age 65 and older.
+
+Your component sits between the prepared NEISS case-level artifact and the
+interactive filtering and visualization components.
+
+Do not redesign the dashboard or invent new analytical definitions.
+Implement the loading behavior described below.
+
+### Job
+
+The loader must:
+
+1. load the compact case-level dataset created by data preparation;
+2. validate its eligibility and derived fields without reclassifying records;
+3. preserve the prepared rows and columns needed by downstream components;
+4. precompute the metadata and counts needed by downstream components;
+5. verify the data facts that the rest of the application relies on.
+
+The Streamlit app must not reread and scan all three raw Excel workbooks
+after every user interaction.
+
+### Source data
+
+Use the full annual NEISS files for 2023, 2024, and 2025 when available.
+
+Expected files:
+
+- neiss2023.xlsx
+- neiss2024.xlsx
+- neiss2025.xlsx
+
+Each workbook contains a main annual NEISS sheet and an `NEISS_FMT`
+lookup sheet.
+
+The annual case files contain these fields:
+
+- CPSC_Case_Number
+- Treatment_Date
+- Age
+- Sex
+- Race
+- Other_Race
+- Hispanic
+- Body_Part
+- Diagnosis
+- Other_Diagnosis
+- Body_Part_2
+- Diagnosis_2
+- Other_Diagnosis_2
+- Disposition
+- Location
+- Fire_Involvement
+- Product_1
+- Product_2
+- Product_3
+- Alcohol
+- Drug
+- Narrative_1
+- Stratum
+- PSU
+- Weight
+
+Do not modify the source workbooks.
+
+### Validate the prepared rows
+
+Data preparation owns the following annual-file steps, including creation of
+`treatment_year`; the loader validates their results rather than repeating them:
+
+1. Read the main NEISS case sheet.
+2. Keep adults age 65 and older.
+3. Do not treat Age values 201–223 as adult ages. Those values represent
+   ages expressed in months.
+4. Keep candidate records when at least one of `Product_1`, `Product_2`,
+   or `Product_3` equals 3277.
+5. From those candidate records, retain only cases whose `Narrative_1`
+   explicitly supports treadmill involvement.
+6. Add a `treatment_year` field derived from `Treatment_Date`.
+
+The treadmill narrative rule must be transparent and conservative.
+Do not infer treadmill involvement merely because product code 3277 is
+present: 3277 represents exercise equipment more broadly.
+
+If the project already defines the exact treadmill-text matching rule
+elsewhere, use that rule rather than inventing a new one.
+
+### Columns returned
+
+The app-ready case-level data must preserve at least:
+
+- CPSC_Case_Number
+- Treatment_Date
+- treatment_year
+- Age
+- Disposition
+- Product_1
+- Product_2
+- Product_3
+- Weight
+- Narrative_1
+
+Also preserve preparation-created `injury_mechanism` and `is_severe`.
+Validate that `injury_mechanism` is nonblank, using `Unknown/Unclassified`
+for unknown mechanisms, and `is_severe` is a nonnull Boolean equal to
+`Disposition` membership in {2, 4, 5, 8}, with missing disposition yielding false.
+Reject invalid or inconsistent fields; do not create aliases, repair flags,
+or reclassify mechanisms in the loader.
+
+Do not silently discard columns required by downstream components.
+
+### Precompute once
+
+Do not repeatedly scan the three raw Excel workbooks during interactive
+use.
+
+Load the compact dataset created by preparation, containing only the cases
+required for this project.
+
+Also precompute or expose the metadata downstream controls need:
+
+- minimum and maximum eligible age;
+- available treatment years;
+- number of prepared cases by treatment year;
+- number of prepared cases by mechanism, once mechanism labels exist;
+- whether the loader is using the full annual NEISS data or only a sample.
+
+These values should be derived from the prepared data rather than
+hard-coded.
+
+### Runtime loading behavior
+
+When the application starts:
+
+1. Load the prepared case-level dataset.
+2. Do not reload the original annual Excel files. If the prepared artifact
+   is missing, report it; preparation runs separately through section 02.
+3. Return a pandas DataFrame suitable for the filtering component.
+4. Preserve numeric types for `Age`, `Disposition`, product codes, and
+   `Weight`.
+5. Preserve `Treatment_Date` as a date/datetime value and
+   `treatment_year` as an integer.
+
+The filtering component, not the loader, is responsible for responding
+to ordinary sidebar changes such as age range, year range, or selected
+mechanisms.
+
+### Data checks
+
+Before making the prepared data available to the rest of the app, verify:
+
+- all required columns are present;
+- all three intended treatment years, 2023, 2024, and 2025, are represented
+  when full data are being used;
+- every retained record has Age >= 65 using the NEISS age convention;
+- no Age value from 201 through 223 has been interpreted as an adult age;
+- every retained record has product code 3277 in at least one of
+  `Product_1`, `Product_2`, or `Product_3`;
+- every retained record satisfies the project's treadmill narrative rule;
+- `CPSC_Case_Number` is not accidentally duplicated during annual-file
+  concatenation;
+- `Weight` is numeric for records used in weighted estimates;
+- `Disposition` remains in its original NEISS code form;
+- no preparation step changes the original source files.
+
+If a required structural assumption fails, raise a clear error that says
+which file, field, or check failed. Do not silently continue with corrupted
+or incompatible data.
+
+### Full-data versus sample behavior
+
+Expose a simple indicator such as `data_mode` with values like:
+
+- `full`
+- `sample`
+
+Weighted national visit estimates are valid for the dashboard only when
+the project is running on the intended full NEISS annual files.
+
+If only a project sample is available, the loader must make that state
+available to downstream components so the views can clearly label results
+as sample-only and avoid presenting the sum of `Weight` as a national
+estimate.
+
+### Interface to downstream pieces
+
+Implement `load_dashboard_data(prepared_path, provenance_path, diagnosis_lookup_path, analysis_year)` and return a dictionary with exactly these top-level keys:
+
+- `data`: the validated prepared pandas DataFrame, preserving all required columns and rows.
+- `diagnosis_lookup`: the complete diagnosis lookup pandas DataFrame used by views.
+- `provenance`: a dictionary containing `analysis_years`, `source_scope`, and `source_files`, validated against the prepared artifact and configured year.
+- `metadata`: a dictionary containing `age_min`, `age_max`, `available_years`, `case_counts_by_year`, and `case_counts_by_mechanism`, calculated from the prepared data.
+
+Raise an actionable validation error when a required file, key, field, or data type is missing or inconsistent. Do not silently create replacement values. The filters receive `result["data"]`; views receive the filtered DataFrame, `result["diagnosis_lookup"]`, and context built from `result["provenance"]`. Setup owns this wiring, not the loader.
+
+Do not implement the Streamlit page layout in this component.
+
+### Acceptance checks
+
+The loader is complete when:
+
+- the app can start without rereading more than one million raw NEISS rows
+  on every run;
+- the prepared dataset contains only the intended age-65+ treadmill cases;
+- all required downstream columns and metadata are available;
+- the full-data/sample state is unambiguous;
+- all validation checks pass;
+- filters and views can consume the returned data without reopening the
+  raw workbooks.
 
 ## 04 — Sidebar Filters and Narrative Search
 
@@ -460,6 +691,33 @@ Changing year requires a matching prepared artifact and validated provenance for
 ### Component integration and contracts
 
 Use the component boundaries in section 01, the preparation artifacts in section 02, and the exact loader dictionary in section 03. After validating TOML and calling `st.set_page_config`, resolve artifact paths, load/cache the selected year, and execute this sequence:
+The following loader boundary and artifact locations are **proposed integration contracts** requiring reconciliation with sections 02 and 03, not claims that these functions already exist. Reconcile them before the build; a coding agent must report incompatible contracts rather than quietly rename fields or implement preparation inside setup.
+
+| Component | Receives | Returns / responsibility | When |
+|---|---|---|---|
+| Preparation (`02`) | Full annual NEISS source and its code documentation | Prepared cohort and provenance artifact | Separate offline step, never on dashboard reruns |
+| Loader (`03`), proposed `load_dashboard_data(prepared_path, provenance_path, diagnosis_lookup_path, analysis_year)` | Resolved paths and configured year | Returns a validated dictionary with exactly four keys: `data`, `diagnosis_lookup`, `provenance`, and `metadata`, following the Section 03 loader contract. Raises an actionable error for missing or inconsistent values. | First successful load; cache thereafter |
+| Filters (`04`) | `data` | `render_sidebar(data) -> FilterSelection`, then `apply_filters(data, selection) -> pd.DataFrame`, preserving rows' columns and values | Initial run and each widget rerun |
+| Views (`05`) | The single filtered DataFrame, context, lookup | `build_view_data(filtered_df, *, context, diagnosis_lookup) -> dict`, exactly as specified in `05-views.md` | Initial run and every filter change |
+| Setup (`06`) | Validated config and component results | Streamlit page, state messages, and placement of view renderers; no numerical aggregations | Every Streamlit rerun, reusing cached loading |
+
+### Loader-to-setup interface validation
+
+Before rendering dashboard results, setup must verify that the loader returns a dictionary containing all four required keys.
+
+- `data` and `diagnosis_lookup` must be pandas DataFrames.
+- `provenance` and `metadata` must be dictionaries.
+- `provenance["analysis_years"]` must match the configured year.
+- `metadata["case_counts_by_year"]` must agree with the loaded DataFrame.
+- Missing or inconsistent values must produce an actionable validation error, not partial dashboard results.
+
+Test this contract using a small invented DataFrame. Confirm that valid loader output reaches filters and views, while missing keys, incorrect types, or inconsistent metadata prevent rendering.
+
+The loader must supply the union of required columns from `04` and `05`, preserving original `CPSC_Case_Number`, `Treatment_Date`, `Weight`, `Disposition`, `Diagnosis`, `Narrative_1`, `Stratum`, and `PSU`, plus preparation-created `injury_mechanism` and `is_severe`. The loader validates those derived fields; filters preserve them and derive severity display categories locally from `Disposition` without adding columns. Views aggregate the filtered rows. Setup only connects these components: it must not create aliases, derive flags, or recode mechanism labels. Unknown mechanisms use exactly `Unknown/Unclassified`.
+
+Proposed provenance JSON contains `analysis_years` (one-element integer list), `source_scope` (`full_annual` or `sample`), and `source_files` (nonempty list of source filenames). Preparation records this evidence; the loader validates it against the prepared artifact and configured year. Filename, row count of the small prepared cohort, or a configuration claim alone cannot certify full-file provenance. Loading must reject partial-year or unverified inputs for national estimates. In particular, do not ingest both the XLSX and TSV versions of the same annual file as separate visits.
+
+After configuration and loading succeed:
 
 ```text
 selection = filters.render_sidebar(loaded["data"])
