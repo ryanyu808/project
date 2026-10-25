@@ -1,0 +1,6 @@
+# Runtime and offline preparation; support Python 3.11 and newer.
+streamlit==1.45.1
+pandas==2.2.3
+numpy==2.2.6
+plotly==6.0.1
+openpyxl==3.1.5

@@ -1,0 +1,17 @@
+[dashboard]
+title = "CPSC Treadmill Injury Dashboard"
+layout = "wide"
+available_views = ["headline", "mechanism_bar", "severity_scatter", "diagnosis_stack", "summary_table"]
+
+[analysis]
+year = 2025
+
+[defaults]
+mechanisms = []
+severities = []
+narrative_query = ""
+
+[data]
+prepared_path = "data/prepared/treadmill_2025.csv"
+provenance_path = "data/prepared/treadmill_2025.provenance.json"
+diagnosis_lookup_path = "data/reference/neiss_code_lookup_2025.csv"

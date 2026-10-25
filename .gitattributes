@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# Preserve the supplied reference lookup's original newline encoding.
+data/reference/*.csv -text whitespace=cr-at-eol
