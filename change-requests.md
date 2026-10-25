@@ -41,3 +41,21 @@ A filled request (from the class lottery app):
 ## Requests
 
 <!-- Add new requests below this comment, at the end of the file, newest last. -->
+
+### CR-01: Preserve meaningful severity comparisons
+
+- **From:** Ryan Yu, 2026-10-25
+- **Part:** Frequency–severity scatter plot, Part 1 feature audit
+- **Evidence:** Using the invented five-record fixture, the unfiltered scatter plot shows Contact: 60 weighted visits, 33.3% severe; Fall: 40 weighted visits, 25% severe; Unknown/Unclassified: 20 weighted visits, 100% severe. After selecting Severe only, all three mechanisms show 100% because the severity filter changes both the numerator and denominator. The scatter plot therefore loses its ability to compare overall severe-outcome percentages.
+- **Change:** Keep the overall severe-outcome percentage from all eligible outcomes as a clearly labeled comparison baseline when the severity filter is active. Separately show the severe-visit burden for the currently selected records. Make the two populations and denominators explicit so they cannot be confused.
+- **Priority:** medium
+- **Status:** open
+
+### CR-02: Make supporting evidence visible
+
+- **From:** Ryan Yu, 2026-10-25
+- **Part:** Frequency–severity scatter plot and weighted severe-outcome percentage, Parts 1 and 2
+- **Evidence:** The invented fixture shows Unknown/Unclassified at 100% severe based on only one record with weight 20. The independent Python loop verified the overall headline percentage of 41.7% (50 severe weight / 120 total weight), but this arithmetic check does not establish statistical precision. The scatter currently shows record counts only on hover and does not display uncertainty estimates.
+- **Change:** Add a visible supporting-evidence table or panel beside/below the scatter plot showing each mechanism's unweighted NEISS record count, unknown-disposition record count and weight, and weighted severe-outcome percentage. Include a clear explanation that record counts are not confidence intervals and that uncertainty is not estimated in this MVP. Do not invent statistical significance or unsupported reliability thresholds.
+- **Priority:** medium
+- **Status:** open
