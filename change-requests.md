@@ -59,3 +59,21 @@ A filled request (from the class lottery app):
 - **Change:** Add a visible supporting-evidence table or panel beside/below the scatter plot showing each mechanism's unweighted NEISS record count, unknown-disposition record count and weight, and weighted severe-outcome percentage. Include a clear explanation that record counts are not confidence intervals and that uncertainty is not estimated in this MVP. Do not invent statistical significance or unsupported reliability thresholds.
 - **Priority:** medium
 - **Status:** open
+
+### CR-03: Preserve diagnosis context under severity filters
+
+- **From:** James Liao, 2026-10-25
+- **Part:** Primary-diagnosis composition chart, Part 1 feature audit
+- **Evidence:** Using the five-record fixture, filtering to Fall showed about 75% contusions and 25% fractures. After also selecting Severe, only one severe Fall record remained and the chart changed to 100% fracture. The diagnosis percentages were recomputed from the filtered subset, so the overall Fall diagnosis pattern was no longer visible.
+- **Change:** When a severity filter is active, show the overall diagnosis composition alongside the filtered composition, or otherwise preserve a clearly identified overall baseline so users can distinguish the filtered pattern from the overall pattern.
+- **Priority:** medium
+- **Status:** open
+
+### CR-04: Show which records match narrative search
+
+- **From:** James Liao, 2026-10-25
+- **Part:** NEISS record count with narrative search, Part 2 number audit
+- **Evidence:** With the five-record fixture and the search term "belt", I expected cases A and C to match. The app correctly showed a NEISS record count of 2, and an independent loop also found A and C. However, the dashboard shows only the aggregate count, so the user cannot directly verify which narratives produced that number.
+- **Change:** When a narrative search is active, provide a reviewable list or table of the matching records, including case ID and narrative text, so users can verify what is included in the count without leaving the app.
+- **Priority:** medium
+- **Status:** open
