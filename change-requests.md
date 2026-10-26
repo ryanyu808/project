@@ -77,3 +77,21 @@ A filled request (from the class lottery app):
 - **Change:** When a narrative search is active, provide a reviewable list or table of the matching records, including case ID and narrative text, so users can verify what is included in the count without leaving the app.
 - **Priority:** medium
 - **Status:** open
+
+### CR-05: Recover the selection after Reset
+
+- **From:** Colby Messih, 2026-10-26
+- **Part:** Reset filters, Part 1
+- **Evidence:** On the invented fixture, Fall + Severe + `belt` shows 10 weight and one record. Reset clears all three inputs and restores 120 weight and five records. The app then offers no Undo button, and the reset callback replaces the selections with defaults without retaining a previous selection.
+- **Change:** Save the selection immediately before Reset and provide Undo reset to restore all three controls together. This would support returning to a subset after comparing it with the full cohort.
+- **Priority:** medium
+- **Status:** open
+
+### CR-06: Show the decision impact of unknown outcomes
+
+- **From:** Colby Messih, 2026-10-26
+- **Part:** Unknown-disposition weighted total, Part 2
+- **Evidence:** The fixture caption correctly reports 40 unknown-disposition weight out of 120 total. The independent loop agrees. The interface does not calculate the unknown share or show how unknown outcomes could affect the severe-outcome share: the fixture's simple endpoints are 41.7% and 75.0% if none versus all unknown outcomes were severe.
+- **Change:** Add an outcome-completeness panel showing unknown weight as a share of the selected total and the two conditional missing-outcome endpoints, with their numerators and denominator. Explain that these are sensitivity bounds, not confidence intervals. State which records form the population and when a severity selection excludes unknown outcomes. Handle an empty population as unavailable rather than dividing by zero.
+- **Priority:** medium
+- **Status:** open
