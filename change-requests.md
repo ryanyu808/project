@@ -95,3 +95,21 @@ A filled request (from the class lottery app):
 - **Change:** Add an outcome-completeness panel showing unknown weight as a share of the selected total and the two conditional missing-outcome endpoints, with their numerators and denominator. Explain that these are sensitivity bounds, not confidence intervals. State which records form the population and when a severity selection excludes unknown outcomes. Handle an empty population as unavailable rather than dividing by zero.
 - **Priority:** medium
 - **Status:** open
+
+### CR-07: Explain mechanism definitions and precedence in the app
+
+- **From:** Author of `../09-audit/my-audit.md` (name not supplied), 2026-10-26
+- **Part:** Injury Mechanism Analysis, Part 1 feature audit
+- **Evidence:** Source inspection of `app.py`, `filters.py`, and `views.py` shows mechanism names, charts, and a summary without an in-app codebook explanation. `data/prepared/mechanism-codebook.md` version 1.0 distinguishes initiating belt contact from a fall that merely lands on the belt and reserves Unknown/Unclassified for reviewed unclear narratives. The audit's invented AUD1–AUD4 AppTest case successfully selected Fall, but interpreting that category requires consulting the external codebook. This is source and synthetic interface evidence; no real misclassification or personal browser verification is claimed.
+- **Change:** Add accessible in-app mechanism definitions and precedence rules beside the mechanism control/chart, identifying the applicable codebook version. Explain that Unknown/Unclassified means reviewed but unclear, rather than unfinished review.
+- **Priority:** medium
+- **Status:** open
+
+### CR-08: Reconcile weighted totals at full precision
+
+- **From:** Author of `../09-audit/my-audit.md` (name not supplied), 2026-10-26
+- **Part:** Estimated national ED visits and mechanism summary, Part 2 number audit
+- **Evidence:** In the audit's invented AUD1–AUD4 fixture, the independent CSV/Decimal computation returned 31.2 overall and 10.4 for each of three mechanisms. Saved AppTest results in `../09-audit/audit_evidence/dashboard_results.json` show headline 31 and underlying summary values of 10.4 each. `app.py` formats the headline with `:,.0f` and summary weights with `%.0f`, so three displayed contributions of 10 sum to 30 while the headline shows 31. AppTest rendered no download button. This supports a rounding-reconciliation request, not a production arithmetic error; browser presentation and the real 2025 total remain unverified.
+- **Change:** Add a weighted-total reconciliation view showing each selected mechanism's full-precision contribution, their sum, and the rounded headline. Allow downloading the breakdown with active filters and data-version identification, and explain any difference caused by rounding while retaining the concise headline.
+- **Priority:** medium
+- **Status:** open
