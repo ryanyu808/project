@@ -60,12 +60,31 @@ def render_dashboard(config, loaded):
                f"Unknown disposition: {quality['unknown_disposition_record_count']:,} records / {quality['unknown_disposition_weight']:,.0f} weighted ED visits.")
     if selection.severities:
         st.info('Percentages describe the selected cases; the severity filter changes both numerator and denominator.')
+        baseline_df = filters.apply_filters(data, filters.without_severity(selection))
+        comparison = views.build_severity_comparison(
+            filtered, baseline_df, context=context, diagnosis_lookup=loaded['diagnosis_lookup'])
+        if comparison is not None:
+            rendered['severity_scatter'] = views.render_severity_comparison(comparison, context)
+        st.caption('Scatter comparison: x = severe visit weight among the selected records; '
+                   'y = severe visit weight / all visit weight in the same mechanism and narrative selection '
+                   'with severity removed. The baseline includes unknown dispositions. '
+                   'Headlines, burden bars, diagnosis chart, and summary still describe the selected records.')
     left, right = st.columns(2)
     with left:
         st.plotly_chart(rendered['mechanism_bar'], use_container_width=True, key='mechanism_bar')
     with right:
         st.plotly_chart(rendered['severity_scatter'], use_container_width=True, key='severity_scatter')
     st.plotly_chart(rendered['diagnosis_stack'], use_container_width=True, key='diagnosis_stack')
+    if selection.severities:
+        st.subheader('Primary diagnosis · all-outcome comparison baseline')
+        st.caption('Baseline keeps the mechanism and narrative selections but removes severity. '
+                   'Each diagnosis share divides by all baseline visit weight in that mechanism. '
+                   'The preceding diagnosis chart describes only the selected records.')
+        baseline_result = views.build_view_data(baseline_df, context=context, diagnosis_lookup=loaded['diagnosis_lookup'])
+        if baseline_result['status'] in ('ok', 'empty'):
+            st.plotly_chart(views.render_diagnosis_stack(baseline_result, context),
+                            use_container_width=True, key='baseline_diagnosis_stack')
+
     st.subheader(f'Mechanism summary · {period}')
     st.dataframe(rendered['summary_table'], hide_index=True, use_container_width=True, column_config={
         'injury_mechanism': st.column_config.TextColumn('Injury mechanism'),
@@ -73,6 +92,68 @@ def render_dashboard(config, loaded):
         'record_count': st.column_config.NumberColumn('NEISS record count', format='%d'),
         'severe_outcome_pct': st.column_config.NumberColumn('Weighted severe-outcome percentage (%)', format='%.1f'),
     })
+    st.subheader('Supporting evidence · selected records')
+    st.caption('Population: all active filters. Weighted severe percentage uses all selected visit weight, '
+               'including unknown outcomes. Record counts are not confidence intervals; '
+               'survey uncertainty is not estimated in this MVP.')
+    evidence = views.build_supporting_evidence(filtered, context=context, diagnosis_lookup=loaded['diagnosis_lookup'])
+    st.dataframe(evidence, hide_index=True, use_container_width=True, column_config={
+        'injury_mechanism': 'Mechanism',
+        'weighted_ed_visits': st.column_config.NumberColumn('Selected weighted ED visits', format='%.2f'),
+        'record_count': 'NEISS records',
+        'severe_outcome_pct': st.column_config.NumberColumn('Recorded severe (%)', format='%.1f'),
+        'unknown_disposition_record_count': 'Unknown outcome records',
+        'unknown_disposition_weight': st.column_config.NumberColumn('Unknown outcome weight', format='%.2f'),
+    })
+    if selection.severities and comparison is not None:
+        st.subheader('Severity comparison populations')
+        st.caption('Baseline: same mechanism and narrative search, severity unrestricted. '
+                   'Selected severe burden: severe visit weight remaining after every active filter. '
+                   'Zero selected records may coexist with a nonempty baseline.')
+        st.dataframe(comparison, hide_index=True, use_container_width=True, column_config={
+            'injury_mechanism': 'Mechanism',
+            'baseline_weighted_ed_visits': st.column_config.NumberColumn('Baseline all-outcome weight', format='%.2f'),
+            'baseline_record_count': 'Baseline records',
+            'baseline_severe_outcome_pct': st.column_config.NumberColumn('Baseline severe (%)', format='%.1f'),
+            'selected_severe_weighted_ed_visits': st.column_config.NumberColumn('Selected severe weight', format='%.2f'),
+            'selected_record_count': 'Selected records',
+        })
+    with st.expander('Outcome completeness and conditional sensitivity'):
+        st.caption('Population: the selected records after every active filter. Unknown share = U/T. '
+                   'Conditional endpoints are S/T and (S+U)/T, where S is recorded severe weight, '
+                   'U is unknown-outcome weight, and T is total selected weight. '
+                   'These are sensitivity endpoints, not confidence intervals or imputed outcomes. '
+                   'A severity selection that omits Unknown removes those records from this population.')
+        completeness = views.build_outcome_completeness(filtered, context=context, diagnosis_lookup=loaded['diagnosis_lookup'])
+        if completeness is None:
+            st.info('Outcome completeness unavailable: no selected visit weight.')
+        else:
+            labels = {'total_weight':'Total selected weight (T)', 'recorded_severe_weight':'Recorded severe weight (S)',
+                      'unknown_weight':'Unknown outcome weight (U)', 'unknown_share_pct':'Unknown share (%)',
+                      'none_unknown_severe_pct':'Lower conditional endpoint (%)',
+                      'all_unknown_severe_pct':'Upper conditional endpoint (%)'}
+            st.table([{'Measure':labels[key], 'Value':value} for key,value in completeness.items()])
+    with st.expander('Weighted-total reconciliation and download'):
+        reconciliation = views.build_weight_reconciliation(result, context, loaded['provenance'])
+        st.caption('Contributions are summed before rounding. Separately rounded mechanism values may '
+                   'not add to the rounded headline. The download keeps unrounded weights and identifies '
+                   'the active filters, analysis period, and prepared-data SHA-256. '
+                   'Its selected_total row is a total, not another mechanism contribution.')
+        st.dataframe(reconciliation['table'], hide_index=True, use_container_width=True,
+                     column_config={'injury_mechanism': 'Mechanism', 'record_count':'NEISS records',
+                                    'weighted_ed_visits': st.column_config.NumberColumn('Unrounded weighted ED visits', format='%.17g')})
+        st.table([{'Measure':label, 'Value':str(reconciliation[key])} for key,label in [
+            ('contribution_sum','Sum of unrounded contributions'), ('headline_unrounded','Unrounded headline'),
+            ('rounded_headline','Rounded headline'), ('sum_of_rounded_contributions','Sum of separately rounded contributions')]])
+        st.caption(f"Data version: {reconciliation['data_version']}")
+        st.download_button('Download weighted breakdown (CSV)', reconciliation['csv'],
+                           file_name=f"treadmill_{config['analysis']['year']}_weighted_breakdown.csv", mime='text/csv')
+    if selection.narrative_query.strip():
+        st.subheader('Matching narrative records')
+        st.caption('These records match the literal narrative search and all other active filters. '
+                   'Each row is one ED visit, not one unique person.')
+        st.dataframe(filtered[['CPSC_Case_Number', 'Narrative_1', 'injury_mechanism',
+                               'Disposition', 'Weight']], hide_index=True, use_container_width=True)
     st.caption('Descriptive investigation aid. Visits are not unique people. No exposure denominator, causal conclusion, '
                'or design-defect claim is supported. Record counts do not measure statistical precision.')
 

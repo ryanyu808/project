@@ -7,3 +7,15 @@ data/prepared/*.reviews.csv
 data/prepared/*.source.json
 data/prepared/*.quality.json
 *.log
+
+# Local environments, credentials, and unfinished human-review workbooks
+.venv-mvp/
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+data/prepared/*.xlsx
+data/prepared/*.inspect.ndjson
+
+# Keep the independently backed-up course dataset repository local only.
+/dataset_neiss-sports-injuries/

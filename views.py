@@ -80,8 +80,8 @@ def visit_axis(context):
 
 
 def chart_base(figure, title, context):
-    figure.update_layout(template='plotly_white', title=dict(text=f'{title} · {period_label(context)}', font_size=17),
-                         margin=dict(l=15,r=25,t=65,b=35), font=dict(family='Arial',size=12),
+    figure.update_layout(template='plotly_white', title=dict(text=f'{title}<br><sup>{period_label(context)}</sup>', font_size=17),
+                         margin=dict(l=15,r=25,t=80,b=35), font=dict(family='Arial',size=12),
                          hoverlabel=dict(bgcolor='white'), height=390)
     figure.update_yaxes(automargin=True)
     return figure
@@ -152,3 +152,97 @@ def render_summary_table(result, context):
 
 VIEW_REGISTRY = dict(headline=render_headline, mechanism_bar=render_mechanism_bar, severity_scatter=render_severity_scatter,
                      diagnosis_stack=render_diagnosis_stack, summary_table=render_summary_table)
+
+
+def build_severity_comparison(selected_df, baseline_df, *, context, diagnosis_lookup):
+    """CR-01: selected severe burden versus same-search all-outcome baseline."""
+    selected = build_view_data(selected_df, context=context, diagnosis_lookup=diagnosis_lookup)
+    baseline = build_view_data(baseline_df, context=context, diagnosis_lookup=diagnosis_lookup)
+    if any(r['status'] not in ('ok', 'empty') for r in (selected, baseline)):
+        return None
+    if not set(selected_df.CPSC_Case_Number).issubset(set(baseline_df.CPSC_Case_Number)):
+        raise ValueError('Severity comparison: selected IDs must be a subset of baseline IDs')
+    table = baseline['mechanism_summary'].rename(columns={
+        'weighted_ed_visits': 'baseline_weighted_ed_visits',
+        'record_count': 'baseline_record_count',
+        'severe_outcome_pct': 'baseline_severe_outcome_pct',
+    }).copy()
+    severe = selected_df.loc[selected_df.is_severe].groupby('injury_mechanism').Weight.sum()
+    counts = selected['mechanism_summary'].set_index('injury_mechanism').record_count
+    table['selected_severe_weighted_ed_visits'] = table.injury_mechanism.map(severe).fillna(0.0)
+    table['selected_record_count'] = table.injury_mechanism.map(counts).fillna(0).astype(int)
+    return table
+
+
+def render_severity_comparison(table, context):
+    figure = go.Figure()
+    for row in table.itertuples(index=False):
+        figure.add_trace(go.Scatter(
+            x=[row.selected_severe_weighted_ed_visits], y=[row.baseline_severe_outcome_pct],
+            mode='markers+text', text=[row.injury_mechanism], textposition='top center',
+            name=row.injury_mechanism, marker=dict(size=12),
+            customdata=[[row.baseline_weighted_ed_visits, row.baseline_record_count, row.selected_record_count]],
+            hovertemplate='%{text}<br>Selected severe ED visits: %{x:,.0f}'
+            '<br>Baseline severe share: %{y:.1f}%<br>Baseline all-outcome ED visits: %{customdata[0]:,.0f}'
+            '<br>Baseline records: %{customdata[1]}<br>Selected records: %{customdata[2]}<extra></extra>'))
+    figure.update_xaxes(title='Selected severe ED visits (weighted)', rangemode='tozero')
+    figure.update_yaxes(title='All-outcome baseline severe share (%)', range=[0, 100])
+    figure.update_layout(showlegend=False)
+    return chart_base(figure, 'Selected severe burden vs baseline', context)
+
+
+def build_supporting_evidence(frame, *, context, diagnosis_lookup):
+    """Visible counts and missing dispositions for the exact selected population."""
+    result = build_view_data(frame, context=context, diagnosis_lookup=diagnosis_lookup)
+    if result['status'] not in ('ok', 'empty'):
+        return None
+    table = result['mechanism_summary'].copy()
+    unknown = frame.loc[~frame.Disposition.isin(KNOWN)]
+    counts = unknown.groupby('injury_mechanism').size()
+    weights = unknown.groupby('injury_mechanism').Weight.sum()
+    table['unknown_disposition_record_count'] = table.injury_mechanism.map(counts).fillna(0).astype(int)
+    table['unknown_disposition_weight'] = table.injury_mechanism.map(weights).fillna(0.0)
+    return table
+
+
+def build_outcome_completeness(frame, *, context, diagnosis_lookup):
+    """Conditional missing-outcome endpoints, not survey confidence intervals."""
+    result = build_view_data(frame, context=context, diagnosis_lookup=diagnosis_lookup)
+    if result['status'] != 'ok':
+        return None
+    total = result['headline']['weighted_ed_visits']
+    severe = float(frame.loc[frame.is_severe, 'Weight'].sum())
+    unknown = result['quality']['unknown_disposition_weight']
+    return dict(total_weight=total, recorded_severe_weight=severe,
+                unknown_weight=unknown, unknown_share_pct=100*unknown/total,
+                none_unknown_severe_pct=100*severe/total,
+                all_unknown_severe_pct=100*(severe+unknown)/total)
+
+
+def build_weight_reconciliation(result, context, provenance):
+    """Expose unrounded contributions and a versioned CSV; never round before summing."""
+    import csv
+    import io
+    import math
+    if result['status'] not in ('ok', 'empty'):
+        return None
+    table = result['mechanism_summary'][['injury_mechanism', 'weighted_ed_visits', 'record_count']].copy()
+    contribution_sum = math.fsum(table.weighted_ed_visits)
+    headline = result['headline']['weighted_ed_visits']
+    if not math.isclose(contribution_sum, headline, rel_tol=1e-12, abs_tol=1e-8):
+        raise ValueError('Mechanism contributions do not reconcile with the headline')
+    version = provenance.get('prepared_sha256', 'test_fixture' if context['source_scope'] == 'test_fixture' else 'unidentified')
+    metadata = dict(analysis_period=period_label(context), active_filters=context['filter_description'],
+                    source_scope=context['source_scope'], prepared_sha256=version)
+    fields = ['row_type', 'injury_mechanism', 'weighted_ed_visits', 'record_count'] + list(metadata)
+    stream = io.StringIO(newline='')
+    writer = csv.DictWriter(stream, fieldnames=fields)
+    writer.writeheader()
+    for row in table.to_dict('records'):
+        writer.writerow(dict(row_type='mechanism', **row, **metadata))
+    writer.writerow(dict(row_type='selected_total', injury_mechanism='', weighted_ed_visits=headline,
+                         record_count=result['headline']['record_count'], **metadata))
+    return dict(table=table, contribution_sum=contribution_sum, headline_unrounded=headline,
+                rounded_headline=f'{headline:,.0f}',
+                sum_of_rounded_contributions=sum(round(v) for v in table.weighted_ed_visits),
+                csv=stream.getvalue().encode('utf-8-sig'), data_version=version)

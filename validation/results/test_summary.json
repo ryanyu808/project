@@ -1,0 +1,12 @@
+{
+  "tests": 106,
+  "errors": 0,
+  "failures": 0,
+  "skipped": 0,
+  "time_seconds": 11.803,
+  "python": "3.13.15",
+  "platform": "Windows",
+  "verification": "Approved pre-commit integration run",
+  "fixture_only": true,
+  "production_data_reviewed": false
+}
