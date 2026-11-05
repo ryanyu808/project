@@ -35,7 +35,10 @@ def make_bundle(tmp_path,monkeypatch,lookup):
  quality=tmp_path/'treadmill_2025.quality.json';quality.write_text('{}')
  book=tmp_path/'mocked_read_workbook.xlsx';book.write_text('INVENTED read boundary mocked')
  template=tmp_path/'original.reviews.csv';template.write_text('INVENTED preserved template')
- codebook=tmp_path/'codebook.md';codebook.write_text(prepare_data.codebook_text(),encoding='utf-8')
+ # Fingerprints bind exact bytes, including line endings. The fixture must use
+ # the same canonical file as the production loader on Windows and Linux.
+ from codebook import CODEBOOK_PATH
+ codebook=tmp_path/'codebook.md';codebook.write_bytes(CODEBOOK_PATH.read_bytes())
  policy=tmp_path/'policy.md';policy.write_text('INVENTED approved policy')
  look=tmp_path/'lookup.csv';lookup.to_csv(look,index=False)
  approved=[dict(CPSC_Case_Number=r.CPSC_Case_Number,treadmill_confirmed='True',injury_mechanism=r.injury_mechanism,reviewed='True',review_note='INVENTED test approval') for r in data.itertuples()]
