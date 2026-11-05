@@ -1,3 +1,19 @@
+# HW11 current evidence register
+
+Reviewed production data, independent CSV/Decimal comparisons and actual local configured AppTest pass. See validation/results/real_2025_results.json, real_2025_dashboard_check.json, real_2025_app_check.json. Hash c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f. Original case claim commit 4d4c213 remains preserved; source-backed persona is fictional.
+
+No genuine public screenshot, verified public URL, live-user observation or Ryan-owned final verdict is present. Capture the three specified public screens and record URL/time/filters/hash; compare actual downloaded CSV. Preserve screenshots beside the case at cases/screenshots. Proposed interpretation and possible uncertainty-display request in the final memo require Ryan's evaluation; they are not attributed to him.
+
+Individual PDF is generated separately from the team repository ZIP and labeled evidence draft until these requirements are met.
+
+Current interpretation caution: The [CPSC estimate guidance](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Explanation-Of-NEISS-Estimates-Obtained-Through-The-CPSC-Website) flags national estimates below 1,200, fewer than 20 cases, or CV above 33% as unstable. Every observed non-Fall mechanism is below the first two thresholds. Fall's 65 records / 3114.4453 pass those two screens, but its CV is uncomputed, so stability is not certified. Its severe subset (18 / 882.6389) is also small. These are national-estimate reporting cautions, not a significance test for differences in severe percentages.
+
+---
+
+## Preserved earlier research and audit history
+
+The original research, code excerpts, hand-checks and claim history follow unchanged. Earlier absent-data/pending-approval statements are superseded by the current verified production status above; they describe the earlier session, not an additional current review requirement.
+
 # Ryan's HW11 evidence and completion review
 
 Checked November 5, 2026. This is supporting research, not Ryan's final judgment. Application findings describe the current local working tree, which includes pre-existing uncommitted work; they are not all verified against the pushed release.

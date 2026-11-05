@@ -38,7 +38,7 @@ uv run --locked python -m pytest -q -p no:cacheprovider
 uv run --locked python validation/verify_app.py --output ../local-app-check.json
 ```
 
-Full suite: **180 passed**, no failures/errors/skips, Windows/Python 3.13.15. All eight original CRs, review/source guards, taxonomy, filters/exports, empty states and Git byte preservation are covered. [Results](validation/results/test_summary.json). The Linux workflow runs the same suite and genuine production checks; its actual result is recorded separately when available.
+Full suite: **180 passed**, no failures/errors/skips, Windows/Python 3.13.15. All eight original CRs, review/source guards, taxonomy, filters/exports, empty states and Git byte preservation are covered. [Results](validation/results/test_summary.json). Ubuntu/Python 3.13.18 also passed all 180 tests, genuine production validators/AppTest and HTTP health. [Actual CI evidence](deployment/CI_RESULTS.md).
 
 [validation.md](validation.md) and root [validation.pdf](validation.pdf) retain Design / Cases / Numbers / Tests. They remain evidence drafts pending public screenshots, case evaluation and accessible links. Ryan's [individual HW11 memo](cases/ryan-treadmill-falls-final.md) has verified local findings and a proposed conclusion for his review; its PDF is separate from the team ZIP. [Readiness](submission/READINESS.md), [demo sequence](submission/DEMO_SCRIPT.md), and [release guard](submission/check_release.py) identify remaining requirements.
 

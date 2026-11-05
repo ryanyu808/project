@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "url": "https://github.com/ryanyu808/project/actions/runs/42125610831",
+  "commit": "cd7bf8311e854a40f52af486e810cb0eeeb9b3e1",
+  "environment": "GitHub-hosted ubuntu-latest / Python 3.13.18",
+  "completed_utc": "2026-11-05T22:57:05Z",
+  "tests": 180,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "pytest_seconds": 12,
+  "dependency_check": "PASS",
+  "independent_real_numbers": "PASS",
+  "real_dashboard_filters_baselines_exports": "PASS",
+  "configured_production_AppTest": "PASS",
+  "streamlit_health_and_root": "PASS",
+  "public_browser_verified": false,
+  "prior_run": {
+    "url": "https://github.com/ryanyu808/project/actions/runs/42124995826",
+    "tests_passed": 179,
+    "failed": 1,
+    "reason": "Invented workflow fixture regenerated codebook with Linux line endings, conflicting with exact-byte fingerprint; fixed by copying canonical bytes, without relaxing validation."
+  }
+}

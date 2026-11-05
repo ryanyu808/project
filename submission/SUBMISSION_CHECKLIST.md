@@ -1,32 +1,26 @@
 # Final submission gates
 
-Current status: NOT SUBMISSION-READY. See [READINESS.md](READINESS.md) for the current verified results and ordered handoff. Code and fixture evidence are prepared; actual policy/record approvals, final real-data validation, public access and video remain pending. One teammate submits for the team before Quiz 11; confirm the calendar date. The assignment limit is 2 GB and the app must stay available through December 16.
+**NOT SUBMISSION-READY.** Genuine reviewed data and real local validation are complete. Public access/screenshots, owned case conclusions, teammate cases and a finished accessible demonstration remain. One member uploads the team ZIP; Ryan uploads his separate HW11PDF. Confirm the course calendar deadline before Quiz11 and maintain the app through December16.
 
-- [x] Ryan personally confirms the original 171 decisions and accepts the matching injury-focused policy; preserve the unchanged one-shot prompt as the original contract.
-- [ ] The eight inclusion decisions are recorded. Resolve only four held mappings under an explicitly approved context/category rule, preserving the other 184 completed entries.
-- [ ] Run the validate-only workflow, then --execute only after it succeeds. Keep review/audit files local.
-- [ ] Inspect the final small CSV/provenance and independent real-data dashboard check. No unexplained differences, rounded data substitutions or AI labels passed as human decisions.
-- [ ] Review safe code, tests, docs and runtime artifacts with teammates. Inspect Git diff, ignored files and the staged diff. Never use git add . indiscriminately.
-- [ ] Commit/push the verified safe work and approved small runtime pair. Never commit raw annual files, candidate/review CSVs, review workbooks, audit reports, secrets, environments or caches.
-- [ ] Deploy the actual release, run DEPLOYMENT.md checklist including incognito access and record cohort fingerprint/screenshots.
-- [ ] Replace README public app and video placeholders with verified links. Record the five-minute demo; test it without login.
-- [ ] Complete the pending evidence in validation.md and regenerate root validation.pdf. Verify exactly 1. Design, 2. Cases, 3. Numbers, 4. Tests after the introduction. The current PDF is an accurately labeled evidence draft, not final validation.
-- [ ] Re-run all tests and independent calculations on the final release; own the definitions and interpretations as a team.
+- [x] Ryan's original171 personal confirmations, accepted injury-focused policy and final17 adjudications recorded without fabricated inspection.
+- [x] Codebook1.2 clarification accepted; all188source-bound reviews complete:109included/79excluded, no holds. Original source/AI fields and171approval rows preserved.
+- [x] Guarded approval export/finalization completed; exact IDs, source fingerprints and full-precision weights reconcile. Private reviews/audits remain local.
+- [x] Independent real Decimal/builder/export comparisons and actual configured local AppTest pass; all180Windows tests pass. See deployment/CI_RESULTS.md for actual Linux results.
+- [x] Safe runtime pair and software committed/pushed; no annual downloads, reviews/workbooks, caches, environments or secrets staged. one-shot-prompt.md unchanged.
+- [ ] Deploy main/app.py on Python 3.13; public sharing. Verify actual URL without login, same hash, filters/baselines/CSV and genuine screenshots with controls visible.
+- [ ] Ryan assesses live results and confirms his own prove/break verdict. Include legitimate distinct teammate cases and difficult-case coverage in teamCases; no invented work.
+- [ ] Replace public evidence in both PDF drafts, regenerate and inspect every page. Root validation.pdf retains exactly Design / Cases / Numbers / Tests; individual five-part PDF stays outside team ZIP.
+- [ ] Use genuine public footage with prepared300second narration and edit cues. Validate/assemble with assemble_demo.py, inspect entire MP4/audio/readability/synchronization, upload Unlisted and verify playback signed out.
+- [ ] Insert verified actual app/video links into README. Inspect final safe diff, fetch/integrate teammates, commit/push, and run release audit.
 
-## Build and inspect the required repository ZIP
+## Build only when ready
 
-First ensure every teammate's safe work is committed and pushed. With a clean tracked working tree, fetch and integrate teammate work safely; stop on conflicts. The assignment's git archive method includes only committed HEAD files, so an uncommitted validation.pdf or runtime pair would be omitted.
-
-```powershell
+```text
 git pull --ff-only
 uv run --locked python submission/check_release.py
-uv run --locked python submission/check_release.py --create-zip team-repo.zip
+uv run --locked python submission/check_release.py --create-zip ../team-repo.zip
 ```
 
-The helper audits committed paths, required runtime files, pending README links, candidate secret patterns, file limits and dirty tracked files before creating an archive. It refuses an existing ZIP and prints the full entry list after creation. It does not commit/push or infer human review. Inspect flagged paths without printing secret values; a pattern scan is not proof of absence of secrets.
+The read-only default audits committed HEAD, required runtime files, private paths, possible secret patterns, file limits, pending README links and tracked dirtiness. --create-zip refuses when not ready or output exists. It uses git archive from committedHEAD, never silently stages/commits/pushes. Link truth, live captures, human conclusions and playback still require the documented actual checks; this scan alone cannot establish them.
 
-Equivalent assignment command after all gates pass: `git archive --format=zip -o team-repo.zip HEAD`. Inspect every entry and confirm no .venv/.venv-mvp, caches, raw downloads, nested dataset repository, reviews/workbooks, secrets or private audit files. Confirm README.md and validation.pdf are at the ZIP root, links work signed out, the final small processed pair is present and the archive is below 2 GB. Upload exactly that ZIP to Brightspace. No submission archive was created in this session because the gates remain open.
-
-## Taxonomy release update - November 5
-
-Ryan's inclusion decisions are complete (109 Include / 79 Exclude). Version 1.1 has 184 complete review entries and four approved-inclusion/pending-mechanism rows. The original 171 personal-review confirmations stand. Final production data, actual independent findings and public evidence remain blocked by those mappings. Browser inventory again reports The browser access host is unavailable. Offline SAPI narration and FFmpeg were verified; no actual public footage or final MP4 exists. See review_tools/README.md and docs/MECHANISM_CHANGELOG.md.
+Inspect all ZIP entries: root README.md and validation.pdf, final matching small runtime pair, no .venv/.venv-mvp/caches/rawdownloads/nesteddataset/privatepreparedreviews/workbooks/secrets. Archive below2GB. Verify both public links signed out. Upload team ZIP and separate individualPDF to correct Brightspace assignments by confirmed deadline. No incomplete ZIP is labeled submission-ready or generated as the final deliverable.

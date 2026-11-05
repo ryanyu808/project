@@ -1,44 +1,65 @@
-# Five-minute analyst demonstration and recording plan
+# Five-minute analyst demonstration - real-data narration prepared
 
-Not recorded. These are planned actions, not observations. Use the actual public reviewed-data release only after independent validation. Replace bracketed evidence slots with the verified values and interpretation from that same data hash. Never use candidate/AI counts or fixture numbers. The spoken script is approximately 505 words; allow time to click, read and pause. Rehearse to five minutes.
+Not a recorded demonstration. This script uses independently checked production values, hash c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f. A 300-second offline voice track is prepared separately; public footage/access verification remains required. No footage or public results are simulated. The conclusion is an analyst follow-up suggestion, not Ryan's personal HW11 verdict. Use the same controls/results on the actual public app and verify before recording.
 
-| Time | Exact action on the public app | Spoken narration |
-| --- | --- | --- |
-| 0:00-0:35 | Open the verified public URL signed out. Show title, fixed 2025 and age restriction. Click Reset filters; both multiselects empty, search blank. | "You are a CPSC analyst deciding whether older-adult treadmill falls deserve investigation priority. This dashboard brings estimated emergency-department burden, recorded severe outcomes and the supporting records together. We use a genuinely reviewed subset of the full 2025 NEISS source. It covers ages 65 through 120 under our documented treadmill eligibility rules. A row is a visit, not a unique person, and these estimates do not measure risk per user." |
-| 0:35-1:15 | Keep all controls clear. Show three headlines, burden chart, scatter and supporting evidence. Record Fall and a meaningful comparator before selecting either. | "With all filters clear, there are [ALL count] records and [ALL weighted visits] estimated visits. Fall has [FALL burden], compared with [COMPARATOR burden]. The scatter separates volume from recorded severe share. Neither a high total nor a high percentage alone determines investigation value. I also check each group's supporting sample and diagnoses. Our question is what deserves follow-up, not which machine is defective." |
-| 1:15-2:00 | Injury mechanism: Fall. Severity: Severe. Search blank. Show Severity comparison populations and all-outcome diagnosis baseline. | "I select Fall, then Severe. The headline now describes that subset. Its percentage may be one hundred percent because I selected severe cases. The labeled baseline keeps Fall and the same search but removes severity. It shows [FALL baseline severe percentage], alongside [FALL selected severe weight]. This preserves the population needed for comparison. Counts reveal supporting evidence volume; they do not measure statistical precision." |
-| 2:00-2:45 | Keep Fall + Severe. Enter belt in Search injury narratives. Show matching IDs/narratives and sidebar Mechanism definitions. If empty, show it honestly. | "Searching belt gives [MATCH count] literal matches within this subset. A belt mention is not an automatic Belt contact classification. In [VERIFIED case ID], [describe only the narrative-supported sequence]. The codebook uses the initiating event: landing on a belt after a general fall is different from a belt initiating the injury. If no records match, that is the result. We never replace an empty search with an invented example." |
-| 2:45-3:20 | Clear search, retain Fall + Severe. Show selected primary diagnosis chart and all-outcome baseline. | "With search cleared, these charts compare the selected primary diagnoses with all-outcome Fall context. [VERIFIED diagnosis observation] suggests [SUPPORTED follow-up question]. Each visit enters one primary bucket. This is not every diagnosis the patient had, a clinical prediction or evidence of product causation. Entering and belt-initiated falls may sit outside the category named Fall, which matters for our decision." |
-| 3:20-3:55 | Clear Severity, retain Fall, search blank. Expand Outcome completeness and conditional sensitivity. | "For unrestricted Fall outcomes, unknown disposition has [FALL unknown weight] weight, or [FALL unknown share]. The endpoints are [FALL lower] and [FALL upper]: none versus all unknown outcomes severe. They do not impute outcomes or provide confidence intervals. Exposure, medical triggers, investigation feasibility and missing circumstances can change the priority decision. We need other evidence before treating a descriptive comparison as a safety conclusion." |
-| 3:55-4:25 | Set Fall + Severe + belt. Click Reset filters, then Undo reset. Verify all three restore. Enter __NO_NEISS_NARRATIVE_HAS_THIS_VALIDATION_TOKEN__ and show empty state. Click Reset filters. | "Reset returns to the initial cohort. Undo restores my mechanism, severity and search together. A deliberately unmatched phrase produces zero selected records and unavailable percentages. That is different from evidence that an injury mechanism never occurs. I reset again before exporting the full cohort." |
-| 4:25-4:50 | All controls clear. Expand Weighted-total reconciliation and download. Click Download weighted breakdown (CSV). Show a prepared, independently checked export without private review notes. | "The reconciliation sums contributions before rounding. The full-precision download identifies these selections, the annual period and the prepared-data fingerprint. Independently checked totals agree with this release. Display rounding can explain why rounded components do not add exactly to a rounded headline; it never justifies changing the underlying weights." |
-| 4:50-5:00 | Return to all-mechanism burden/scatter. | "For this evidence, [TEAM-OWNED supported investigation decision and key limitation]. Use this dashboard to organize follow-up questions, alongside official NEISS uncertainty outputs and incident investigation." |
+## 0:00-0:35 | Analyst decision
 
-If Fall is absent in the genuinely released cohort, do not manufacture it. Adapt the named case/recording selection to an actual eligible mechanism and document why, then update the case and script consistently. If the belt search is empty, omit the example narrative clause and state the observed empty result. Do not force a rank-based conclusion before the team has evaluated the live evidence.
+Action: Open actual public URL signed out. Reset; show title, fixed 2025, ages 65-120, all controls clear.
 
-## Evidence to collect before speaking
+Narration: You are a CPSC analyst deciding whether treadmill falls among older adults deserve follow-up investigation. This dashboard brings estimated emergency department burden, recorded severe outcomes and supporting records together. We use one hundred nine genuinely reviewed injury visits from the full twenty twenty-five NEISS source, for ages sixty-five through one hundred twenty. A row is a visit, not a unique person. These estimates do not measure injury risk per treadmill user.
 
-| Selection | Exact observed values to record and cross-check |
-| --- | --- |
-| All controls clear | Cohort hash; included count; total weighted visits; severe count/weight/share; each mechanism count/weight/share; primary diagnosis composition |
-| Fall, no severity/search | Count and burden; severe percentage; unknown count/weight/share; both endpoints; comparator's equivalent values |
-| Fall + Severe, no search | Selected count/severe weight and all-outcome severe/diagnosis baselines |
-| Fall + Severe + belt | Exact matching IDs and original narratives, or zero matches; same-search baseline |
-| Reset / Undo / empty phrase | Before/after controls, restored results and honest empty state |
-| All-cohort export | Actual downloaded CSV filters, period, data hash, unrounded contributions/total; reconcile against independent report |
+## 0:35-1:15 | Compare mechanisms
 
-Save genuine public screenshots with controls visible: initial comparison, Fall context/unknowns, severe baselines, matching narratives, and reconciliation. Add additional images where needed for legibility. These screenshots also support validation and Ryan's case; they are not observations until captured. No private workbook, reviewer identity/notes, credentials or account settings should be on screen.
+Action: All controls clear. Show headlines, burden/scatter and supporting counts for Fall, Belt contact and equipment obstacle/landing.
 
-## Recording and upload checklist
+Narration: With all filters clear, the headline is about five thousand one hundred twenty estimated visits, from one hundred nine records, with twenty-two point three percent recorded severe outcomes. Fall contributes about three thousand one hundred fourteen weighted visits, from sixty-five records. Belt contact contributes about three hundred thirty, from nine records. Its severe percentage is slightly higher, but that small sample does not establish a reliable difference. The scatter separates burden from severe share; neither number alone determines investigation value.
 
-- [ ] Actual reviewed release and independent report use the same cohort hash; public URL opens signed out.
-- [ ] All bracketed slots replaced with observed values and team-owned interpretations. No invented narrator verdict.
-- [ ] Browser text/charts readable at normal playback, active filters visible, audio clear; rehearse approximately five minutes.
-- [ ] Record screen plus spoken explanation. Watch the complete result for missed clicks, misleading claims and private content.
-- [ ] In YouTube Studio choose Create > Upload videos > select the actual recording. Add a descriptive title; answer the audience question truthfully; set Visibility to Unlisted and save. Copy the actual watch link.
-- [ ] Open the watch link in a private/incognito window while signed out, play it, and check audio/text and unrestricted access. If YouTube requires login or restricts playback, fix that before submission.
-- [ ] Put only the verified video URL in root README.md; recheck the public app URL too. Keep the app available through December 16. Recording/upload are still pending.
+## 1:15-2:00 | Preserve the denominator
 
-## Automated narration and video preparation
+Action: Select Fall then Severe, search blank. Show18records, selected 100%, all-outcome severe28.340164% and diagnosis baselines.
 
-Offline Windows SAPI successfully produced a 15.24-second voice sample; FFmpeg/ffprobe are installed. The sample is not the demonstration. After genuine public footage and final verified narration exist, use narrate_windows.ps1 on a completed text file. Copy demo_manifest.template.json outside the repository, supply actual clip/audio paths and SHA-256 values, and record truthful public-access/footage verification. Run assemble_demo.py --manifest <manifest> --output <outside-repository/demo.mp4> for validation, then add --execute. It rejects missing evidence, placeholder URLs, stale hashes, non-five-minute inputs and an existing/repository output. It never creates footage and cannot certify a recording's truthfulness. Review the complete resulting visual/audio synchronization before Unlisted upload.
+Narration: I select Fall, then Severe. The selected group contains eighteen records and about eight hundred eighty-three weighted visits. Its headline is one hundred percent severe because I selected severe outcomes. That is not a new estimate of severity among all falls. The labeled comparison baseline keeps Fall and the same narrative search, but removes severity. It stays at twenty-eight point three percent. The diagnosis baseline follows the same rule. This lets an analyst examine serious cases without losing the population needed for comparison.
+
+## 2:00-2:45 | Search and initiating mechanisms
+
+Action: Enter belt with Fall+Severe and show honest empty state. Open codebook. Reset then belt alone:3 records / 123.7879 weight / 0% severe. Return to Fall+Severe, clear search.
+
+Narration: Now I search belt within Fall and Severe. There are zero matching records, zero estimated visits and an unavailable percentage. We show that result honestly. A literal belt mention would not automatically mean Belt contact: the codebook distinguishes an initiating moving-belt event from a general fall merely landing on the belt. It also separates equipment obstacle or landing falls without assuming power state, exercise use, or what caused the original loss of balance. Clear the filters and search belt alone: three nonsevere records match. Different selections answer different questions.
+
+## 2:45-3:20 | Clinical context
+
+Action: Fall+Severe, blank search. Show selected diagnoses and all-outcome baseline (Fall primary fracture 35.080346%).
+
+Narration: I clear the search and return to Fall with Severe selected. The selected diagnosis chart and the all-outcome baseline describe different populations. In unrestricted Fall, primary fractures account for about thirty-five point one percent of weighted visits. That suggests asking about clinical consequences during follow-up. It does not identify a product defect. Each visit enters one primary diagnosis bucket, not every diagnosis the patient had. And the category called Fall does not include every fall-involving event classified under mounting or an initiating belt mechanism.
+
+## 3:20-3:55 | Missingness and uncertainty
+
+Action: Clear Severity, keep Fall. Expand sensitivity (U=0; both 28.340164%). Show supporting evidence counts.
+
+Narration: I clear Severity and keep Fall. Unknown disposition has zero weight in this release, so both conditional endpoints equal twenty-eight point three percent. The endpoints assume none, or all, of the unknown outcomes were severe. They are not confidence intervals. Zero missing outcomes does not remove sampling uncertainty. We also lack treadmill-use exposure, preventability and complete circumstances. Official NEISS uncertainty outputs and follow-back investigation remain necessary complements before treating a descriptive pattern as a safety conclusion.
+
+## 3:55-4:25 | Reset and honest empty selections
+
+Action: Set Fall+Severe+belt; Reset then Undo, verify all controls. Enter deliberate unmatched phrase; show0/0/N/A. Reset.
+
+Narration: I set Fall, Severe and belt, then click Reset. All three controls return to the initial cohort. Undo restores the previous mechanism, severity and search together. A deliberately unmatched phrase also gives zero records and unavailable percentages. That is different from evidence that a mechanism never occurs. I reset again before inspecting the full-cohort export. These controls keep the comparison reproducible while the supporting tables make the selected population visible.
+
+## 4:25-4:50 | Auditable export
+
+Action: All controls clear. Expand reconciliation; download actual public CSV. Show total 5119.6280, rounded headline 5120, rounded components sum 5119 and data hash.
+
+Narration: The reconciliation sums contributions before rounding. The exact total is five thousand one hundred nineteen point six two eight zero weighted visits. Separately rounded components sum to one less than the rounded headline. The full-precision CSV preserves contributions, selections, annual period and data fingerprint. Independent calculations agree with the actual production builders and export. Rounding explains the display difference; no underlying weight was changed.
+
+## 4:50-5:00 | Follow-up question
+
+Action: Return to comparison. Propose follow-up questions, not a causal priority or risk-per-user ranking.
+
+Narration: Use these findings to shortlist follow-up questions. Compare burden, outcomes and evidence together, alongside official uncertainty and incident investigation.
+
+## Recording, assembly and upload
+
+Capture genuine public interaction video at readable 1080p, with active filters visible and no private/account screens. Record actual URL/time/hash and signed-out access; compare visible results/download to validation/REAL_DATA_RESULTS.md. Use real footage, never mock screenshots or artificial app motion. Follow the prepared 300-second scene timing; narration includes natural silent reading intervals. It is not itself a completed video.
+
+Copy demo_manifest.template.json outside the repository. Fill only actual URL/access/footage declarations, filepaths and SHA256. Run assemble_demo.py --manifest <actual-manifest.json> --output <outside-repo/demo.mp4> for validation; then append --execute. The guard requires genuine footage and actual access verification, matching hashes, both inputs 270-330 seconds and within 2 seconds of each other. It cannot prove declarations truthful. Inspect the whole encoded MP4 for readable text, audio, correct scenes and synchronization; ffprobe must show video/audio and approximately 300 seconds.
+
+Upload finished MP4 in YouTube Studio > Create > Upload videos, answer audience questions truthfully, Visibility Unlisted, Save. Open actual watch link signed out and play/check sound. Put actual verified URLs in root README. Keep MP4, individual HW11 PDF, raw sources and private reviews outside team ZIP. No final MP4 or YouTube URL is claimed while public footage/account access is unavailable.
