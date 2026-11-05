@@ -1,3 +1,13 @@
+# Version 1.2 - accepted clarification, November 5, 2026
+
+Ryan's FINAL RELEASE message explicitly accepts Equipment/cord obstacle or landing falls and maps the four remaining held cases to it, preserving their Include status. All eight previously proposed equipment mappings now use this relationship category. It does not assert non-use, exercise, power state or equipment causation of the initial loss of balance. On/from supporting-surface falls, including operating and unpowered use, remain Fall; more specific initiating mechanisms retain precedence. No additional ambiguity requiring a new human decision was identified across the 188-case reconciliation; the original 171 decisions are unchanged. The approved cohort is 109 Include / 79 Exclude.
+
+The canonical definitions, preparation, loader, sidebar, guards and tests require 1.2. Old labels are rejected, never silently aliased. The old 1.1 codebook is archived at docs/mechanism-codebook-v1.1.md, 1.0 is preserved, and original workbook tabs/source fields remain intact. The inclusion-policy fingerprint and one-shot prompt are unchanged.
+
+---
+
+Historical log below; current status above supersedes earlier pending-review statements.
+
 # Mechanism codebook history
 
 ## Version 1.1 - November 5, 2026

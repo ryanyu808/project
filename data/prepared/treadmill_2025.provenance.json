@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "analysis_years": [
+    2025
+  ],
+  "source_scope": "full_annual",
+  "source_checks_passed": true,
+  "source_files": [
+    {
+      "path": "neiss2025.xlsx",
+      "sha256": "a784574c98a95175342f34d59cf19c61e73dc343e77791bf6b6564e49bbbb066",
+      "row_count": 410201,
+      "column_count": 25,
+      "min_date": "2025-01-01",
+      "max_date": "2025-12-31"
+    }
+  ],
+  "prepared_row_count": 109,
+  "review_complete": true,
+  "reviewed_candidate_count": 188,
+  "codebook_version": "1.2",
+  "review_sha256": "7e0a3fe0e43d26ceabcec170817bd6e28a1116e93c6bb4377d69922ccca7f9e5",
+  "codebook_sha256": "ecebe702e23a9f16a629aff31d5d3175db202108aee8b7077f53dfff3c5b1c7f",
+  "prepared_sha256": "c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f",
+  "source_path_policy": "Public basename only; original source JSON preserved locally",
+  "inclusion_policy_id": "injury-focused-2025-proposed-v2",
+  "inclusion_policy_sha256": "768fc537beb461f3d11fd00ce959e32f2ae75c1cbf383ef3106f5008a3fdaaab",
+  "review_workbook_sha256": "19a16b16fd1b65b87dd6e91f78b8d1232fed351fabe4317c33c73f52fa669951",
+  "diagnosis_lookup_sha256": "0b7759fada64d8242325851acf0c9b590383b5624feb9309e87160cc55964e91"
+}

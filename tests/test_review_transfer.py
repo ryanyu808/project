@@ -17,7 +17,7 @@ def fixture():
                          human_approval='Approve',human_inclusion='',human_mechanism='',human_reviewed=True,
                          reviewer='Invented reviewer',human_review_note='Invented fixture decision only',
                          human_resolution='',requires_adjudication=False))
-    policy=dict(policy_id=POLICY_ID,codebook_version='1.1',candidate_sha256='a'*64,
+    policy=dict(policy_id=POLICY_ID,codebook_version='1.2',candidate_sha256='a'*64,
                 policy_approved_by_human=True,policy_approver='Invented reviewer',mapping_accepted_by_human=True,
                 policy_note='INVENTED policy acceptance for a unit test only')
     return candidates,rows,policy

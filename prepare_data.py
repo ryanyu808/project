@@ -16,7 +16,7 @@ def write_json(path, value):
 
 
 def codebook_text():
-    # Version 1.1 is an explicitly authorized extension; original prompt stays intact.
+    # Version 1.2 is an explicitly authorized extension; original prompt stays intact.
     from codebook import approved_text
     return approved_text()
 
@@ -25,7 +25,7 @@ def ensure_docs(output):
     book = output / 'mechanism-codebook.md'
     expected = codebook_text()
     if book.exists() and book.read_text(encoding='utf-8') != expected:
-        raise ValueError(f'{book}: differs from approved Version: 1.1 codebook')
+        raise ValueError(f'{book}: differs from approved Version: 1.2 codebook')
     book.write_text(expected, encoding='utf-8')
     (output / 'README.md').write_text('''# Prepared treadmill cohort
 
@@ -35,7 +35,7 @@ One row is one ED visit. The original 25 fields and narratives are retained.
 `mentions_treadmill`: case-insensitive literal TREADMILL in Narrative_1.
 All three flags must be true. `treatment_year` comes from Treatment_Date.
 `is_severe`: disposition 2/4/5/8, false for other or missing outcomes.
-`injury_mechanism`: human-reviewed, mutually exclusive Version: 1.1 codebook label.
+`injury_mechanism`: human-reviewed, mutually exclusive Version: 1.2 codebook label.
 Unknown/Unclassified is a reviewed unclear mechanism, never unfinished review.
 Primary Diagnosis alone is used in composition. Secondary blanks are retained.
 XLSX dates use the explicit NEISS_year sheet; annual TSV dates are MM/DD/YYYY;
@@ -153,7 +153,7 @@ def finalize(candidate_path, review_path, codebook_path, output_dir, *, _source_
         if sha256(candidate_path) != evidence['candidate_sha256']:
             raise ValueError('Candidate bytes changed since export; re-export and review again')
         if codebook_path.read_text(encoding='utf-8') != codebook_text() and _labels is None:
-            raise ValueError('Codebook differs from approved Version: 1.1 definitions')
+            raise ValueError('Codebook differs from approved Version: 1.2 definitions')
         labels = _labels or MECHANISMS
         cohort = pd.read_csv(candidate_path, dtype={'CPSC_Case_Number': 'string'}, keep_default_na=False, na_values=[''])
         reviews = pd.read_csv(review_path, dtype={'CPSC_Case_Number': 'string'}, keep_default_na=False)

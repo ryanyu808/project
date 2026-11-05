@@ -5,7 +5,7 @@ import pandas as pd
 from contracts import (sha256, normalize_lookup, validate_visits, validate_source_evidence,
                        validate_digest, MECHANISMS, CODEBOOK_VERSION)
 
-LOADER_VERSION = 2
+LOADER_VERSION = 3
 
 
 def _load_dashboard_data(prepared_path, provenance_path, diagnosis_lookup_path, analysis_year, *, source_validator=validate_source_evidence, labels=MECHANISMS):

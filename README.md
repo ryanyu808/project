@@ -1,67 +1,45 @@
 # CPSC Treadmill Injury Dashboard
 
-An investigation aid for a CPSC epidemiology analyst deciding which treadmill injury mechanisms among adults 65-120 deserve closer study. It combines weighted emergency-department visit estimates, recorded severe outcomes, diagnoses and narrative evidence. Product association does not establish causation or risk per treadmill-use hour.
+This dashboard helps a CPSC epidemiology analyst decide which treadmill injury mechanisms among adults 65-120 deserve closer investigation. It brings weighted emergency-department visit estimates, recorded severe outcomes, primary diagnoses and narrative evidence together. It is an investigation aid; product association does not establish causation or injury risk per treadmill user.
 
-**Public app URL:** [PENDING - not deployed]
+**Public app URL:** [PENDING - authenticated hosting access required]
 
-**Demo video URL:** [PENDING - not recorded]
+**Demo video URL:** [PENDING - genuine public footage and Unlisted upload required]
 
-**Release status:** real-data production finalization is blocked by four conditional mechanism mappings. Ryan Yu personally confirms the original 171 decisions and explicitly supplied all remaining inclusion decisions: 109 Include / 79 Exclude. There are 184 complete review entries and four approved inclusions with pending mechanisms. No final runtime CSV/provenance exists, so the app honestly shows Dashboard data unavailable. Inclusion-progress counts are not production injury findings.
+**Data release complete; submission not yet ready.** All 188 screened candidates have complete, source-bound human decisions: 109 retained injury visits, 79 exclusions. The genuine production CSV/provenance are included. Local production checks show **5,119.6280 weighted ED visits**, **24 severe records** and **22.3028% weighted severe outcomes**. These are not live-app observations until the public deployment is checked. See [independent real-data evidence](validation/REAL_DATA_RESULTS.md).
 
-## Audience, data and features
+## User, cohort and scope
 
-The source is the official full 2025 NEISS Excel annual export: 410,201 rows and 25 original fields, January 1-December 31. Screening produced 188 age/product/text candidates. The intended released cohort restricts age to 65-120, requires product 3277 in any of three fields and a literal treadmill mention, then requires human-confirmed eligibility/mechanism. All other ages/products/mentions, other years and approved exclusions are omitted; totals change accordingly. Human inclusion decisions specify 109 retained visits and 79 exclusions, but final artifact reconciliation and real weighted results remain PENDING. No random sample is presented as a full-year estimate.
+The official full 2025 NEISS source contains 410,201 visits and 25 fields. Screening requires age 65-120, product 3277 in any product field and a literal treadmill narrative mention. All 188 candidates were reviewed under Ryan Yu's explicitly accepted injury-focused policy. Documented treadmill use/handling injuries and medically triggered injuries are included; medical-only episodes and incidental unrelated contacts are excluded. This deliberate scope refinement of the original broader involvement vision changes totals and is recorded with its fingerprint. Other ages, years, products, records lacking the required mention and 79 reviewed exclusions are outside this released cohort. No sample is presented as an annual source.
 
-Five coordinated views show the headline, burden, severity scatter, primary diagnosis composition and summary. Eight MVP improvements add all-outcome severity and diagnosis baselines, visible record/unknown-outcome evidence, matching narratives, Undo reset, missing-outcome sensitivity, mechanism definitions and full-precision reconciliation/CSV export. Baselines retain mechanism/search and remove only severity. Year is fixed to 2025; no geographic or year-range filter exists.
+Codebook 1.2 separates Equipment/cord obstacle or landing falls from on/from-surface Fall, without inferring motor state, exercise use or the initiating cause of imbalance. Specific moving/repair, mounting and initiating belt mechanisms retain precedence. Earlier definitions and the original one-shot prompt are preserved. [Taxonomy history](docs/MECHANISM_CHANGELOG.md).
 
-## Run locally
+## Use and run
 
-Install uv, clone the repository, then from its root:
+Five coordinated views show headlines, mechanism burden, severe outcomes, primary diagnosis composition and summary. The eight implemented improvements add all-outcome baselines, visible supporting counts and unknowns, matching narratives, Undo reset, sensitivity endpoints, codebook definitions and full-precision reconciliation/download. Baselines remove severity only, preserving mechanism/search. Year is fixed to 2025; no geography or year-range filter exists.
 
-```powershell
+```text
 uv sync --locked --python 3.13
 uv run --locked python -m streamlit run app.py
 ```
 
-The same commands work in a macOS/Linux shell. This session tested Windows/Python 3.13.15. On this laptop the separate tested environment is `.venv-mvp`; preserve the older `.venv` and use `$env:UV_PROJECT_ENVIRONMENT='.venv-mvp'` before uv, or run `.\.venv-mvp\Scripts\python.exe -m streamlit run app.py` directly. Paths in config.toml resolve against the repository root. The page prints a local URL; stop with Ctrl+C. No API key, external service or database is required.
+These commands work from the repository root in PowerShell or macOS/Linux. On Ryan's laptop the tested separate environment is `.venv-mvp`; use `.\.venv-mvp\Scripts\python.exe -m streamlit run app.py`. Preserve the older environment. No credentials, external database or API keys are needed. Paths resolve against the repository root. Community Cloud needs main / app.py / Python 3.13 and the committed runtime pair; [deployment instructions](DEPLOYMENT.md).
 
-## Data preparation and genuine human review
+## Definitions and limits
 
-The local annual source and existing candidate evidence must not be overwritten. The original source is `dataset_neiss-sports-injuries/data/neiss2025.xlsx`. Acquisition instructions for a fresh source are on the [official NEISS download page](https://www.cpsc.gov/cgibin/NEISSQuery/home.aspx): Archived Annual NEISS Data, year, Excel or tab-delimited. Never concatenate XLSX/TSV twins or substitute a sample.
+Weights estimate ED visits, not unique people, all injuries or exposure-adjusted risk. Severe means disposition 2/4/5/8; the denominator is all selected weight, including unknown dispositions. Codes 0/1/6 are other known, 9/missing/unrecognized unknown. Primary diagnosis is one bucket per visit. Sensitivity endpoints assume none/all unknown outcomes severe; they are not confidence intervals. This cohort has no unknown dispositions, but missingness and sampling uncertainty are different issues.
 
-For a fresh source/export only, use a new directory:
+Brief narratives, medical triggers, selection and taxonomy decisions constrain interpretation. The app estimates no survey-design uncertainty, brands, geography, trends, causal defects or automatic priorities. Counts do not measure statistical precision. Use official [CPSC surveillance and follow-back guidance](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Neiss-Frequently-Asked-Questions) and uncertainty outputs alongside the app. Personas are research-backed scenarios, not interviewed users.
 
-```text
-uv run python prepare_data.py candidates --source dataset_neiss-sports-injuries/data/neiss2025.xlsx --year 2025 --source-scope full_annual --output-dir data/new_export_2025
-```
-
-The single current review workbook is `data/prepared/treadmill_2025.ai_completed_review.xlsx`. Its AI recommendations supersede earlier suggestion workbooks. Read `data/prepared/final_policy_recommendation.md`: Ryan accepts this injury-focused refinement of the original broader involvement contract. Direct equipment contact, exertional injury, pain-only evidence, medical events and taxonomy gaps require real team ownership. Original case IDs, narratives and candidate values remain preserved; Ryan subsequently gave explicit personal-review confirmation for the 171 prior decisions and supplied the remaining inclusion decisions. Current status and held mechanisms are documented below; original source and AI fields remain intact.
-
-Use Human review as the input tab; all original AI/source tabs and the original 171 approval rows are preserved. The single private decision report now records Ryan's explicit decisions and the four remaining mappings. Codebook 1.1 adds Non-use equipment/cord-related falls and explicitly covers an unpowered supporting-surface Fall; see [version history](docs/MECHANISM_CHANGELOG.md). Non-use is never inferred from missing context. The original v2 injury policy and one-shot prompt are retained unchanged.
-
-Follow [review_tools/README.md](review_tools/README.md) for exact validate-only and post-approval execution commands. Every one of the 188 narratives requires a complete human decision, explicit verification and reviewer; the eight inclusion adjudications are recorded and only four included mechanism mappings remain held. The workflow binds the policy and candidate/source fingerprints, exports a separate review CSV, invokes the existing finalizer with version 1.1 taxonomy checks, checks independent numbers and refuses overwrites. Do not edit the original candidate/review CSV or call production finalization on AI suggestions.
-
-Runtime needs only `data/prepared/treadmill_2025.csv`, its matching provenance JSON, the version-1.1 codebook and the complete copied lookup in `data/reference/neiss_code_lookup_2025.csv`. Raw annual files, candidate/review CSVs and workbooks are private preparation inputs and never deployed. Config.toml already points at the intended final runtime pair; neither file exists yet.
-
-## Metrics and limitations
-
-Weights sum to estimated ED visits for the reviewed cohort. Recorded severe outcomes are dispositions 2/4/5/8. Severe percentage uses all selected weight, including unknown dispositions; 0/1/6 are other known, while 9/missing/unrecognized are unknown. One visit contributes one primary Diagnosis bucket, with missing/unmapped buckets retained. Sensitivity endpoints assume none versus all unknown outcomes were severe; they are not confidence intervals. CSV export retains unrounded contributions and identifies filters/period/data hash.
-
-NEISS records visits, not unique people, all injuries or treadmill users. Brief narratives, medical triggers, missing outcomes and cohort decisions limit interpretation. The app does not estimate survey uncertainty, exposure-adjusted risk, brands, geography, trends, causation or product defects. The [CPSC FAQ](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Neiss-Frequently-Asked-Questions) describes the surveillance context. Personas and workflow assumptions still need team/user validation.
-
-## Testing, validation and deployment
+## Validation, review and submission
 
 ```text
 uv run --locked python -m pytest -q -p no:cacheprovider
-uv run --locked python validation/run_fixture_checks.py --output validation/results/dashboard_fixture_results.json
+uv run --locked python validation/verify_app.py --output ../local-app-check.json
 ```
 
-See `validation/results/test_summary.json` for the latest actual run. Invented fixtures exercise source/review gates, filters, all eight change requests, independent arithmetic, CSV precision, taxonomy resolutions and the complete isolated finalization workflow. Fixture agreement is not real-data verification. After genuine finalization, run the independent real-data command in [validation/README.md](validation/README.md), then compare the public interface and exports.
+Full suite: **180 passed**, no failures/errors/skips, Windows/Python 3.13.15. All eight original CRs, review/source guards, taxonomy, filters/exports, empty states and Git byte preservation are covered. [Results](validation/results/test_summary.json). The Linux workflow runs the same suite and genuine production checks; its actual result is recorded separately when available.
 
-[DEPLOYMENT.md](DEPLOYMENT.md) specifies the runtime manifest, Community Cloud setup and incognito/functional checks. [submission/DEMO_SCRIPT.md](submission/DEMO_SCRIPT.md) contains the five-minute script and recording checklist; [submission/SUBMISSION_CHECKLIST.md](submission/SUBMISSION_CHECKLIST.md) covers final review, links and ZIP creation. No public app or video exists yet.
+[validation.md](validation.md) and root [validation.pdf](validation.pdf) retain Design / Cases / Numbers / Tests. They remain evidence drafts pending public screenshots, case evaluation and accessible links. Ryan's [individual HW11 memo](cases/ryan-treadmill-falls-final.md) has verified local findings and a proposed conclusion for his review; its PDF is separate from the team ZIP. [Readiness](submission/READINESS.md), [demo sequence](submission/DEMO_SCRIPT.md), and [release guard](submission/check_release.py) identify remaining requirements.
 
-See validation/results/test_summary.json for the fresh full Python 3.13 run after the taxonomy and video-tool changes. [submission/READINESS.md](submission/READINESS.md) records the rubric gates and remaining actions. Ryan's existing [individual HW11 draft](cases/ryan-treadmill-falls-final.md) and claim are preserved; its public evidence and personal verdict are pending.
-
-The root [validation.pdf](validation.pdf) and [validation.md](validation.md) contain exactly Design, Cases, Numbers and Tests after the introduction. They are evidence drafts: real-data totals, public screenshots, user interpretation and live links are visibly pending. The original [one-shot-prompt.md](one-shot-prompt.md) remains unchanged.
-
-Latest full repository verification: **178 passed**, no failures/errors/skips, Python 3.13.15, JUnit 37.128 seconds. Git byte-preservation tests protect the runtime CSV, provenance and codebook fingerprints across Windows/Linux checkout.
+The final small runtime CSV, matching provenance, 1.2 codebook and official lookup are sufficient for hosting. Raw annual files, private reviews/workbooks and audit inputs are excluded. The existing source/candidate/review template, original 171 approval rows and one-shot-prompt.md remain unchanged. [Review workflow/history](review_tools/README.md). Do not rerun finalization over existing outputs or publish private review material. No submission-ready ZIP is created while live evidence and links are missing.

@@ -16,7 +16,7 @@ def make_bundle(tmp_path, visits):
     prov = dict(schema_version=1, analysis_years=[2025], source_scope='full_annual',
                 source_checks_passed=True, source_files=[dict(path='invented', sha256='a'*64, row_count=5, column_count=25, min_date='2025-01-01', max_date='2025-01-01')],
                 prepared_sha256=sha256(csv), prepared_row_count=len(frame), review_complete=True,
-                reviewed_candidate_count=len(frame), codebook_version='1.1', review_sha256='b'*64, codebook_sha256=sha256(ROOT / 'data/prepared/mechanism-codebook.md'))
+                reviewed_candidate_count=len(frame), codebook_version='1.2', review_sha256='b'*64, codebook_sha256=sha256(ROOT / 'data/prepared/mechanism-codebook.md'))
     path = tmp_path / 'provenance.json'
     path.write_text(json.dumps(prov))
     return csv, path, ROOT / 'data/reference/neiss_code_lookup_2025.csv', 2025

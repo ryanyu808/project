@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "evidence_kind": "local/CI production AppTest; not public-app evidence",
+  "prepared_sha256": "c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f",
+  "scenarios": {
+    "all": {
+      "metrics": [
+        "5,120",
+        "109",
+        "22.3%"
+      ],
+      "plotly_charts": 3,
+      "tables": 3
+    },
+    "Fall": {
+      "metrics": [
+        "3,114",
+        "65",
+        "28.3%"
+      ],
+      "plotly_charts": 3,
+      "tables": 3
+    },
+    "Fall Severe belt": {
+      "metrics": [
+        "0",
+        "0",
+        "N/A"
+      ],
+      "plotly_charts": 4,
+      "tables": 5
+    },
+    "empty": {
+      "metrics": [
+        "0",
+        "0",
+        "N/A"
+      ],
+      "plotly_charts": 4,
+      "tables": 5
+    }
+  },
+  "checks": [
+    "real loader and configured files",
+    "headlines",
+    "baseline table",
+    "matching narratives",
+    "Reset and Undo preserve all controls",
+    "empty selection",
+    "codebook version",
+    "charts and CSV values independently checked by verify_dashboard"
+  ]
+}

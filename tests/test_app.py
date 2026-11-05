@@ -40,8 +40,13 @@ def test_initial_and_full_filter_reset_cycle():
     assert not at.exception
 
 
-def test_real_default_missing_data():
-    at = AppTest.from_file(str(ROOT / 'app.py'), default_timeout=20).run()
+def test_real_default_missing_data(tmp_path):
+    # Isolate the missing-file behavior even when a real production bundle ships.
+    config = tmp_path / 'missing-data.toml'
+    text = (ROOT / 'config.toml').read_text()
+    text = text.replace('data/prepared/treadmill_2025.csv', (tmp_path / 'absent.csv').as_posix())
+    config.write_text(text)
+    at = AppTest.from_string(f'from app import main\nmain({str(config)!r})\n', default_timeout=20).run()
     assert not at.exception
     assert not at.metric
     assert 'Dashboard data unavailable' in at.error[0].value

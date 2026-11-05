@@ -1,3 +1,17 @@
+# Current production release - November 5, 2026
+
+The final four mappings and the Equipment/cord obstacle or landing falls clarification were explicitly accepted in Ryan Yu's FINAL RELEASE message. All 188 reviews now pass the existing human/policy/source verification guards: 109 Include / 79 Exclude; zero holds. The original 171 approval rows are unchanged, supported by Ryan's subsequent explicit personal-review confirmation. The eight relationship mappings record this specific authorization without claiming additional independent inspection. Earlier AI/source fields and original reviewed=False fields remain intact. Original source, candidates, blank review template, inclusion-policy bytes/fingerprint and one-shot prompt are unchanged.
+
+Version 1.2 describes equipment/cord obstacle or landing involvement without assuming operation, exercise, non-use or initiation of imbalance. Eight equipment cases use it; operating/on-from-surface falls remain Fall, including the approved unpowered supporting-surface case. The inclusion policy remains injury-focused-2025-proposed-v2; only its historical mechanism-version reference is superseded by separately authorized taxonomy versions. Earlier codebooks are archived, and earlier audit notes below are historical.
+
+The unchanged guarded workflow validated and exported actual human decisions, finalized the real source, rejected no cases, and independently checked all production numbers before publishing five outputs. Runtime CSV/provenance are public preparation outputs; human-approved reviews, quality and validation audit files stay private. All retained IDs and Decimal weights match the original approved source. Runtime results: 109 visits / 5119.6280 weighted visits / 22.302804% severe. See validation/REAL_DATA_RESULTS.md. Never overwrite finalized outputs; use a fresh directory for deliberate future releases.
+
+Current software validation: 180 tests pass; actual configured production AppTest and independent real-data/CSV comparisons pass. Public deployment/screenshots/video and submission-ready ZIP remain pending authenticated access and genuine public evidence. No further case approvals are requested.
+
+---
+
+Historical log below; current status above supersedes earlier pending-review statements.
+
 # Deployment checks - November 5, 2026
 
 **Earlier-session log, preserved.** The later completion recheck in submission/READINESS.md supersedes the finish checklist below: 163 tests now pass, and all 171 assistant-transcribed approval entries have unestablished informed-review provenance. Finishing only the 17 blank cases is not a complete human gate. No recorded entry was changed or revoked.
