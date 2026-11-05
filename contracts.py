@@ -7,7 +7,7 @@ import pandas as pd
 ORIGINAL = 'CPSC_Case_Number Treatment_Date Age Sex Race Other_Race Hispanic Body_Part Diagnosis Other_Diagnosis Body_Part_2 Diagnosis_2 Other_Diagnosis_2 Disposition Location Fire_Involvement Product_1 Product_2 Product_3 Alcohol Drug Narrative_1 Stratum PSU Weight'.split()
 DERIVED = ['adult_65_plus', 'has_product_3277', 'mentions_treadmill', 'treatment_year', 'is_severe', 'injury_mechanism']
 LOOKUP = ['Format name', 'Starting value for format', 'Ending value for format', 'Format value label']
-MECHANISMS = ['Repair/moving', 'Entering/exiting', 'Belt contact', 'Struck by equipment', 'Fall', 'Unknown/Unclassified']
+from codebook import MECHANISMS, CODEBOOK_VERSION
 SEVERE = {2, 4, 5, 8}
 KNOWN = {0, 1, 2, 4, 5, 6, 8}
 BASELINES = {2023: 338262, 2024: 361672, 2025: 410201}

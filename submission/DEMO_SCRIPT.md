@@ -38,3 +38,7 @@ Save genuine public screenshots with controls visible: initial comparison, Fall 
 - [ ] In YouTube Studio choose Create > Upload videos > select the actual recording. Add a descriptive title; answer the audience question truthfully; set Visibility to Unlisted and save. Copy the actual watch link.
 - [ ] Open the watch link in a private/incognito window while signed out, play it, and check audio/text and unrestricted access. If YouTube requires login or restricts playback, fix that before submission.
 - [ ] Put only the verified video URL in root README.md; recheck the public app URL too. Keep the app available through December 16. Recording/upload are still pending.
+
+## Automated narration and video preparation
+
+Offline Windows SAPI successfully produced a 15.24-second voice sample; FFmpeg/ffprobe are installed. The sample is not the demonstration. After genuine public footage and final verified narration exist, use narrate_windows.ps1 on a completed text file. Copy demo_manifest.template.json outside the repository, supply actual clip/audio paths and SHA-256 values, and record truthful public-access/footage verification. Run assemble_demo.py --manifest <manifest> --output <outside-repository/demo.mp4> for validation, then add --execute. It rejects missing evidence, placeholder URLs, stale hashes, non-five-minute inputs and an existing/repository output. It never creates footage and cannot certify a recording's truthfulness. Review the complete resulting visual/audio synchronization before Unlisted upload.

@@ -1,0 +1,9 @@
+{
+  "public_app_url": "PENDING_ACTUAL_PUBLIC_URL",
+  "unauthenticated_access_verified": false,
+  "genuine_public_footage": false,
+  "footage": "actual-public-screen-recording.mp4",
+  "footage_sha256": "PENDING_ACTUAL_RECORDING_SHA256",
+  "narration": "verified-narration.wav",
+  "narration_sha256": "PENDING_ACTUAL_NARRATION_SHA256"
+}

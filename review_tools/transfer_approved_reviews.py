@@ -10,6 +10,10 @@ import json
 from pathlib import Path
 import sys
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
+from codebook import CODEBOOK_VERSION, MECHANISMS, read_codebook
+
 FIELDS = ['CPSC_Case_Number', 'treadmill_confirmed', 'injury_mechanism', 'reviewed', 'review_note']
 POLICY_ID = 'injury-focused-2025-proposed-v2'
 
@@ -33,13 +37,8 @@ def unique_by_id(rows, name):
 
 
 def approved_labels(codebook):
-    body = Path(codebook).read_text(encoding='utf-8')
-    if body.splitlines()[0].strip() != 'Version: 1.0':
-        raise ValueError('Approved codebook version 1.0 required')
-    labels = [line.split('|')[1].strip().strip('`') for line in body.splitlines() if line.startswith('| `')]
-    if len(labels) != 6 or len(set(labels)) != 6:
-        raise ValueError('Expected six distinct approved mechanism labels')
-    return set(labels)
+    read_codebook(Path(codebook))
+    return set(MECHANISMS)
 
 
 def review_values(workbook):
@@ -97,7 +96,7 @@ def read_approval_workbook(path):
 def validate_approvals(candidates, decisions, policy, labels, candidate_digest):
     if any(isinstance(v,str) and v.lstrip().startswith('=') for v in policy.values()):
         raise ValueError('Formulas cannot stand in for policy approval or identity')
-    if policy.get('policy_id') != POLICY_ID or text(policy.get('codebook_version')) != '1.0':
+    if policy.get('policy_id') != POLICY_ID or text(policy.get('codebook_version')) != CODEBOOK_VERSION:
         raise ValueError('Policy identity or codebook version mismatch')
     if policy.get('candidate_sha256') != candidate_digest:
         raise ValueError('Candidate SHA-256 mismatch; review the original matching export')

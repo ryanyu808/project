@@ -101,10 +101,10 @@ def test_cr04_exact_search_records_respect_all_filters():
 def test_cr07_committed_codebook_visible_and_review_meaning():
     from codebook import read_codebook
     text = read_codebook()
-    assert text.startswith('Version: 1.0')
+    assert text.startswith('Version: 1.1')
     assert 'if a general fall merely lands on the belt' in text
     at = AppTest.from_function(fixture_app, default_timeout=20).run()
-    assert any(e.label == 'Mechanism definitions · codebook 1.0' for e in at.expander)
+    assert any(e.label == 'Mechanism definitions · codebook 1.1' for e in at.expander)
     assert any(text.strip() == m.value.strip() for m in at.markdown)
     assert any('never unfinished review' in c.value for c in at.caption)
     at.multiselect[0].set_value(['Fall']).run()
@@ -117,7 +117,7 @@ def test_cr07_missing_or_wrong_version_is_explicit(tmp_path):
         read_codebook(tmp_path/'missing.md')
     path = tmp_path/'wrong.md'
     path.write_text('Version: 2.0')
-    with pytest.raises(ValueError, match='version 1.0'):
+    with pytest.raises(ValueError, match='version 1.1'):
         read_codebook(path)
 
 

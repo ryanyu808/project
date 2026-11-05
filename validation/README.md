@@ -19,3 +19,7 @@ uv run --locked python validation/verify_dashboard.py --cohort data/prepared/tre
 This command requires a matching reviewed full-annual bundle through the production loader and refuses an existing report. It checks unfiltered, each available mechanism, three outcome states, belt search, literal metacharacters, combined Fall/Severe/belt and empty selections. It compares numerical chart/table inputs and downloads. Public browser presentation and interpretation remain separate checks in DEPLOYMENT.md. No reviewed real-data result exists yet.
 
 See review_tools/README.md for the guarded export/finalize/check workflow. Tests use invented fixtures and explicit internal test injection; there is no CLI production bypass. See results/test_summary.json for the latest actual test run and results/dashboard_fixture_results.json for numerical evidence. Root validation.pdf is an evidence draft with the remaining real/live evidence visibly pending.
+
+## Taxonomy release update - November 5
+
+Ryan's inclusion decisions are complete (109 Include / 79 Exclude). Version 1.1 has 184 complete review entries and four approved-inclusion/pending-mechanism rows. The original 171 personal-review confirmations stand. Final production data, actual independent findings and public evidence remain blocked by those mappings. Browser inventory again reports The browser access host is unavailable. Offline SAPI narration and FFmpeg were verified; no actual public footage or final MP4 exists. See review_tools/README.md and docs/MECHANISM_CHANGELOG.md.

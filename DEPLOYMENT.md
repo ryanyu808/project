@@ -54,3 +54,7 @@ Fresh full suite: 163 passed, no failures/errors/skips on Windows/Python 3.13.15
 Browser inventory was retried and again returned `The browser access host is unavailable`. GitHub admin access works, but no authenticated Streamlit interface is available here. No public URL, incognito test or live screenshot is claimed. Use the exact Create app steps above; current official docs say uv.lock takes priority over requirements.txt at the same location. Keep both project manifests and explicitly select Python 3.13. The app requires no secrets or packages.txt.
 
 Do not release data solely because 171 saved entries pass row checks. Their case-level human review basis is unestablished; see review_tools/README.md. The remaining 17 cases also require real decisions. Framework deployment can proceed independently with the honest missing-data screen, but it cannot supply rubric/HW11 evidence for the real-data app.
+
+## Taxonomy release update - November 5
+
+Ryan's inclusion decisions are complete (109 Include / 79 Exclude). Version 1.1 has 184 complete review entries and four approved-inclusion/pending-mechanism rows. The original 171 personal-review confirmations stand. Final production data, actual independent findings and public evidence remain blocked by those mappings. Browser inventory again reports The browser access host is unavailable. Offline SAPI narration and FFmpeg were verified; no actual public footage or final MP4 exists. See review_tools/README.md and docs/MECHANISM_CHANGELOG.md.

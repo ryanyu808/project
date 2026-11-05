@@ -148,3 +148,7 @@ See the candidate evidence above and [the full code, source and check log](ryan-
 CR-01 through CR-08 already address baselines, supporting counts, diagnosis context, narrative visibility, Undo, unknown sensitivity, definitions and precision reconciliation. They are marked built and corresponding features are in the inspected code. No new request was added merely to fill this part.
 
 **Final personal verdict: pending Ryan.** After examining live results and the alternatives, Ryan must either substantiate the prove branch or identify an evidence-backed, nonduplicate change that improves this and other cases. The current draft does not settle whether falls deserve priority.
+
+## Taxonomy update for the later live evaluation
+
+Version 1.1 now explicitly includes an unpowered supporting-surface Fall and separates established non-use equipment/cord falls. Original research and Ryan's pending personal verdict above are preserved. The four held mappings block production release, so no live findings or screenshots are added. When data and a public URL exist, compare Fall with the non-use category explicitly; an all-fall-involving question also requires narrative review of entering/exiting and belt categories, rather than treating those categories as entirely falls. This is an analytical scope question, not Ryan's final conclusion.

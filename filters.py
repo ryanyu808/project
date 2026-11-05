@@ -64,10 +64,10 @@ def render_sidebar(data: pd.DataFrame) -> FilterSelection:
         query = st.text_input('Search injury narratives', placeholder='Enter one word or phrase, e.g., belt', key='filter_query')
         st.button('Reset filters', on_click=reset)
         st.button('Undo reset', on_click=undo_reset, disabled='selection_before_reset' not in st.session_state)
-        with st.expander('Mechanism definitions · codebook 1.0'):
+        with st.expander('Mechanism definitions · codebook 1.1'):
             from codebook import read_codebook
             st.caption('Use the earliest initiating treadmill mechanism. '
-                       'For ties, use the listed priority order (1–6). '
+                       'For ties, use the listed priority order (1–7). '
                        'Unknown/Unclassified means reviewed but unclear, never unfinished review.')
             try:
                 st.markdown(read_codebook())

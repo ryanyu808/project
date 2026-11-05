@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 import pandas as pd
 from configuration import ROOT
-from contracts import (ORIGINAL, DERIVED, MECHANISMS, SEVERE, BASELINES, sha256,
+from contracts import (ORIGINAL, DERIVED, MECHANISMS, SEVERE, BASELINES, sha256, CODEBOOK_VERSION,
                        require_columns, integer_series, booleans, normalize_lookup,
                        validate_visits, validate_source_evidence)
 
@@ -16,22 +16,16 @@ def write_json(path, value):
 
 
 def codebook_text():
-    # Copy the approved definitions verbatim from the supplied specification.
-    prompt = (ROOT / 'one-shot-prompt.md').read_text(encoding='utf-8')
-    lines = prompt.splitlines()
-    rows = [line for line in lines if any(line.startswith(f'| {i} | `') for i in range(1, 7))]
-    result = ['Version: 1.0', '', '| injury_mechanism | definition | overlap_rule |', '|---|---|---|']
-    for row in rows:
-        cells = row.split('|')[2:-1]
-        result.append('|' + '|'.join(cells) + '|')
-    return '\n'.join(result) + '\n'
+    # Version 1.1 is an explicitly authorized extension; original prompt stays intact.
+    from codebook import approved_text
+    return approved_text()
 
 
 def ensure_docs(output):
     book = output / 'mechanism-codebook.md'
     expected = codebook_text()
     if book.exists() and book.read_text(encoding='utf-8') != expected:
-        raise ValueError(f'{book}: differs from approved Version: 1.0 codebook')
+        raise ValueError(f'{book}: differs from approved Version: 1.1 codebook')
     book.write_text(expected, encoding='utf-8')
     (output / 'README.md').write_text('''# Prepared treadmill cohort
 
@@ -41,7 +35,7 @@ One row is one ED visit. The original 25 fields and narratives are retained.
 `mentions_treadmill`: case-insensitive literal TREADMILL in Narrative_1.
 All three flags must be true. `treatment_year` comes from Treatment_Date.
 `is_severe`: disposition 2/4/5/8, false for other or missing outcomes.
-`injury_mechanism`: human-reviewed, mutually exclusive Version: 1.0 codebook label.
+`injury_mechanism`: human-reviewed, mutually exclusive Version: 1.1 codebook label.
 Unknown/Unclassified is a reviewed unclear mechanism, never unfinished review.
 Primary Diagnosis alone is used in composition. Secondary blanks are retained.
 XLSX dates use the explicit NEISS_year sheet; annual TSV dates are MM/DD/YYYY;
@@ -159,7 +153,7 @@ def finalize(candidate_path, review_path, codebook_path, output_dir, *, _source_
         if sha256(candidate_path) != evidence['candidate_sha256']:
             raise ValueError('Candidate bytes changed since export; re-export and review again')
         if codebook_path.read_text(encoding='utf-8') != codebook_text() and _labels is None:
-            raise ValueError('Codebook differs from approved Version: 1.0 definitions')
+            raise ValueError('Codebook differs from approved Version: 1.1 definitions')
         labels = _labels or MECHANISMS
         cohort = pd.read_csv(candidate_path, dtype={'CPSC_Case_Number': 'string'}, keep_default_na=False, na_values=[''])
         reviews = pd.read_csv(review_path, dtype={'CPSC_Case_Number': 'string'}, keep_default_na=False)
@@ -184,7 +178,7 @@ def finalize(candidate_path, review_path, codebook_path, output_dir, *, _source_
         quality.update(review_status='complete', reviewed_candidate_count=len(reviews), retained_count=len(final), reviewed_excluded_count=int((~keep).sum()),
                        review_exclusions=reviews.loc[~keep, ['CPSC_Case_Number', 'review_note']].to_dict('records'))
         provenance = {key: evidence[key] for key in ['schema_version', 'analysis_years', 'source_scope', 'source_checks_passed', 'source_files']}
-        provenance.update(prepared_row_count=len(final), review_complete=True, reviewed_candidate_count=len(reviews), codebook_version='1.0',
+        provenance.update(prepared_row_count=len(final), review_complete=True, reviewed_candidate_count=len(reviews), codebook_version=CODEBOOK_VERSION,
                           review_sha256=sha256(review_path), codebook_sha256=sha256(codebook_path))
         # Stage both files before publishing; digest validation catches interrupted pair replacement.
         with tempfile.TemporaryDirectory(dir=output) as temporary:

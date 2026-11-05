@@ -61,6 +61,8 @@ def run(workbook,candidates,template,codebook,policy_document,lookup,output_dir,
         prov['source_path_policy']='Public basename only; original source JSON preserved locally'
         prov['inclusion_policy_id']=transfer.POLICY_ID
         prov['inclusion_policy_sha256']=sha256(policy_document)
+        prov['review_workbook_sha256']=sha256(workbook)
+        prov['diagnosis_lookup_sha256']=sha256(lookup)
         prov_path.write_text(json.dumps(prov,indent=2)+'\n',encoding='utf-8')
         verification=validate_cohort(final,prov_path,lookup)
         verification.update(policy_id=transfer.POLICY_ID,policy_document_sha256=sha256(policy_document),reviewed_candidate_count=len(approved))

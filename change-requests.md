@@ -129,3 +129,7 @@ A filled request (from the class lottery app):
 - **Status:** built
 - **Implementation commit:** `cf21acc9255cc41cff57a70b1a5163d25b0320c0`
 - **Verification:** Implementation and focused tests verified; full Python 3.13 suite passed 106 tests. Fresh pre-commit run: 106 passed, 0 failed, 11.803 seconds on Python 3.13.15.
+
+## Subsequent taxonomy extension - November 5, 2026
+
+Ryan separately authorized version 1.1. It adds a non-use fall category and an unpowered-surface Fall clarification, with source/approval history preserved. This does not rewrite the original CR-01 through CR-08 requests, evidence or implementation hashes. Current CR-07 definition/version checks reflect 1.1; all eight behavior checks pass in the complete 178-test suite. See docs/MECHANISM_CHANGELOG.md and tests/test_taxonomy_v11.py. Four conditional mappings still block production finalization.

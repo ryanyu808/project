@@ -17,7 +17,7 @@ def fixture():
                          human_approval='Approve',human_inclusion='',human_mechanism='',human_reviewed=True,
                          reviewer='Invented reviewer',human_review_note='Invented fixture decision only',
                          human_resolution='',requires_adjudication=False))
-    policy=dict(policy_id=POLICY_ID,codebook_version='1.0',candidate_sha256='a'*64,
+    policy=dict(policy_id=POLICY_ID,codebook_version='1.1',candidate_sha256='a'*64,
                 policy_approved_by_human=True,policy_approver='Invented reviewer',mapping_accepted_by_human=True,
                 policy_note='INVENTED policy acceptance for a unit test only')
     return candidates,rows,policy
@@ -92,7 +92,8 @@ def test_cli_validates_before_writing_and_requires_explicit_write_confirmation(t
         writer=csv.DictWriter(stream,fieldnames=FIELDS);writer.writeheader()
         writer.writerows([dict(CPSC_Case_Number=x['CPSC_Case_Number'],reviewed='False') for x in c])
     codebook=tmp_path/'codebook.md'
-    codebook.write_text('Version: 1.0\n\n'+'\n'.join('| `'+label+'` | invented definition | invented precedence |' for label in sorted(LABELS)))
+    from codebook import approved_text
+    codebook.write_text(approved_text(), encoding='utf-8')
     p['candidate_sha256']=hashlib.sha256(candidates.read_bytes()).hexdigest()
     monkeypatch.setattr(tool,'read_approval_workbook',lambda path:(r,p))
     output=tmp_path/'human-approved.csv'

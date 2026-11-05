@@ -1,0 +1,67 @@
+"""Invented records only: taxonomy contract, fingerprints and human gates."""
+from copy import deepcopy
+import json
+import pytest
+from codebook import CODEBOOK_VERSION, MECHANISMS, approved_text, read_codebook
+from filters import FilterSelection, apply_filters
+from views import build_view_data, build_weight_reconciliation
+from review_tools.transfer_approved_reviews import approved_labels, validate_approvals
+from tests.test_review_transfer import fixture
+from tests.test_loader import make_bundle
+from loader import _load_dashboard_data
+
+
+def test_v11_definitions_are_explicit_and_preserve_chronology():
+    text=approved_text()
+    assert CODEBOOK_VERSION=='1.1' and len(MECHANISMS)==len(set(MECHANISMS))==7
+    assert 'Non-use equipment/cord-related falls' in MECHANISMS
+    assert 'unpowered treadmill' in text
+    assert 'Do not infer non-use' in text
+    assert 'if a general fall merely lands on the belt' in text
+    assert 'without a preceding fall' in text
+
+
+@pytest.mark.parametrize('mutation',['version','definition','missing_label'])
+def test_mismatched_codebook_never_passes_as_v11(tmp_path,mutation):
+    text=approved_text()
+    if mutation=='version':text=text.replace('Version: 1.1','Version: 1.0')
+    if mutation=='definition':text=text.replace('Do not infer non-use','Assume non-use')
+    if mutation=='missing_label':text='\n'.join(l for l in text.splitlines() if not l.startswith('| `Non-use'))+'\n'
+    path=tmp_path/'codebook.md';path.write_text(text,encoding='utf-8')
+    with pytest.raises(ValueError):approved_labels(path)
+
+
+def test_new_category_filters_aggregates_and_exports_without_aliasing(visits,lookup,context):
+    frame=visits.copy(deep=True);label='Non-use equipment/cord-related falls'
+    frame.loc[frame.injury_mechanism=='Contact','injury_mechanism']=label
+    before=frame.copy(deep=True)
+    selected=apply_filters(frame,FilterSelection(mechanisms=(label,)))
+    assert selected.CPSC_Case_Number.tolist()==['C','D']
+    result=build_view_data(selected,context=context,diagnosis_lookup=lookup)
+    assert result['headline']['weighted_ed_visits']==60
+    assert result['headline']['record_count']==2
+    assert result['quality']['unknown_disposition_weight']==40
+    assert label.encode() in build_weight_reconciliation(result,context,{})['csv']
+    assert frame.equals(before)
+
+
+def test_new_label_does_not_create_human_approval_or_resolve_mapping():
+    c,r,p=fixture();r[0].update(human_approval='Correct',human_inclusion='Include',
+      human_mechanism='Non-use equipment/cord-related falls',taxonomy_gap=True,
+      human_resolution='INVENTED reviewer confirms an explicitly non-use obstacle event')
+    before=deepcopy(r)
+    assert validate_approvals(c,r,p,set(MECHANISMS),'a'*64)[0]['injury_mechanism']==r[0]['human_mechanism']
+    assert r==before
+    r[0]['human_resolution']=''
+    with pytest.raises(ValueError,match='taxonomy gap'):validate_approvals(c,r,p,set(MECHANISMS),'a'*64)
+
+
+@pytest.mark.parametrize('fault',['old_version','wrong_hash','wrong_lookup_hash'])
+def test_loader_binds_current_version_and_exact_definition_bytes(tmp_path,visits,fault):
+    csv,path,lookup,year=make_bundle(tmp_path,visits)
+    prov=json.loads(path.read_text())
+    if fault=='old_version':prov['codebook_version']='1.0'
+    elif fault=='wrong_hash':prov['codebook_sha256']='c'*64
+    else:prov['diagnosis_lookup_sha256']='c'*64
+    path.write_text(json.dumps(prov))
+    with pytest.raises(ValueError,match='codebook|lookup'): _load_dashboard_data(csv,path,lookup,year,source_validator=lambda p,y:None)

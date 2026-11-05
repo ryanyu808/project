@@ -18,3 +18,17 @@ def test_only_declared_prepared_runtime_files_can_be_packaged(name):
 def test_prepared_public_documentation_is_preserved():
  assert not private_path('data/prepared/README.md')
  assert not private_path('data/prepared/mechanism-codebook.md')
+
+def test_git_staging_preserves_hashed_runtime_bytes_across_line_endings(tmp_path):
+ import subprocess
+ from pathlib import Path
+ root=Path(__file__).resolve().parents[1]
+ subprocess.run(['git','init','--quiet',str(tmp_path)],check=True)
+ (tmp_path/'.gitattributes').write_bytes((root/'.gitattributes').read_bytes())
+ names=['data/prepared/treadmill_2025.csv','data/prepared/treadmill_2025.provenance.json','data/prepared/mechanism-codebook.md']
+ payload=b'INVENTED byte-preservation fixture\r\nnot real NEISS data\r\n'
+ for name in names:
+  path=tmp_path/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(payload)
+ subprocess.run(['git','-C',str(tmp_path),'add','--','.gitattributes',*names],check=True)
+ for name in names:
+  assert subprocess.check_output(['git','-C',str(tmp_path),'show',':'+name])==payload

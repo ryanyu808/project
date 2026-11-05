@@ -6,7 +6,7 @@ One row is one ED visit. The original 25 fields and narratives are retained.
 `mentions_treadmill`: case-insensitive literal TREADMILL in Narrative_1.
 All three flags must be true. `treatment_year` comes from Treatment_Date.
 `is_severe`: disposition 2/4/5/8, false for other or missing outcomes.
-`injury_mechanism`: human-reviewed, mutually exclusive Version: 1.0 codebook label.
+`injury_mechanism`: human-reviewed, mutually exclusive Version: 1.1 codebook label.
 Unknown/Unclassified is a reviewed unclear mechanism, never unfinished review.
 Primary Diagnosis alone is used in composition. Secondary blanks are retained.
 XLSX dates use the explicit NEISS_year sheet; annual TSV dates are MM/DD/YYYY;
@@ -18,3 +18,5 @@ SHA-256 binds finalization to the export. Final CSV/provenance bind the runtime
 cohort. No estimates may be published until every candidate is human-reviewed.
 The complete lookup is copied unchanged to ../reference/ and comes from the
 dataset repository's complete 2025 four-column reference, not a sampled lookup.
+
+Version 1.1 adds Non-use equipment/cord-related falls and covers unpowered supporting-surface Fall. See ../../docs/MECHANISM_CHANGELOG.md. Missing use context does not establish non-use; four current mappings remain pending and no runtime pair is finalized.

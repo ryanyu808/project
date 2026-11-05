@@ -3,3 +3,7 @@
 data/reference/*.csv -text whitespace=cr-at-eol
 # Preserve generated PDFs byte-for-byte; they are not line-oriented text.
 *.pdf binary
+# These exact bytes are bound by reviewed-data provenance across Windows/Linux.
+data/prepared/treadmill_2025.csv -text whitespace=cr-at-eol
+data/prepared/treadmill_2025.provenance.json -text whitespace=cr-at-eol
+data/prepared/mechanism-codebook.md -text whitespace=cr-at-eol
