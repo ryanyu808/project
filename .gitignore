@@ -19,3 +19,15 @@ data/prepared/*.inspect.ndjson
 
 # Keep the independently backed-up course dataset repository local only.
 /dataset_neiss-sports-injuries/
+
+# Private review reports, finalization audit files and interrupted workspaces
+data/prepared/*review_report.md
+data/prepared/*audit_report.md
+data/prepared/*adjudication*.md
+data/prepared/*.validation.json
+data/.review-finalize-*/
+team-repo.zip
+
+# Private policy/reviewer evidence; publish only the approved runtime pair.
+/data/prepared/final_policy_recommendation.md
+/data/prepared/*.mvp_decision_report.md

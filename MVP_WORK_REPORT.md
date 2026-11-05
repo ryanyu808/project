@@ -90,7 +90,7 @@ sensitivity numerators/denominators and reconciliation fields were checked by
 the final UI test suite. Temporary smoke servers are stopped after inspection.
 
 Dataset Git cleanup approved: the complete standalone dataset repository was
-copied to `C:\Users\ryany\dso576\backups\dataset_neiss-sports-injuries-before-mvp-integration` outside the team repository. All 40
+copied to `../backups/dataset_neiss-sports-injuries-before-mvp-integration` outside the team repository. All 40
 files, including nested Git metadata and the four annual downloads, were verified
 by SHA-256 against their originals. Only the parent index gitlink is removed, and
 the dataset directory is ignored by the parent. Original datasets and nested Git
@@ -172,3 +172,30 @@ The original implementation-session timings above are historical. Fresh pre-comm
 verification is recorded in validation/results/test_summary.json. The approved
 commit excludes check_number.py, all review/audit artifacts, raw data, environments,
 secrets, caches, and the two newline-only prepared Markdown changes.
+
+
+## Submission preparation session - 2026-11-01
+
+- AI-recommended v2 injury policy documented; not human-approved. 108 Include / 72 Exclude / 8 Unresolved; all 188 human review flags remain False. The single current AI workbook supersedes older suggestions; source/candidate values are preserved. Thirty-five boundary cases and all 29 prior mechanism reassessments are documented.
+- Guarded post-approval workflow added: policy/source/candidate validation, separate review export, isolated existing finalizer, provenance checks, original-weight precision and independent dashboard comparison before publication. No production finalization run.
+- 147 full-suite tests passed with zero failures/errors/skips on Python 3.13.15 (13.431 seconds); packages compatible and lock verified. Local Streamlit HTTP/root healthy and expected missing-data screen verified without exceptions.
+- README, deployment process, independent validation guide, five-minute demo/recording plan and safe archive/checklists prepared. Root validation.pdf is a four-section evidence draft with real/public evidence explicitly pending.
+- Remaining gates: genuine policy and 188-record human verification, eight indeterminate decisions and included taxonomy mappings; checked real runtime bundle; authorized safe commit/integration/public deployment; public screenshots and interpreted cases; recording and verified links; final PDF/ZIP. No public deployment, commit, push or completed video is claimed.
+
+
+## Human review handoff - 2026-11-01
+
+- The team confirmed no human-approved workbook exists yet. Policy/row approvals remain blank; production finalization and publication are blocked. No AI recommendation is relabeled as human verification.
+- Added a focused Human review input tab and Review guide to the existing workbook. Eight inclusion cases and nine included mechanism mappings are first; all 188 still require actual review. All original audit/source sheets remain preserved.
+- Added a reader that rejects conflicting legacy input, changed canonical AI fields and mismatched IDs; six invented-record guard tests pass. The full suite passes 153 tests with no errors/failures/skips. Dependencies, locked manifest and fixture-number checks pass. Remote main remains d63e392 with no teammate updates.
+- Validation PDF remains an evidence draft: test evidence updated, real-data/public screenshots/interpretations still pending. No release ZIP, production dataset, public app, recording, commit or push was generated.
+
+## Completion preparation - November 5, 2026
+
+This section supersedes earlier release-readiness interpretations, not their preserved historical test results. Current state: 171 assistant-transcribed approval entries (99 Include / 72 Exclude), 17 blank priority decisions, and AI proposals 108 Include / 72 Exclude / 8 Unresolved. Informed human review cannot be established for any of the 171 from the blanket endorsement and copied AI rationale; 59 have adjudication flags. Saved entries are preserved, not revoked or treated as independently verified. Policy document status and chat acceptance need explicit team reconciliation.
+
+Fresh suite initially passed 155 tests, including Colby's two committed properties. Added six prepared-file publication tests and two approval-provenance reporting tests; the complete run passed 163 with zero failures/errors/skips on Python 3.13.15. No runtime code, dependency, CR description/status, one-shot prompt, source/candidate/review value, policy fingerprint or approval field changed. Existing uncommitted work and HW11 artifacts were backed up before edits and preserved. The dedicated dataset backup and original annual files still exist with matching hashes.
+
+The unchanged validation-only finalizer rejected the first missing approval and wrote nothing. Independent fixture arithmetic/dashboard/export checks passed; no real-data findings were substituted. Isolated runtime AppTest and HTTP checks passed in the honest missing-data state. Browser access was retried and remains unavailable. No public URL, live screenshots, final real-data cohort or completed HW11/video is claimed.
+
+Public preparation documents now distinguish row completeness from genuine human review, integrate Ryan's preserved HW11 case into validation, strengthen alternatives/decision limitations, and provide an exact recording sequence and dependency-ordered checklist. Root validation.pdf is visibly an evidence draft. submission/READINESS.md records all ten rubric gates. No final submission ZIP is warranted while the review, public evidence and video remain pending. Safe preparation work may be committed/pushed under the user's current instruction; inspect the recorded Git results rather than interpreting older no-commit session notes as the latest state.

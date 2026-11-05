@@ -1,0 +1,328 @@
+{
+  "status": "PASS",
+  "source_scope": "test_fixture",
+  "prepared_sha256": null,
+  "tolerance": "max(1e-8 absolute, 1e-12 relative); IDs/counts/sets exact",
+  "comparison": "Actual filter and dashboard builder outputs, baselines, sensitivity and downloaded CSV; public UI capture remains separate",
+  "scenarios": {
+    "all": {
+      "total_weight": "120",
+      "record_count": 5,
+      "severe_weight": "50",
+      "severe_pct": "41.66666666666666666666666667",
+      "mechanisms": {
+        "Fall": {
+          "weight": "40",
+          "count": 2,
+          "severe_weight": "10",
+          "diagnosis": {
+            "57": "10",
+            "53": "30"
+          },
+          "severe_pct": "25",
+          "diagnosis_pct": {
+            "57": "25",
+            "53": "75"
+          }
+        },
+        "Contact": {
+          "weight": "60",
+          "count": 2,
+          "severe_weight": "20",
+          "diagnosis": {
+            "57": "20",
+            "Missing diagnosis": "40"
+          },
+          "severe_pct": "33.33333333333333333333333333",
+          "diagnosis_pct": {
+            "57": "33.33333333333333333333333333",
+            "Missing diagnosis": "66.66666666666666666666666667"
+          }
+        },
+        "Unknown/Unclassified": {
+          "weight": "20",
+          "count": 1,
+          "severe_weight": "20",
+          "diagnosis": {
+            "71": "20"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "71": "100"
+          }
+        }
+      },
+      "severe_record_count": 3,
+      "unknown_record_count": 1,
+      "unknown_weight": "40",
+      "unknown_pct": "33.33333333333333333333333333",
+      "all_unknown_severe_pct": "75"
+    },
+    "Contact": {
+      "total_weight": "60",
+      "record_count": 2,
+      "severe_weight": "20",
+      "severe_pct": "33.33333333333333333333333333",
+      "mechanisms": {
+        "Contact": {
+          "weight": "60",
+          "count": 2,
+          "severe_weight": "20",
+          "diagnosis": {
+            "57": "20",
+            "Missing diagnosis": "40"
+          },
+          "severe_pct": "33.33333333333333333333333333",
+          "diagnosis_pct": {
+            "57": "33.33333333333333333333333333",
+            "Missing diagnosis": "66.66666666666666666666666667"
+          }
+        }
+      },
+      "severe_record_count": 1,
+      "unknown_record_count": 1,
+      "unknown_weight": "40",
+      "unknown_pct": "66.66666666666666666666666667",
+      "all_unknown_severe_pct": "100"
+    },
+    "Fall": {
+      "total_weight": "40",
+      "record_count": 2,
+      "severe_weight": "10",
+      "severe_pct": "25",
+      "mechanisms": {
+        "Fall": {
+          "weight": "40",
+          "count": 2,
+          "severe_weight": "10",
+          "diagnosis": {
+            "57": "10",
+            "53": "30"
+          },
+          "severe_pct": "25",
+          "diagnosis_pct": {
+            "57": "25",
+            "53": "75"
+          }
+        }
+      },
+      "severe_record_count": 1,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0",
+      "all_unknown_severe_pct": "25"
+    },
+    "Unknown/Unclassified": {
+      "total_weight": "20",
+      "record_count": 1,
+      "severe_weight": "20",
+      "severe_pct": "100",
+      "mechanisms": {
+        "Unknown/Unclassified": {
+          "weight": "20",
+          "count": 1,
+          "severe_weight": "20",
+          "diagnosis": {
+            "71": "20"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "71": "100"
+          }
+        }
+      },
+      "severe_record_count": 1,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0",
+      "all_unknown_severe_pct": "100"
+    },
+    "Severe": {
+      "total_weight": "50",
+      "record_count": 3,
+      "severe_weight": "50",
+      "severe_pct": "100",
+      "mechanisms": {
+        "Fall": {
+          "weight": "10",
+          "count": 1,
+          "severe_weight": "10",
+          "diagnosis": {
+            "57": "10"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "57": "100"
+          }
+        },
+        "Contact": {
+          "weight": "20",
+          "count": 1,
+          "severe_weight": "20",
+          "diagnosis": {
+            "57": "20"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "57": "100"
+          }
+        },
+        "Unknown/Unclassified": {
+          "weight": "20",
+          "count": 1,
+          "severe_weight": "20",
+          "diagnosis": {
+            "71": "20"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "71": "100"
+          }
+        }
+      },
+      "severe_record_count": 3,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0",
+      "all_unknown_severe_pct": "100"
+    },
+    "Other known disposition": {
+      "total_weight": "30",
+      "record_count": 1,
+      "severe_weight": "0",
+      "severe_pct": "0",
+      "mechanisms": {
+        "Fall": {
+          "weight": "30",
+          "count": 1,
+          "severe_weight": "0",
+          "diagnosis": {
+            "53": "30"
+          },
+          "severe_pct": "0",
+          "diagnosis_pct": {
+            "53": "100"
+          }
+        }
+      },
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0",
+      "all_unknown_severe_pct": "0"
+    },
+    "Unknown": {
+      "total_weight": "40",
+      "record_count": 1,
+      "severe_weight": "0",
+      "severe_pct": "0",
+      "mechanisms": {
+        "Contact": {
+          "weight": "40",
+          "count": 1,
+          "severe_weight": "0",
+          "diagnosis": {
+            "Missing diagnosis": "40"
+          },
+          "severe_pct": "0",
+          "diagnosis_pct": {
+            "Missing diagnosis": "100"
+          }
+        }
+      },
+      "severe_record_count": 0,
+      "unknown_record_count": 1,
+      "unknown_weight": "40",
+      "unknown_pct": "100",
+      "all_unknown_severe_pct": "100"
+    },
+    "literal belt": {
+      "total_weight": "30",
+      "record_count": 2,
+      "severe_weight": "30",
+      "severe_pct": "100",
+      "mechanisms": {
+        "Fall": {
+          "weight": "10",
+          "count": 1,
+          "severe_weight": "10",
+          "diagnosis": {
+            "57": "10"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "57": "100"
+          }
+        },
+        "Contact": {
+          "weight": "20",
+          "count": 1,
+          "severe_weight": "20",
+          "diagnosis": {
+            "57": "20"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "57": "100"
+          }
+        }
+      },
+      "severe_record_count": 2,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0",
+      "all_unknown_severe_pct": "100"
+    },
+    "literal metacharacters": {
+      "total_weight": "0",
+      "record_count": 0,
+      "severe_weight": "0",
+      "severe_pct": null,
+      "mechanisms": {},
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": null,
+      "all_unknown_severe_pct": null
+    },
+    "empty": {
+      "total_weight": "0",
+      "record_count": 0,
+      "severe_weight": "0",
+      "severe_pct": null,
+      "mechanisms": {},
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": null,
+      "all_unknown_severe_pct": null
+    },
+    "Fall Severe belt": {
+      "total_weight": "10",
+      "record_count": 1,
+      "severe_weight": "10",
+      "severe_pct": "100",
+      "mechanisms": {
+        "Fall": {
+          "weight": "10",
+          "count": 1,
+          "severe_weight": "10",
+          "diagnosis": {
+            "57": "10"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "57": "100"
+          }
+        }
+      },
+      "severe_record_count": 1,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0",
+      "all_unknown_severe_pct": "100"
+    }
+  },
+  "label": "INVENTED FIXTURES ONLY - NOT NEISS FINDINGS",
+  "fixture_sha256": "d3d0caf93a0e7b9479a8df7540a7c58521ef738fd2e584c37239ba11ce227066"
+}

@@ -1,28 +1,21 @@
-# Independent numerical validation
+# Independent validation
 
-Run `uv run python validation/independent_numbers.py` from the application root.
-The default five visits are invented, hand-computable test fixtures. Contact is
-a historical toy label, not an additional production mechanism. No national
-findings may be inferred from these records.
+`independent_numbers.py` retains the original hand-computable five-record fixture. `verify_dashboard.py` adds csv/Decimal loops for severe count, unknown count/weight, outcome sensitivity, primary-diagnosis buckets and mechanism totals, then compares them with actual filters, dashboard builders, baselines and unrounded exported CSVs. Counts/membership are exact; floating results use max(1e-8 absolute, 1e-12 relative). Exported prepared Weight is also compared as exact Decimal against candidates in the finalization workflow.
 
-The calculator uses Python csv, Decimal and explicit loops, without importing
-pandas, views, filters, loader or preparation. Results include total weight,
-record count, recorded severe share, mechanism weights and primary diagnosis
-shares, plus Fall, Severe, literal belt search and empty selections.
+Run the independent fixture comparison:
 
-Hand arithmetic: total=10+30+20+40+20=120; severe=10+20+20=50;
-severe%=100*50/120=41.666666... . Fall=40, Contact=60, Unknown=20.
-Fall diagnoses: 57=10/40=25%, 53=30/40=75%. Contact diagnoses:
-57=20/60=33.333333...%, missing=40/60=66.666666...%.
+```text
+uv run --locked python validation/run_fixture_checks.py --output validation/results/dashboard_fixture_results.json
+```
 
-The integration cross-check in tests/test_independent_numbers.py compares all
-these independent results with the dashboard outputs. It does not turn fixture
-agreement into real-data validation. Review and compare the saved results with
-the live app after the real cohort has been genuinely reviewed and finalized.
+The records A-E and historical toy label Contact are INVENTED, never production NEISS findings. Hand results: total 120, five records, severe count 3, severe weight 50, severe share 41.666666...%; unknown count 1/weight 40/share 33.333333...%; conditional upper endpoint 75%. Mechanisms: Fall 40, Contact 60, Unknown 20. Fall diagnosis shares: fracture 25%, contusion 75%. Empty results have unavailable percentages.
 
-For a later real-data calculation, pass `--cohort data/prepared/treadmill_2025.csv
---provenance data/prepared/treadmill_2025.provenance.json --output
-validation/results/real_2025_results.json` on a single command line. This verifies
-the matching reviewed/full-annual metadata and hash, but is not an independent
-verification that a human actually reviewed narratives. No real-data calculation
-was performed in this session because no finalized production bundle exists.
+After genuine human finalization only, run:
+
+```text
+uv run --locked python validation/verify_dashboard.py --cohort data/prepared/treadmill_2025.csv --provenance data/prepared/treadmill_2025.provenance.json --lookup data/reference/neiss_code_lookup_2025.csv --output validation/results/real_2025_dashboard_check.json
+```
+
+This command requires a matching reviewed full-annual bundle through the production loader and refuses an existing report. It checks unfiltered, each available mechanism, three outcome states, belt search, literal metacharacters, combined Fall/Severe/belt and empty selections. It compares numerical chart/table inputs and downloads. Public browser presentation and interpretation remain separate checks in DEPLOYMENT.md. No reviewed real-data result exists yet.
+
+See review_tools/README.md for the guarded export/finalize/check workflow. Tests use invented fixtures and explicit internal test injection; there is no CLI production bypass. See results/test_summary.json for the latest actual test run and results/dashboard_fixture_results.json for numerical evidence. Root validation.pdf is an evidence draft with the remaining real/live evidence visibly pending.

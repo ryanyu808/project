@@ -1,93 +1,56 @@
-# Deployment readiness — not yet deployed
+# Deployment readiness
 
-The production data gate remains closed. All 188 candidate reviews are pending;
-there is no final 2025 CSV/provenance pair. Deploying this checkout now would show
-the honest unavailable-data screen, not a completed real-data MVP.
+Not deployed. Real-data release is blocked by human policy/record approvals. The tested local server starts and correctly displays the missing-data state. This is not a working real-data public MVP yet. Do not publish fixtures as real NEISS data.
 
-## Tested environment
+## Reproducible environment
 
-Use Python 3.13 (tested on 3.13.15). The supported declared range is 3.11–3.13;
-native testing in this session was Windows/Python 3.13 only. The existing .venv
-using Python 3.14 was preserved. This session used .venv-mvp with uv sync and
-the runtime versions already pinned in requirements.in: Streamlit 1.45.1,
-pandas 2.2.3, NumPy 2.2.6, Plotly 6.0.1, openpyxl 3.1.5. Pytest is 9.1.1.
-pyproject.toml, uv.lock and the exported requirements.txt now agree on these
-runtime pins. Transitive versions are fixed by uv.lock and the exported file.
+Use Python 3.13, tested locally on 3.13.15. `uv sync --locked --python 3.13` reproduces the lock; the root requirements.txt also pins the runtime packages. `uv pip check --python .venv-mvp/Scripts/python.exe` and an offline locked-manifest check passed. Streamlit 1.45.1, pandas 2.2.3, NumPy 2.2.6, Plotly 6.0.1 and openpyxl 3.1.5 remain the runtime versions. No runtime package changes were made. Native Linux/cloud execution is not yet verified.
 
-PowerShell, from the application root:
+## Runtime manifest
 
-```powershell
-$env:UV_PROJECT_ENVIRONMENT = '.venv-mvp'
-uv sync --locked --python 3.13
-uv run --locked python -m pytest -q -p no:cacheprovider
-uv run --locked python -m streamlit run app.py
-```
+- Root Python files: app.py, configuration.py, contracts.py, loader.py, filters.py, views.py, codebook.py.
+- Root configuration/dependencies: config.toml, .python-version, pyproject.toml, uv.lock, requirements.txt.
+- Final, genuinely reviewed `data/prepared/treadmill_2025.csv` and matching `.provenance.json` (PENDING).
+- `data/prepared/mechanism-codebook.md` and `data/reference/neiss_code_lookup_2025.csv`.
 
-macOS/Linux, from the application root:
+The app reads no dataset repository, raw annual file, review workbook or candidate/review CSV at runtime. It requires no secrets. Publish the small final runtime pair only after source/review/provenance and independent checks succeed. The checked workflow preserves raw fingerprints and publishes only a source filename, not the preparer's personal directory. Keep all review/audit files private.
 
-```bash
-export UV_PROJECT_ENVIRONMENT=.venv-mvp
-uv sync --locked --python 3.13
-uv run --locked python -m pytest -q -p no:cacheprovider
-uv run --locked python -m streamlit run app.py
-```
+## Framework-first option
 
-For a clean clone without an existing environment, omit the environment override
-to use uv's default .venv. .python-version selects 3.13. If package declarations
-change, run uv lock, uv sync, then `uv export --no-hashes --no-dev
---no-emit-project -o requirements.txt` as one command line and recheck tests.
+The already committed framework can be hosted now with its honest unavailable-data screen, then enabled by adding the genuinely finalized CSV/provenance later. This is not a completed real-data MVP or HW11 evidence. See [the exact host handoff](deployment/FRAMEWORK_HANDOFF.md). Browser-host access is currently unavailable in this session; no deployment is claimed.
 
-## Release steps requiring genuine review and later authorization
+## Community Cloud setup after data approval
 
-1. Approve and document medical-only, uncertain injury, incidental exposure and
-   stationary-equipment policies. The consolidated workbook is a suggestion aid.
-   A human must inspect all 188 narratives, resolve decisions, and transfer them
-   by case ID to the review CSV. Do not automatically accept AI suggestions.
-2. Only after genuine review, run the documented offline finalizer. Check quality
-   reconciliation, retained/excluded counts, SHA-256, and the final loader.
-3. Independently recalculate real-cohort numbers using validation/independent_numbers.py;
-   compare against local app outputs for initial, Fall, Severe, literal search,
-   empty and Reset/Undo cases. No real-data totals have yet been validated.
-4. Include only small, final runtime artifacts: data/prepared/treadmill_2025.csv,
-   its matching provenance JSON, data/reference/neiss_code_lookup_2025.csv, and
-   data/prepared/mechanism-codebook.md. Review provenance paths for local personal
-   directory disclosure; filenames identify evidence and are not opened at runtime.
-   Do not rewrite audit provenance without an agreed reproducible approach.
-5. Review/commit/push code and approved runtime artifacts only when authorized.
-   Raw files, candidate/review CSVs, review workbooks, credentials, and environments
-   are ignored. Never upload the nested dataset repo's annual downloads.
-6. In Streamlit Community Cloud choose the team repo, approved branch and root
-   app.py. Choose Python 3.13 under Advanced settings. No secrets or database are
-   required by this app. Community Cloud prefers uv.lock over requirements.txt;
-   both must stay consistent. See [dependency documentation](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies).
-7. Make the app public under Sharing. Verify in an incognito window without a
-   sign-in. See [sharing documentation](https://docs.streamlit.io/deploy/streamlit-community-cloud/share-your-app).
-8. Match live/local numbers and filters, empty states, Reset/Undo, downloads,
-   missing-data failures, cold startup and independent sessions. Check host logs
-   and practical response time with several users; no Linux-host load test has
-   occurred yet. Keep it available through December 16 per the assignment.
-9. Capture screenshots from the live app with selections visible. Finish the
-   four validation sections, export root validation.pdf and inspect readability.
-   Record an approximately five-minute analyst-oriented demo; publish its link
-   so viewers need no login. Replace both README link placeholders.
-10. Once all required work is committed, inspect a repository archive for .venv,
-    caches, raw data, review workbooks and secrets before submission. No public deployment or submission archive was created. Git integration is
-    recorded separately in change-requests.md and MVP_WORK_REPORT.md. Confirm the deadline in
-    the course calendar before Quiz 11.
+1. Complete the human-review workflow in review_tools/README.md. Verify the real 2025 pair locally and run validation/verify_dashboard.py. Keep the resulting aggregate report as evidence.
+2. Review the safe code/docs/runtime diff with teammates, commit and push only the approved release files. Only verified, non-sensitive preparation work may be committed and pushed; no production release is claimed while the data gate is open. Confirm the GitHub revision contains every runtime manifest file and no private artifacts.
+3. In Streamlit Community Cloud select Create app, the team GitHub repository, the approved branch and `app.py`. Under Advanced settings select Python 3.13. Do not use an automatically newer Python version. Deploy and inspect installation/startup logs. Follow the current [deployment instructions](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy) and [dependency instructions](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies); inspect the actual host build rather than assuming a dependency-file priority.
+4. Set app Sharing to public and test access while signed out in a fresh incognito session. The [sharing instructions](https://docs.streamlit.io/deploy/streamlit-community-cloud/share-your-app) explain this setting. No account login may be required of viewers.
+5. Execute the checklist below, record screenshots and the cohort hash, and replace the README URL placeholder only with the verified actual public URL. Keep the app available through December 16 as required by 03-mvp.pdf; confirm the submission deadline in the course calendar before Quiz 11.
 
-## Runtime portability
+## Deployment verification checklist
 
-Configuration paths are relative to app.py and use forward slashes. The loader
-reads only prepared CSV/provenance and the copied complete reference. The sidebar
-reads the committed codebook. There is no runtime dependency on annual files,
-the nested dataset repository, the AI review workbooks, or this chat workspace.
-Native Linux deployment remains to be verified on the host.
+- [ ] Incognito and a second device open the actual URL without authentication.
+- [ ] Cloud logs show compatible pinned dependencies and no traceback; cold start succeeds.
+- [ ] Initial 2025 totals match the independent real-data report and same prepared SHA-256.
+- [ ] All five views render. Mechanism, severity and literal search combinations agree on membership.
+- [ ] Severity and diagnosis baselines remove severity only, retaining mechanism/search.
+- [ ] Search displays the matching case IDs/narratives; clear, whitespace, case and literal metacharacters work.
+- [ ] No-match selection gives an honest empty state and unavailable percentages.
+- [ ] Reset and Undo restore all controls; separate browser sessions do not leak state.
+- [ ] Record counts, unknown-outcome counts/weights and sensitivity endpoints match independently.
+- [ ] Codebook definitions are accessible. No hidden causal/precision/risk claim is implied.
+- [ ] Downloaded CSV retains precision and correct filters, period and data-version metadata.
+- [ ] Missing/corrupt bundle behavior is checked in an isolated test copy or existing automated tests, without damaging live data.
+- [ ] No raw annual data, candidate/review CSV, review workbook, .env or secrets is in the deployed revision.
+- [ ] Capture initial, filtered/baseline, diagnosis, narratives, sensitivity and reconciliation screens with filters visible.
+- [ ] Record actual values, limitations and decision interpretation in validation.md, regenerate validation.pdf, and check readability.
 
+The local health and AppTest checks do not replace public/incognito/Linux verification. Streamlit credentials and the release-data gate remain external prerequisites; nothing was publicly deployed in this session.
 
-## Dataset Git reference cleanup
+## Completion recheck, November 5
 
-The team approved removing the malformed parent gitlink and ignoring
-`/dataset_neiss-sports-injuries/`. Its full standalone repository was backed up at
-`C:\Users\ryany\dso576\backups\dataset_neiss-sports-injuries-before-mvp-integration` and verified against the originals with SHA-256. Only the parent
-index entry is removed; no local dataset or nested Git metadata is deleted or
-modified. The app uses committed runtime artifacts and does not need this folder.
+Fresh full suite: 163 passed, no failures/errors/skips on Windows/Python 3.13.15. Runtime pins match a fresh locked export; all 45 installed packages are compatible. An isolated copy of only the 14 runtime files started from an unrelated working directory: AppTest had no exceptions and showed no metrics/charts; actual HTTP health and root returned 200. The server was stopped. This is the honest unavailable-data application, not real-data validation. No application runtime code or dependencies changed.
+
+Browser inventory was retried and again returned `The browser access host is unavailable`. GitHub admin access works, but no authenticated Streamlit interface is available here. No public URL, incognito test or live screenshot is claimed. Use the exact Create app steps above; current official docs say uv.lock takes priority over requirements.txt at the same location. Keep both project manifests and explicitly select Python 3.13. The app requires no secrets or packages.txt.
+
+Do not release data solely because 171 saved entries pass row checks. Their case-level human review basis is unestablished; see review_tools/README.md. The remaining 17 cases also require real decisions. Framework deployment can proceed independently with the honest missing-data screen, but it cannot supply rubric/HW11 evidence for the real-data app.

@@ -1,12 +1,29 @@
 {
-  "tests": 106,
+  "tests": 163,
   "errors": 0,
   "failures": 0,
   "skipped": 0,
-  "time_seconds": 11.803,
+  "time_seconds": 35.606,
   "python": "3.13.15",
   "platform": "Windows",
-  "verification": "Approved pre-commit integration run",
+  "verification": "Full repository suite, 2026-11-05; fresh run after release/provenance guard changes",
   "fixture_only": true,
-  "production_data_reviewed": false
+  "production_data_reviewed": false,
+  "command": "python -B -m pytest -q -p no:cacheprovider --junitxml=<private evidence directory>/tests-final.xml",
+  "test_modules": {
+    "test_app": 17,
+    "test_colby_module10": 2,
+    "test_filters": 14,
+    "test_independent_numbers": 2,
+    "test_loader": 26,
+    "test_mvp_changes": 14,
+    "test_preparation": 13,
+    "test_release_package": 15,
+    "test_review_handoff": 6,
+    "test_review_readiness": 2,
+    "test_review_transfer": 24,
+    "test_ryan_module10": 3,
+    "test_submission_workflow": 8,
+    "test_views": 17
+  }
 }

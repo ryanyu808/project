@@ -66,12 +66,14 @@ Alex is a fictional CPSC epidemiology analyst investigating injuries among older
      websites, other public data, people they can ask, or how they decide now. Part 5 compares
      your app with these. One or two paragraphs. -->
 
-Write their situation and their alternatives here, citing the sources in the text.
+CPSC describes analysts screening ED surveillance for emerging hazards and combining NEISS with other sources when setting study priorities. Follow-back interviews can add person, product and environmental detail. This supports the role's plausibility, not a claim that CPSC uses our dashboard or a particular ranking formula. Source: CPSC, [NEISS Frequently Asked Questions](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Neiss-Frequently-Asked-Questions).
+
+Alex's alternatives include the official NEISS query/download tools and an independently reviewed analysis of the records. The official tool offers uncertainty outputs; a separate analysis can apply a broader definition of fall-involving events. Follow-back investigation can address circumstances that brief narratives cannot resolve. Our dashboard's proposed advantage is faster, consistent comparison of a reviewed treadmill cohort, rather than new underlying evidence. CPSC's [Instructions for Using the NEISS Estimates Query Builder](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Instructions-for-Using-the-NEISS-Estimates-Query-Builder) document filters, downloadable records and optional CV/confidence intervals. These alternatives complement the dashboard; a broader product query is not an exact cohort match.
 
 **Sources:**
 
-- Paste source 1 here: its title, who published it, and the link.
-- Paste source 2 here.
+- See the linked CPSC sources above and the title/publisher/fact/excerpt audit in [supporting evidence](ryan-treadmill-falls-evidence.md).
+- Third source: CPSC, [Explanation Of NEISS Estimates Obtained Through The CPSC Website](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Explanation-Of-NEISS-Estimates-Obtained-Through-The-CPSC-Website).
 
 ## 3. The app in use
 
@@ -86,14 +88,15 @@ Write their situation and their alternatives here, citing the sources in the tex
      screenshot, write it in the line above the image. If a table is cut off, enlarge the window
      or take a second screenshot of the rest. -->
 
-**Live link:** Paste your team's live link here.
+**Live link: unavailable.** Repository documentation says not deployed, and both configured runtime data files are absent. The following are planned selections, not observed results. Save screenshots from the public app with selections visible; do not replace them with local screens.
 
-**What they select:** Write the selections here: filters, settings, dates.
+| Planned screen | Exact selections and evidence to capture |
+|---|---|
+| A: Compare mechanisms | Fixed 2025; Injury mechanism empty (all); Severity empty (all); narrative search blank. Capture burden/scatter and mechanism/supporting-evidence tables, including Fall and comparators. **[LIVE SCREENSHOT PENDING: screenshots/alex-comparison.png]** |
+| B: Examine Fall | Injury mechanism `Fall`; Severity empty; search blank. Capture diagnosis and expanded Outcome completeness and conditional sensitivity; repeat for each comparator if missingness could affect priority. **[LIVE SCREENSHOT PENDING: screenshots/alex-fall-context.png]** |
+| C: Inspect severe narratives | Injury mechanism `Fall`; Severity `Severe`; search `belt`. Capture matching narratives and the labeled all-outcome severity/diagnosis baselines. This is a narrow diagnostic subset, not the primary ranking. **[LIVE SCREENSHOT PENDING: screenshots/alex-narratives.png]** |
 
-<!-- Replace this image line with your own screenshot, one line per screenshot. -->
-![Describe the screenshot here](screenshots/case-1.png)
-
-**What they see:** Write the numbers or the chart that matter for the decision here.
+**What Alex sees: pending actual public-app use.** Record weighted visits, severe percentages, sample counts, unknown weights, diagnoses and sensitivity endpoints without supplying guessed values. Capture extra images if tables do not fit. Keep the data hash from the reconciliation export.
 
 ## 4. Reading the result for their decision
 
@@ -113,18 +116,17 @@ Write their situation and their alternatives here, citing the sources in the tex
      behind a number and compute another
      version in a file you run; paste its code and output in the box. -->
 
-**Does the number measure what this person cares about?** Write it here, with the evidence.
+**Does the number measure what Alex cares about?** Verified code in `views.py:build_view_data` sums `Weight` for ED visits and computes recorded severe weight / all selected weight. `contracts.py` defines severe as dispositions 2/4/5/8. These can inform burden screening, but they do not measure preventable injuries or investigation value directly. Critically, codebook 1.0 puts some falls under Entering/exiting or Belt contact; `Fall` is not every fall-involving event. **Candidate interpretation for Ryan:** decide whether this initiating-mechanism definition fits the chosen decision before relying on its rank (11.5 kinds 3 and 4).
 
-**Who is in the rows, and who is not?** Write it here, with the evidence.
+**Who is in the rows, and who is not?** The intended cohort is reviewed 2025 ED visits, ages 65-120, product 3277 in any product field, with a literal treadmill mention. A row is a visit, not a unique person. Other years/ages, non-ED injuries and records missing the required mention are outside this analysis. Human eligibility/policy review is unfinished. **Candidate interpretation for Ryan:** the cohort is a useful surveillance subset whose exclusions could change a broader fall-priority decision (kinds 1, 2 and 5).
 
-**What outside the data matters to this decision?** Write it here, with the evidence.
+**What outside the data matters?** Investigation feasibility, preventability, equipment details, medical triggers and current incident information could change the choice; their importance here remains to be assessed. The dashboard has neither treadmill-use exposure nor a causal study design. CPSC's [Explanation Of NEISS Estimates Obtained Through The CPSC Website](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Explanation-Of-NEISS-Estimates-Obtained-Through-The-CPSC-Website) explains survey variability. Visible sample counts do not replace design-based uncertainty. **Ryan must judge** whether missing evidence makes a comparison too weak to act on (kinds 7-9).
 
-**What could they wrongly conclude from it?** Write the reading that would lead this person to
-a worse decision, and why it is wrong.
+**What could Alex wrongly conclude?** A high visit total could be mistaken for risk per user; a high severe percentage from a small group could be mistaken for a stable difference. Severe-only headlines change the denominator; use the explicit all-outcome baseline. Unknown outcomes remain in unrestricted denominators. Sensitivity endpoints S/T and (S+U)/T assume none/all unknown weight is severe; they are not confidence intervals (kinds 4, 6 and 9). Primary-diagnosis shares use only `Diagnosis`, retaining missing/unmapped buckets, rather than counting every diagnosis.
 
-```text
-Paste any check you ran here, its code and its output. Delete this box if you ran none.
-```
+A fresh independent fixture check passed on November 5; its saved report is `ryan-treadmill-falls-fixture-check.json`. This supports arithmetic on invented records, not any real mechanism ranking. **Ryan's answers remain pending:** which of these limitations changes Alex's choice, and what actual live evidence supports that judgment?
+
+See the candidate evidence above and [the full code, source and check log](ryan-treadmill-falls-evidence.md). These are preparation for my own answers, not my completed judgments.
 
 ## 5. The verdict: prove or break
 
@@ -141,8 +143,8 @@ Paste any check you ran here, its code and its output. Delete this box if you ra
      and the app's other users, and why it does not hurt them. Paste it as it appears in
      change-requests.md, or delete the box if you prove the app. -->
 
-Write the verdict here.
+**Provisional assessment:** the coordinated views could reduce manual comparison work while preserving links to evidence. The official query offers uncertainty outputs, independent analysis can revise cohort/taxonomy choices, and investigation can supply missing circumstances. The dashboard's comparative practical value has not yet been demonstrated on a live reviewed cohort, so an "as good as it gets" conclusion is unsupported today.
 
-```markdown
-Paste your change request here. Delete this box if you prove the app as good as it gets.
-```
+CR-01 through CR-08 already address baselines, supporting counts, diagnosis context, narrative visibility, Undo, unknown sensitivity, definitions and precision reconciliation. They are marked built and corresponding features are in the inspected code. No new request was added merely to fill this part.
+
+**Final personal verdict: pending Ryan.** After examining live results and the alternatives, Ryan must either substantiate the prove branch or identify an evidence-backed, nonduplicate change that improves this and other cases. The current draft does not settle whether falls deserve priority.
