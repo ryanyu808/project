@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "watch_url": "https://www.youtube.com/watch?v=f45CShykzbI",
+  "channel": "Cube Gaming",
+  "channel_url": "https://www.youtube.com/@cubegaming9092",
+  "unlisted_saved": true,
+  "studio_published_dialog_observed": true,
+  "copyright_and_community_checks": "Complete; no issues found",
+  "viewer_playback_without_sign_in": true,
+  "sign_in_link_and_unlisted_badge_visible": true,
+  "viewer_sign_in_performed": false,
+  "verified_at_utc": "2026-11-06T08:20:17.922Z",
+  "source_video_seconds": 300,
+  "viewer_video_seconds": 300.021,
+  "hd_playback": {
+    "currentTime": 103.485371,
+    "duration": 300.021,
+    "muted": false,
+    "paused": false,
+    "readyState": 4,
+    "videoHeight": 1080,
+    "videoWidth": 1920
+  },
+  "playback_advanced_from_seconds": 19.690375,
+  "after_verification": "Paused for user; full source track decode and representative visual inspection separately recorded; no full auditory-review claim",
+  "advanced_upload_metadata": "Existing defaults retained at explicit user request; AI narration disclosed in description",
+  "proof_images": [
+    "validation/screenshots/youtube-public-playback.jpg",
+    "validation/screenshots/youtube-public-hd-playback.jpg"
+  ],
+  "private_upload_dialog_evidence": "Preserved outside the team repository; no account dashboard screenshot committed",
+  "proof_sha256": {
+    "validation/screenshots/youtube-public-playback.jpg": "ee11950061721f04382840e502b26abcdaf2dc2814aa5a0d65cf5079bc0afa96",
+    "validation/screenshots/youtube-public-hd-playback.jpg": "3f7c990a0eb516ee05a46cee380ef270c0816cea6f9b199ae6be0cecc0dcccc6"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "status": "encoded and inspected; Unlisted playback pending",
+  "status": "Complete; actual Unlisted upload and playback verified",
   "video_sha256": "e64bf2abb9310e6f921a90eec3cab1ca719419db5883f45345710febcf30ee40",
   "seconds": "300.000000",
   "bytes": 12967450,
@@ -29,5 +29,6 @@
   "audio_QA": "complete track decode and signal metrics; no claim of auditory review",
   "public_url": "https://treadmill-injury-dashboard.streamlit.app/",
   "capture_method": "791 actual browser frames, approximately3fps with observation gaps; encoded30fps by holding actual pixels; no generated app graphics",
-  "upload_status": "awaiting intended channel confirmation"
+  "upload_status": "Unlisted; user-selected Cube Gaming channel; existing advanced metadata defaults retained by explicit user choice",
+  "watch_url": "https://www.youtube.com/watch?v=f45CShykzbI"
 }

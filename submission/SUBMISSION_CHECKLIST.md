@@ -1,6 +1,6 @@
 # Final submission gates
 
-**NOT SUBMISSION-READY:** verified video link and legitimate distinct teammate case coverage remain. Ryan's individual HW11 and five-minute MP4 are complete. One member uploads the team ZIP; Ryan uploads his separate HW11 PDF. Confirm the deadline before Quiz11; maintain hosting through December16.
+**NOT SUBMISSION-READY:** legitimate distinct teammate case coverage remains. Ryan's individual HW11 and five-minute MP4 are complete. One member uploads the team ZIP; Ryan uploads his separate HW11 PDF. Confirm the deadline before Quiz11; maintain hosting through December16.
 
 - [x] All188 genuine source-bound reviews complete; 109 included /79 excluded. Raw source, original171 rows, candidates, review template, policy and one-shot prompt preserved.
 - [x] Guarded finalization and independent real-data checks complete; no synthetic production records.
@@ -10,7 +10,7 @@
 - [x] Ryan explicitly accepts break verdict; CR-09 is open, not built.
 - [x] Both PDFs contain live evidence; individual five-part PDF stays outside team ZIP. Team PDF honestly identifies missing case coverage.
 - [x] Genuine public footage and prepared AI narration encoded to300-second1920x1080 MP4; tracks/metadata and representative frames checked. Media stays outside ZIP.
-- [ ] Confirm YouTube channel, upload Unlisted, verify playback without signing in, insert actual video URL.
+- [x] User-selected Cube Gaming channel; Unlisted upload and playback without signing in verified: https://www.youtube.com/watch?v=f45CShykzbI.
 - [ ] Team provides distinct genuinely owned cases and interpretations covering main users and difficult cases; integrate and inspect PDF.
 - [ ] Fetch/check final diff, commit/push only safe files, confirm CI and clean tracked tree; audit release.
 - [ ] Only after all requirements are met: create and inspect final git-archive ZIP below2GB, verify links and upload correct assignments.

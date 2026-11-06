@@ -1,0 +1,133 @@
+{
+  "conclusion": "success",
+  "headSha": "05421e637527e91a3661c7cd6d88bb945e25249f",
+  "jobs": [
+    {
+      "completedAt": "2026-11-06T08:05:19Z",
+      "conclusion": "success",
+      "databaseId": 127783404761,
+      "name": "linux-production",
+      "startedAt": "2026-11-06T08:04:33Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-06T08:04:35Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-06T08:04:34Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:04:36Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "number": 2,
+          "startedAt": "2026-11-06T08:04:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:04:36Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "number": 3,
+          "startedAt": "2026-11-06T08:04:36Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:04:59Z",
+          "conclusion": "success",
+          "name": "Run python -m pip install -r requirements-dev.txt",
+          "number": 4,
+          "startedAt": "2026-11-06T08:04:36Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:04:59Z",
+          "conclusion": "success",
+          "name": "Run python -m pip check",
+          "number": 5,
+          "startedAt": "2026-11-06T08:04:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:05:11Z",
+          "conclusion": "success",
+          "name": "Run python -m pytest -q -p no:cacheprovider --junitxml=/tmp/tests.xml",
+          "number": 6,
+          "startedAt": "2026-11-06T08:04:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:05:11Z",
+          "conclusion": "success",
+          "name": "Run python validation/independent_numbers.py --cohort data/prepared/treadmill_2025.csv --provenance data/prepared/treadmill_2025.provenance.json --output /tmp/independent.json",
+          "number": 7,
+          "startedAt": "2026-11-06T08:05:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:05:12Z",
+          "conclusion": "success",
+          "name": "Run python validation/verify_dashboard.py --cohort data/prepared/treadmill_2025.csv --provenance data/prepared/treadmill_2025.provenance.json --lookup data/reference/neiss_code_lookup_2025.csv --output /tmp/dashboard.json",
+          "number": 8,
+          "startedAt": "2026-11-06T08:05:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:05:15Z",
+          "conclusion": "success",
+          "name": "Run python validation/verify_app.py --output /tmp/app.json",
+          "number": 9,
+          "startedAt": "2026-11-06T08:05:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:05:16Z",
+          "conclusion": "success",
+          "name": "Actual Streamlit health",
+          "number": 10,
+          "startedAt": "2026-11-06T08:05:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:05:16Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "number": 19,
+          "startedAt": "2026-11-06T08:05:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:05:17Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "number": 20,
+          "startedAt": "2026-11-06T08:05:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T08:05:17Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 21,
+          "startedAt": "2026-11-06T08:05:17Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/ryanyu808/project/actions/runs/42185083554/job/127783404761"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/ryanyu808/project/actions/runs/42185083554",
+  "tests": 180,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "pytest_seconds": 11.09,
+  "environment": "GitHub-hosted ubuntu-latest / Python3.13.18",
+  "independent_numbers": "PASS",
+  "dashboard_filters_and_exports": "PASS",
+  "configured_production_AppTest": "PASS",
+  "streamlit_health": "PASS"
+}

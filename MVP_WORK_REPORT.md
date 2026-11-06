@@ -6,7 +6,7 @@ Version 1.2 describes equipment/cord obstacle or landing involvement without ass
 
 The unchanged guarded workflow validated and exported actual human decisions, finalized the real source, rejected no cases, and independently checked all production numbers before publishing five outputs. Runtime CSV/provenance are public preparation outputs; human-approved reviews, quality and validation audit files stay private. All retained IDs and Decimal weights match the original approved source. Runtime results: 109 visits / 5119.6280 weighted visits / 22.302804% severe. See validation/REAL_DATA_RESULTS.md. Never overwrite finalized outputs; use a fresh directory for deliberate future releases.
 
-Current software validation: 180 tests pass; actual configured production AppTest and independent real-data/CSV comparisons pass. Public deployment/screenshots/video and submission-ready ZIP remain pending authenticated access and genuine public evidence. No further case approvals are requested.
+Current software validation: 180 tests pass; actual configured production AppTest and independent real-data/CSV comparisons pass. Public deployment, authentic screenshots and five-minute demo are complete. Separate-session access and public CSV reconciliation pass; the [Unlisted video](https://www.youtube.com/watch?v=f45CShykzbI) plays without signing in, including verified1920x1080 playback. Ryan explicitly accepts his HW11 break verdict; CR-09 remains open. The final team ZIP is still blocked by missing legitimate distinct teammate cases. No further case approvals are requested.
 
 ---
 
