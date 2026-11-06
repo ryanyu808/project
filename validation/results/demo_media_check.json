@@ -1,0 +1,33 @@
+{
+  "status": "encoded and inspected; Unlisted playback pending",
+  "video_sha256": "e64bf2abb9310e6f921a90eec3cab1ca719419db5883f45345710febcf30ee40",
+  "seconds": "300.000000",
+  "bytes": 12967450,
+  "streams": [
+    {
+      "codec_type": "video",
+      "codec_name": "h264",
+      "width": 1920,
+      "height": 1080,
+      "sample_aspect_ratio": "1:1",
+      "display_aspect_ratio": "16:9",
+      "sample_rate": null,
+      "channels": null
+    },
+    {
+      "codec_type": "audio",
+      "codec_name": "aac",
+      "width": null,
+      "height": null,
+      "sample_aspect_ratio": null,
+      "display_aspect_ratio": null,
+      "sample_rate": "48000",
+      "channels": 1
+    }
+  ],
+  "visual_QA": "20 representative frames across nine genuine recorded scenes inspected; final severe and reconciliation keyframes checked separately",
+  "audio_QA": "complete track decode and signal metrics; no claim of auditory review",
+  "public_url": "https://treadmill-injury-dashboard.streamlit.app/",
+  "capture_method": "791 actual browser frames, approximately3fps with observation gaps; encoded30fps by holding actual pixels; no generated app graphics",
+  "upload_status": "awaiting intended channel confirmation"
+}

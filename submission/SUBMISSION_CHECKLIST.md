@@ -1,26 +1,18 @@
 # Final submission gates
 
-**NOT SUBMISSION-READY.** Genuine reviewed data and real local validation are complete. Public access/screenshots, owned case conclusions, teammate cases and a finished accessible demonstration remain. One member uploads the team ZIP; Ryan uploads his separate HW11PDF. Confirm the course calendar deadline before Quiz11 and maintain the app through December16.
+**NOT SUBMISSION-READY:** verified video link and legitimate distinct teammate case coverage remain. Ryan's individual HW11 and five-minute MP4 are complete. One member uploads the team ZIP; Ryan uploads his separate HW11 PDF. Confirm the deadline before Quiz11; maintain hosting through December16.
 
-- [x] Ryan's original171 personal confirmations, accepted injury-focused policy and final17 adjudications recorded without fabricated inspection.
-- [x] Codebook1.2 clarification accepted; all188source-bound reviews complete:109included/79excluded, no holds. Original source/AI fields and171approval rows preserved.
-- [x] Guarded approval export/finalization completed; exact IDs, source fingerprints and full-precision weights reconcile. Private reviews/audits remain local.
-- [x] Independent real Decimal/builder/export comparisons and actual configured local AppTest pass; all180Windows tests pass. See deployment/CI_RESULTS.md for actual Linux results.
-- [x] Safe runtime pair and software committed/pushed; no annual downloads, reviews/workbooks, caches, environments or secrets staged. one-shot-prompt.md unchanged.
-- [ ] Deploy main/app.py on Python 3.13; public sharing. Verify actual URL without login, same hash, filters/baselines/CSV and genuine screenshots with controls visible.
-- [ ] Ryan assesses live results and confirms his own prove/break verdict. Include legitimate distinct teammate cases and difficult-case coverage in teamCases; no invented work.
-- [ ] Replace public evidence in both PDF drafts, regenerate and inspect every page. Root validation.pdf retains exactly Design / Cases / Numbers / Tests; individual five-part PDF stays outside team ZIP.
-- [ ] Use genuine public footage with prepared300second narration and edit cues. Validate/assemble with assemble_demo.py, inspect entire MP4/audio/readability/synchronization, upload Unlisted and verify playback signed out.
-- [ ] Insert verified actual app/video links into README. Inspect final safe diff, fetch/integrate teammates, commit/push, and run release audit.
+- [x] All188 genuine source-bound reviews complete; 109 included /79 excluded. Raw source, original171 rows, candidates, review template, policy and one-shot prompt preserved.
+- [x] Guarded finalization and independent real-data checks complete; no synthetic production records.
+- [x] All180 Windows and Ubuntu tests pass; no weakened validation guards.
+- [x] Public app opened without sign-in in a separate browser session; metrics, filters, baselines, narratives, Reset/Undo, empty results, sensitivity and actual CSV checked.
+- [x] Authentic public screenshots saved with controls, UTC times and hashes.
+- [x] Ryan explicitly accepts break verdict; CR-09 is open, not built.
+- [x] Both PDFs contain live evidence; individual five-part PDF stays outside team ZIP. Team PDF honestly identifies missing case coverage.
+- [x] Genuine public footage and prepared AI narration encoded to300-second1920x1080 MP4; tracks/metadata and representative frames checked. Media stays outside ZIP.
+- [ ] Confirm YouTube channel, upload Unlisted, verify playback without signing in, insert actual video URL.
+- [ ] Team provides distinct genuinely owned cases and interpretations covering main users and difficult cases; integrate and inspect PDF.
+- [ ] Fetch/check final diff, commit/push only safe files, confirm CI and clean tracked tree; audit release.
+- [ ] Only after all requirements are met: create and inspect final git-archive ZIP below2GB, verify links and upload correct assignments.
 
-## Build only when ready
-
-```text
-git pull --ff-only
-uv run --locked python submission/check_release.py
-uv run --locked python submission/check_release.py --create-zip ../team-repo.zip
-```
-
-The read-only default audits committed HEAD, required runtime files, private paths, possible secret patterns, file limits, pending README links and tracked dirtiness. --create-zip refuses when not ready or output exists. It uses git archive from committedHEAD, never silently stages/commits/pushes. Link truth, live captures, human conclusions and playback still require the documented actual checks; this scan alone cannot establish them.
-
-Inspect all ZIP entries: root README.md and validation.pdf, final matching small runtime pair, no .venv/.venv-mvp/caches/rawdownloads/nesteddataset/privatepreparedreviews/workbooks/secrets. Archive below2GB. Verify both public links signed out. Upload team ZIP and separate individualPDF to correct Brightspace assignments by confirmed deadline. No incomplete ZIP is labeled submission-ready or generated as the final deliverable.
+Run `uv run --locked python submission/check_release.py` from the repository root. Only after the substantive gates above, use `uv run --locked python submission/check_release.py --create-zip ../team-repo.zip`. This audits committed HEAD and refuses pending README links, unsafe/private paths, secrets, missing runtime files, oversized files, tracked dirtiness and existing output. It does not validate human case coverage; its PASS alone is insufficient. Never include annual downloads, private review files, environments/caches, secrets, individual HW11 PDF, MP4 or raw recording frames in the team ZIP.

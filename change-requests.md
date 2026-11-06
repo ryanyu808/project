@@ -133,3 +133,17 @@ A filled request (from the class lottery app):
 ## Subsequent taxonomy extension - November 5, 2026
 
 Ryan separately authorized version 1.1. It adds a non-use fall category and an unpowered-surface Fall clarification, with source/approval history preserved. This does not rewrite the original CR-01 through CR-08 requests, evidence or implementation hashes. Current CR-07 definition/version checks reflect 1.1; all eight behavior checks pass in the complete 178-test suite. See docs/MECHANISM_CHANGELOG.md and tests/test_taxonomy_v11.py. Four conditional mappings still block production finalization.
+
+## Current production and live review - November 5, 2026
+
+The version 1.2 clarification and explicit final mapping approvals supersede the preceding historical 1.1/four-hold status. The genuine production cohort is complete (109 included / 79 excluded); 180 Windows and Ubuntu tests pass. CR-01 through CR-08 retain their original descriptions, evidence and implementation hashes. The new live-case finding follows; it is not built.
+
+### CR-09: Put estimate stability and uncertainty context beside the scatter
+
+- **From:** Ryan Yu, 2026-11-05; explicitly accepted the HW11 break conclusion in chat.
+- **Part:** Frequency-severity scatter and interpretation of mechanism comparisons.
+- **Evidence:** Genuine public 2025 app: Fall has 65 records / 3114.4453 weighted visits / 28.340164% severe; Belt contact has nine records / 330.4278 weighted visits / 31.612080% severe, from two severe records. CPSC flags national estimates below 1,200, fewer than 20 cases, or CV above 33% as unstable. Every observed non-Fall mechanism is below the first two screens; Fall passes those two but its CV is uncomputed. Its severe subset is also small (18 / 882.6389). These screens are not a significance test for differences in percentages. Screenshots and public CSV checks are in cases/screenshots and validation/results/public_dashboard_verification.json.
+- **Change:** Place clear, sourced CPSC stability/uncertainty context adjacent to the scatter for all mechanisms. Explain that differences are descriptive and survey-design uncertainty is not estimated. If validated design-based intervals are later available, show them with their assumptions; do not use naive binomial intervals on weighted visits. Retain visible counts and baselines. Apply the explanation consistently across users and filters, without declaring significance or automatically ranking priorities.
+- **Priority:** medium
+- **Status:** open
+- **Acceptance:** Ryan's response was "Accept this break conclusion". This records his owned evaluation, not a new user study or an implemented feature. CR-02 already supplies counts/unknowns and a general caveat; this request adds sourced stability context at the point of scatter interpretation.

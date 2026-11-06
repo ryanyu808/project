@@ -1,12 +1,8 @@
 # HW11 current evidence register
 
-Reviewed production data, independent CSV/Decimal comparisons and actual local configured AppTest pass. See validation/results/real_2025_results.json, real_2025_dashboard_check.json, real_2025_app_check.json. Hash c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f. Original case claim commit 4d4c213 remains preserved; source-backed persona is fictional.
+Verified November 5, 2026 Pacific. Public app: https://treadmill-injury-dashboard.streamlit.app/. Separate-session access without sign-in, all six observed mechanisms, severity states, literal/trimmed search, empty intersection, Reset/Undo, codebook, baselines, sensitivity and actual downloaded CSV checked. Data SHA c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f. Genuine unedited captures and their exact UTC times/filters/hashes are in validation/results/public_dashboard_verification.json. Public export independently reconciles to 109 / 5119.6280 with maximum float difference 1E-12.
 
-No genuine public screenshot, verified public URL, live-user observation or Ryan-owned final verdict is present. Capture the three specified public screens and record URL/time/filters/hash; compare actual downloaded CSV. Preserve screenshots beside the case at cases/screenshots. Proposed interpretation and possible uncertainty-display request in the final memo require Ryan's evaluation; they are not attributed to him.
-
-Individual PDF is generated separately from the team repository ZIP and labeled evidence draft until these requirements are met.
-
-Current interpretation caution: The [CPSC estimate guidance](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Explanation-Of-NEISS-Estimates-Obtained-Through-The-CPSC-Website) flags national estimates below 1,200, fewer than 20 cases, or CV above 33% as unstable. Every observed non-Fall mechanism is below the first two thresholds. Fall's 65 records / 3114.4453 pass those two screens, but its CV is uncomputed, so stability is not certified. Its severe subset (18 / 882.6389) is also small. These are national-estimate reporting cautions, not a significance test for differences in severe percentages.
+**Ryan's explicit owned verdict:** "Accept this break conclusion" in response to the concrete Fall-versus-Belt evidence and proposed adjacent uncertainty-context request. CR-09 is open. The assistant performed browser capture; no interview or analyst observation is claimed. The original case claim and all earlier research remain preserved below. The individual final PDF is separate from the team ZIP.
 
 ---
 

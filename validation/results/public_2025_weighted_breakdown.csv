@@ -1,0 +1,8 @@
+﻿row_type,injury_mechanism,weighted_ed_visits,record_count,analysis_period,active_filters,source_scope,prepared_sha256
+mechanism,Fall,3114.4453,65,2025 annual estimate,Mechanisms: all · Severity: all · Narrative search: none,full_annual,c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f
+mechanism,Unknown/Unclassified,697.4813,15,2025 annual estimate,Mechanisms: all · Severity: all · Narrative search: none,full_annual,c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f
+mechanism,Equipment/cord obstacle or landing falls,444.86510000000004,8,2025 annual estimate,Mechanisms: all · Severity: all · Narrative search: none,full_annual,c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f
+mechanism,Belt contact,330.4278,9,2025 annual estimate,Mechanisms: all · Severity: all · Narrative search: none,full_annual,c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f
+mechanism,Repair/moving,277.7898,8,2025 annual estimate,Mechanisms: all · Severity: all · Narrative search: none,full_annual,c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f
+mechanism,Entering/exiting,254.6187,4,2025 annual estimate,Mechanisms: all · Severity: all · Narrative search: none,full_annual,c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f
+selected_total,,5119.628000000001,109,2025 annual estimate,Mechanisms: all · Severity: all · Narrative search: none,full_annual,c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f

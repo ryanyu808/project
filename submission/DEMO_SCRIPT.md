@@ -1,6 +1,6 @@
-# Five-minute analyst demonstration - real-data narration prepared
+# Five-minute analyst demonstration - genuine public recording complete
 
-Not a recorded demonstration. This script uses independently checked production values, hash c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f. A 300-second offline voice track is prepared separately; public footage/access verification remains required. No footage or public results are simulated. The conclusion is an analyst follow-up suggestion, not Ryan's personal HW11 verdict. Use the same controls/results on the actual public app and verify before recording.
+The nine scenes below were recorded from the actual public application in a separate browser session without signing in, November 5, 2026 Pacific. The final MP4 is 300.000 seconds, H.264 1920x1080 (square pixels) and AAC 48 kHz mono, with the prepared AI voice track. It uses 791 actual captured frames at approximately 3 fps, with holds during browser actions and 30 fps encoding; no recreated UI or interpolated app graphics. Footage, narration and final MP4 are outside the repository. Exact scene/capture provenance and media checks accompany the local output. Unlisted upload and signed-out playback remain pending; no video URL is invented.
 
 ## 0:00-0:35 | Analyst decision
 

@@ -1,0 +1,202 @@
+{
+  "url": "https://treadmill-injury-dashboard.streamlit.app/",
+  "verified_at": "2026-11-06T07:40:22.179Z",
+  "no_sign_in_performed_in_separate_browser": true,
+  "public_viewer_fork_interface_observed": true,
+  "metric_checks": [
+    {
+      "scenario": "all",
+      "observed": [
+        "5,120",
+        "109",
+        "22.3%"
+      ]
+    },
+    {
+      "scenario": "Equipment/cord obstacle or landing falls",
+      "observed": [
+        "445",
+        "8",
+        "11.6%"
+      ]
+    },
+    {
+      "scenario": "Belt contact",
+      "observed": [
+        "330",
+        "9",
+        "31.6%"
+      ]
+    },
+    {
+      "scenario": "Repair/moving",
+      "observed": [
+        "278",
+        "8",
+        "0.0%"
+      ]
+    },
+    {
+      "scenario": "Entering/exiting",
+      "observed": [
+        "255",
+        "4",
+        "0.0%"
+      ]
+    },
+    {
+      "scenario": "Unknown/Unclassified",
+      "observed": [
+        "697",
+        "15",
+        "14.8%"
+      ]
+    },
+    {
+      "scenario": "Fall",
+      "observed": [
+        "3,114",
+        "65",
+        "28.3%"
+      ]
+    },
+    {
+      "scenario": "Severe",
+      "observed": [
+        "1,142",
+        "24",
+        "100.0%"
+      ]
+    },
+    {
+      "scenario": "Other known disposition",
+      "observed": [
+        "3,978",
+        "85",
+        "0.0%"
+      ]
+    },
+    {
+      "scenario": "Unknown",
+      "observed": [
+        "0",
+        "0",
+        "N/A"
+      ]
+    }
+  ],
+  "reset_undo_verified": true,
+  "trim_case_literal_search_verified": true,
+  "severe_belt_empty_verified": true,
+  "prepared_sha256_visible": "c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f",
+  "captures": [
+    {
+      "name": "07-fall-sensitivity",
+      "selection": {
+        "mechanism": "Fall",
+        "severity": "all",
+        "search": ""
+      },
+      "captured_at": "2026-11-06T07:23:29.092Z",
+      "url": "https://treadmill-injury-dashboard.streamlit.app/",
+      "capture": "matched CUA AX and screenshot",
+      "path": "cases/screenshots/07-fall-sensitivity.jpg",
+      "sha256": "76c48ca204ae08895d22220dbf70b6bf97a2bf7915e46e64d663848c6ad22dca"
+    },
+    {
+      "name": "09-fall-severe-stable",
+      "selection": {
+        "mechanism": "Fall",
+        "severity": "Severe",
+        "search": ""
+      },
+      "captured_at": "2026-11-06T07:24:43.478Z",
+      "url": "https://treadmill-injury-dashboard.streamlit.app/",
+      "capture": "matched CUA AX and screenshot",
+      "path": "cases/screenshots/09-fall-severe-stable.jpg",
+      "sha256": "0c6dcdf4b30de960de4cf8ad5eb6611a3446371d4a81d9dfb229ead64a29ef12"
+    },
+    {
+      "name": "10-severe-diagnosis-baselines",
+      "selection": {
+        "mechanism": "Fall",
+        "severity": "Severe",
+        "search": ""
+      },
+      "captured_at": "2026-11-06T07:24:57.591Z",
+      "url": "https://treadmill-injury-dashboard.streamlit.app/",
+      "capture": "matched CUA AX and screenshot",
+      "path": "cases/screenshots/10-severe-diagnosis-baselines.jpg",
+      "sha256": "693b2674ebabd4e7911531c9b18ba264b0576556582e90e7e589881161ccbaf7"
+    },
+    {
+      "name": "11-severity-comparison-table",
+      "selection": {
+        "mechanism": "Fall",
+        "severity": "Severe",
+        "search": ""
+      },
+      "captured_at": "2026-11-06T07:25:09.166Z",
+      "url": "https://treadmill-injury-dashboard.streamlit.app/",
+      "capture": "matched CUA AX and screenshot",
+      "path": "cases/screenshots/11-severity-comparison-table.jpg",
+      "sha256": "17fce711c9489b9853080207f10a5ab4e355fb2c8b1d0b517f4030194d9bb1b7"
+    },
+    {
+      "name": "12-fall-severe-belt-empty",
+      "selection": {
+        "mechanism": "Fall",
+        "severity": "Severe",
+        "search": "belt"
+      },
+      "captured_at": "2026-11-06T07:25:32.280Z",
+      "url": "https://treadmill-injury-dashboard.streamlit.app/",
+      "capture": "matched CUA AX and screenshot",
+      "path": "cases/screenshots/12-fall-severe-belt-empty.jpg",
+      "sha256": "69457ed440eadeee89bb6db68f94e975c722a09bc0f8117cb247c5ed6f113c17"
+    },
+    {
+      "name": "14-belt-matching-narratives",
+      "selection": {
+        "mechanism": "all",
+        "severity": "all",
+        "search": "  BeLt  "
+      },
+      "captured_at": "2026-11-06T07:27:07.190Z",
+      "url": "https://treadmill-injury-dashboard.streamlit.app/",
+      "capture": "matched CUA AX and screenshot",
+      "path": "cases/screenshots/14-belt-matching-narratives.jpg",
+      "sha256": "8d736684d2d7a153ba8fe8c9ba1e449dff35a454d8806238dfdd8ca57ae9348e"
+    },
+    {
+      "name": "15-live-full-precision-reconciliation",
+      "selection": {
+        "mechanism": "all",
+        "severity": "all",
+        "search": ""
+      },
+      "captured_at": "2026-11-06T07:27:56.144Z",
+      "url": "https://treadmill-injury-dashboard.streamlit.app/",
+      "capture": "matched CUA AX and screenshot",
+      "path": "cases/screenshots/15-live-full-precision-reconciliation.jpg",
+      "sha256": "f9aca803829301236f08d3633d9e24e456bea40a4bfc3e0834d28d9b1bd2ee26"
+    },
+    {
+      "name": "17-final-public-overview",
+      "selection": {
+        "mechanism": "all",
+        "severity": "all",
+        "search": ""
+      },
+      "captured_at": "2026-11-06T07:39:57.216Z",
+      "url": "https://treadmill-injury-dashboard.streamlit.app/",
+      "capture": "matched CUA AX and screenshot",
+      "path": "cases/screenshots/17-final-public-overview.jpg",
+      "sha256": "b49a43c17d3aba676eadcecd3dee7889cc7861507558245eb5dbcc039b87afee"
+    }
+  ],
+  "recorded_scene_count": 9,
+  "planned_recording_seconds": 300,
+  "status": "PASS",
+  "verification_basis": "Actual public browser interactions in a separate session without signing in; matched accessibility state and screenshots; not a literal incognito-window claim."
+}

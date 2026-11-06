@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "method": "ReportLab generation, PDF text/section assertions and Poppler rendering; every page visually inspected, including changed pages after layout corrections",
+  "team_pdf_pages": 12,
+  "individual_pdf_pages": 9,
+  "genuine_figures_per_pdf": 5,
+  "team_case_coverage": "Incomplete: legitimate distinct teammate cases not supplied",
+  "individual_verdict": "Ryan explicitly accepted break; CR-09 open",
+  "team_pdf_sha256": "aaf4feca3589e2284d047533613f33d74a00ffab4dfa6a70f9502805c2abd2a4",
+  "individual_pdf_sha256": "d1fa910c702855cdb0f577f11cd5a526263fe914888a4e87986dc38b23ce5546",
+  "latest_test_report": "live_release_tests.json"
+}

@@ -2,11 +2,11 @@
 
 This dashboard helps a CPSC epidemiology analyst decide which treadmill injury mechanisms among adults 65-120 deserve closer investigation. It brings weighted emergency-department visit estimates, recorded severe outcomes, primary diagnoses and narrative evidence together. It is an investigation aid; product association does not establish causation or injury risk per treadmill user.
 
-**Public app URL:** [PENDING - authenticated hosting access required]
+**Public app URL:** [Open the dashboard](https://treadmill-injury-dashboard.streamlit.app/)
 
-**Demo video URL:** [PENDING - genuine public footage and Unlisted upload required]
+**Demo video URL:** [PENDING - intended YouTube channel, Unlisted upload and playback verification]
 
-**Data release complete; submission not yet ready.** All 188 screened candidates have complete, source-bound human decisions: 109 retained injury visits, 79 exclusions. The genuine production CSV/provenance are included. Local production checks show **5,119.6280 weighted ED visits**, **24 severe records** and **22.3028% weighted severe outcomes**. These are not live-app observations until the public deployment is checked. See [independent real-data evidence](validation/REAL_DATA_RESULTS.md).
+**Reviewed production release and public verification complete; team submission requirements remain.** All 188 screened candidates have complete, source-bound human decisions: 109 retained injury visits, 79 exclusions. The genuine production CSV/provenance are included. Local production checks show **5,119.6280 weighted ED visits**, **24 severe records** and **22.3028% weighted severe outcomes**. The actual public app and downloaded CSV match these independent results; a separate browser session opened the app without signing in. [Live evidence](validation/results/public_dashboard_verification.json). See [independent real-data evidence](validation/REAL_DATA_RESULTS.md).
 
 ## User, cohort and scope
 
@@ -40,6 +40,6 @@ uv run --locked python validation/verify_app.py --output ../local-app-check.json
 
 Full suite: **180 passed**, no failures/errors/skips, Windows/Python 3.13.15. All eight original CRs, review/source guards, taxonomy, filters/exports, empty states and Git byte preservation are covered. [Results](validation/results/test_summary.json). Ubuntu/Python 3.13.18 also passed all 180 tests, genuine production validators/AppTest and HTTP health. [Actual CI evidence](deployment/CI_RESULTS.md).
 
-[validation.md](validation.md) and root [validation.pdf](validation.pdf) retain Design / Cases / Numbers / Tests. They remain evidence drafts pending public screenshots, case evaluation and accessible links. Ryan's [individual HW11 memo](cases/ryan-treadmill-falls-final.md) has verified local findings and a proposed conclusion for his review; its PDF is separate from the team ZIP. [Readiness](submission/READINESS.md), [demo sequence](submission/DEMO_SCRIPT.md), and [release guard](submission/check_release.py) identify remaining requirements.
+[validation.md](validation.md) and root [validation.pdf](validation.pdf) retain Design / Cases / Numbers / Tests and genuine public screenshots. Ryan's [individual HW11 case](cases/ryan-treadmill-falls-final.md) includes his explicitly accepted break verdict and open CR-09. Its final PDF is separate from the team ZIP. A genuine five-minute, 1920x1080 public-app MP4 with AI narration is complete outside the repository. Unlisted upload/playback and legitimate distinct teammate cases remain; no submission-ready ZIP is claimed. [Readiness](submission/READINESS.md), [demo sequence](submission/DEMO_SCRIPT.md), and [release guard](submission/check_release.py).
 
-The final small runtime CSV, matching provenance, 1.2 codebook and official lookup are sufficient for hosting. Raw annual files, private reviews/workbooks and audit inputs are excluded. The existing source/candidate/review template, original 171 approval rows and one-shot-prompt.md remain unchanged. [Review workflow/history](review_tools/README.md). Do not rerun finalization over existing outputs or publish private review material. No submission-ready ZIP is created while live evidence and links are missing.
+The final small runtime CSV, matching provenance, 1.2 codebook and official lookup are sufficient for hosting. Raw annual files, private reviews/workbooks and audit inputs are excluded. The existing source/candidate/review template, original 171 approval rows and one-shot-prompt.md remain unchanged. [Review workflow/history](review_tools/README.md). Do not rerun finalization over existing outputs or publish private review material. No submission-ready ZIP is created while the video link and team case coverage are incomplete.
