@@ -15,7 +15,7 @@ def test_initial_and_full_filter_reset_cycle():
     at = AppTest.from_function(fixture_app, default_timeout=20).run()
     assert not at.exception
     assert metrics(at) == ['120','5','41.7%']
-    assert len(at.get('plotly_chart')) == 3 and len(at.dataframe) == 3
+    assert len(at.get('plotly_chart')) == 3 and len(at.dataframe) == 4
     assert at.multiselect[0].value == [] and at.multiselect[1].value == [] and at.text_input[0].value == ''
     at.multiselect[0].set_value(['Fall']).run()
     assert metrics(at) == ['40','2','25.0%']

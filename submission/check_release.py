@@ -28,6 +28,6 @@ def main():
   if args.create_zip.exists():parser.exit(2,'ZIP already exists; do not overwrite.\n')
   subprocess.run(['git','archive','--format=zip','--output',str(args.create_zip.resolve()),'HEAD'],cwd=ROOT,check=True)
   with zipfile.ZipFile(args.create_zip) as z:
-   if any(private_path(n) for n in z.namelist()) or args.create_zip.stat().st_size>=2_000_000_000:raise ValueError('Unsafe or oversized archive')
+   if any(private_path(i.filename) for i in z.infolist() if not i.is_dir()) or args.create_zip.stat().st_size>=2_000_000_000:raise ValueError('Unsafe or oversized archive')
    print(json.dumps(dict(zip=str(args.create_zip),entries=z.namelist()),indent=2))
 if __name__=='__main__':main()

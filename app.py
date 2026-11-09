@@ -74,6 +74,25 @@ def render_dashboard(config, loaded):
         st.plotly_chart(rendered['mechanism_bar'], use_container_width=True, key='mechanism_bar')
     with right:
         st.plotly_chart(rendered['severity_scatter'], use_container_width=True, key='severity_scatter')
+        st.markdown('**Interpret comparisons cautiously.** [CPSC estimate guidance]('
+                    + views.ESTIMATE_GUIDANCE_URL + ') flags estimates below 1,200, fewer than 20 sampled '
+                    'records, or coefficient of variation (CV) above 33% as unstable. '
+                    'Survey-design CV and confidence intervals are not computed here. '
+                    'These screens concern estimated visit totals, not a significance test for severe percentages. '
+                    'A higher severe share does not establish a reliable ranking or higher risk per user.')
+        screen_result = (views.build_view_data(baseline_df, context=context,
+                         diagnosis_lookup=loaded['diagnosis_lookup']) if selection.severities else result)
+        with st.expander('Estimate cautions for the scatter population'):
+            st.caption('Population: same mechanism and narrative selection, severity unrestricted. '
+                       'Under a severity filter these are the scatter comparison baseline, not the headline subset. '
+                       'Passing the count and estimate screens does not establish stability; CV is uncomputed. '
+                       'Zero unknown outcomes does not remove sampling uncertainty.')
+            cautions = views.estimate_cautions(screen_result['mechanism_summary'])
+            if not cautions:
+                st.info('No baseline records for estimate screening.')
+            for item in cautions:
+                st.markdown(f"**{item['mechanism']}**: {item['records']} records / "
+                            f"{item['weight']:.4f} weighted visits. {item['assessment']}.")
     st.plotly_chart(rendered['diagnosis_stack'], use_container_width=True, key='diagnosis_stack')
     if selection.severities:
         st.subheader('Primary diagnosis · all-outcome comparison baseline')
@@ -148,10 +167,12 @@ def render_dashboard(config, loaded):
         st.caption(f"Data version: {reconciliation['data_version']}")
         st.download_button('Download weighted breakdown (CSV)', reconciliation['csv'],
                            file_name=f"treadmill_{config['analysis']['year']}_weighted_breakdown.csv", mime='text/csv')
-    if selection.narrative_query.strip():
-        st.subheader('Matching narrative records')
-        st.caption('These records match the literal narrative search and all other active filters. '
-                   'Each row is one ED visit, not one unique person.')
+    st.subheader('Matching narrative records' if selection.narrative_query.strip() else 'Selected injury records')
+    st.caption('Browse every record matching the active filters, including when search is blank. '
+               'Search matches trimmed, case-insensitive literal text, not mechanism labels or synonyms. '
+               'Belt contact describes an initiating mechanism, including speed changes; it does not establish '
+               'belt wear or a confirmed defect. Each row is one ED visit, not one unique person.')
+    with st.expander(f'Browse {len(filtered)} selected narratives', expanded=bool(selection.narrative_query.strip())):
         st.dataframe(filtered[['CPSC_Case_Number', 'Narrative_1', 'injury_mechanism',
                                'Disposition', 'Weight']], hide_index=True, use_container_width=True)
     st.caption('Descriptive investigation aid. Visits are not unique people. No exposure denominator, causal conclusion, '

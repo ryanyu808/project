@@ -5,6 +5,23 @@ from plotly.colors import qualitative
 from contracts import validate_visits, normalize_lookup, LOOKUP, KNOWN
 
 SUMMARY = ['injury_mechanism', 'weighted_ed_visits', 'record_count', 'severe_outcome_pct']
+ESTIMATE_GUIDANCE_URL = 'https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Explanation-Of-NEISS-Estimates-Obtained-Through-The-CPSC-Website'
+
+
+def estimate_cautions(summary):
+    """Two observable CPSC estimate screens; never infer CV or percentage significance."""
+    output = []
+    for row in summary.itertuples(index=False):
+        reasons = []
+        if row.weighted_ed_visits < 1200:
+            reasons.append('estimate below 1,200')
+        if row.record_count < 20:
+            reasons.append('fewer than 20 records')
+        output.append(dict(mechanism=row.injury_mechanism, records=int(row.record_count),
+                           weight=float(row.weighted_ed_visits), reasons=reasons,
+                           assessment='Caution: ' + '; '.join(reasons) if reasons else
+                           'Passes count/estimate screens; CV uncomputed, stability not established'))
+    return output
 COMPOSITION = ['injury_mechanism', 'diagnosis_code', 'diagnosis_label', 'diagnosis_weighted_ed_visits', 'diagnosis_pct']
 
 
