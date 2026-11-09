@@ -1,4 +1,24 @@
-# Five-minute analyst demonstration - genuine public recording complete
+# Five-minute analyst demonstration - revised November 9 release
+
+Current verified Unlisted video: https://www.youtube.com/watch?v=JEA_-Y34y4w. Published to the previously approved Cube Gaming channel, with advanced defaults retained. Copyright and Community Guidelines checks completed with no issues; a separate browser session showed Sign in and Unlisted and played actual 1920x1080 media. AI narration and editorial reading holds are disclosed in the description.
+
+The revised edit retains the verified original public footage and narration for unchanged behavior, adds actual November 9 browser captures for complete record browsing and sourced estimate cautions, and ends with an explicit follow-up choice. The interrupted caution-capture log was reconstructed only from saved frame file times; no simulated UI is used. The initial cropped capture was excluded. Local video duration is 300.021 seconds; the public player displays 5:00. Media stays outside the repository.
+
+| Time | Live evidence and decision purpose |
+| --- | --- |
+| 0:00-0:35 | Analyst's task, reviewed cohort and units. |
+| 0:35-1:15 | Compare Fall and Belt contact burden/outcomes; avoid a reliable ranking claim. |
+| 1:15-2:00 | Fall plus Severe: 18 selected visits, with all-outcome comparison baseline. |
+| 2:00-2:35 | New all-record browser: four Entering/exiting narratives, blank search; explain three getting matches versus one got off match. |
+| 2:35-3:10 | Selected and baseline diagnosis composition; clinical consequences versus causation. |
+| 3:10-3:50 | New CPSC cautions: count/estimate screens, uncomputed CV, no percentage-significance test. |
+| 3:50-4:20 | Reset/Undo and deliberate empty selections. |
+| 4:20-4:45 | Exact reconciliation and export. |
+| 4:45-5:00 | Concrete choice: shortlist the 18 severe Fall visits for circumstance review; check uncertainty and investigate equipment, environment and medical triggers. |
+
+The original recording script and prior upload below are retained as history, not as the current demo link.
+
+## Historical November 5 recording
 
 The nine scenes below were recorded from the actual public application in a separate browser session without signing in, November 5, 2026 Pacific. The final MP4 is 300.000 seconds, H.264 1920x1080 (square pixels) and AAC 48 kHz mono, with the prepared AI voice track. It uses 791 actual captured frames at approximately 3 fps, with holds during browser actions and 30 fps encoding; no recreated UI or interpolated app graphics. Footage, narration and final MP4 are outside the repository. Exact scene/capture provenance and media checks accompany the local output. Uploaded Unlisted to the user-selected Cube Gaming channel; playback verified in a separate session without signing in: https://www.youtube.com/watch?v=f45CShykzbI. The user explicitly chose to retain the channel's existing advanced metadata defaults; AI narration is disclosed in the description.
 

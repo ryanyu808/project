@@ -159,3 +159,12 @@ From ps607's Emily Carter case. Explain ED estimates versus individual risk, abs
 
 ### HW11 Alex Morgan - Optional primary-diagnosis filter (OPEN)
 From James Liao's hospital educator case. Optional diagnosis multiselect across mechanisms, all-diagnosis default, visible selections/counts/weights, fracture mapped to 57, and clearing restores 109 / 5119.6280. Original acceptance check is in the case. Not implemented. CR-09 remains OPEN.
+
+
+## November 9 implemented response (supersedes earlier open implementation status)
+
+- **CR-09: BUILT**, implementation `79c884ee37bf82f1f0a8a1423c8f24285da730b7`. Sourced CPSC guidance beside the scatter; each baseline mechanism has count/weight screens, uncomputed CV caveat, no percentage-significance claim. Boundaries and empty-selected/nonempty-baseline tests pass. Live evidence is in validation/results/stronger_release_20261109.json.
+- **CR-10 and Colby's related browser/explanation proposal: BUILT**, same commit. All filtered records browsable with blank search; literal matching unchanged; belt mechanism versus wear clarified. Live acceptance reproduces four entry/exit records, nine Belt contact records and the original keyword memberships.
+- Emily interpretation-panel and James diagnosis-filter proposals remain OPEN. Existing disclosures cover the surveillance limits; the scope/deferral rationale is in Design. No new verdict is attributed to their authors.
+
+Original descriptions, evidence and Break judgments above are preserved as history.

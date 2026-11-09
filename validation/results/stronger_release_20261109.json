@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "implementation_commit": "79c884ee37bf82f1f0a8a1423c8f24285da730b7",
+  "date": "2026-11-09",
+  "windows_tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "186",
+    "time": "15.510",
+    "timestamp": "2026-11-09T08:20:13.951272-08:00",
+    "hostname": "Ryan_XPS_15"
+  },
+  "python": "3.13.15",
+  "implementation_ci": "https://github.com/ryanyu808/project/actions/runs/42653883863",
+  "production_AppTest": "PASS",
+  "independent_dashboard_and_exports": "PASS",
+  "production_csv_sha256": "c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f",
+  "public_acceptance": {
+    "blank_search_entering_exiting": 4,
+    "blank_search_belt_contact": 9,
+    "getting": 3,
+    "got_off": 1,
+    "scatter": "all-mechanism count/estimate screens and source guidance present; CV uncomputed, no significance inference",
+    "access": "separate public IAB session; Fork viewer, no sign-in",
+    "reboot": "explicitly authorized by Ryan after automatic review requested confirmation"
+  },
+  "video": {
+    "url": "https://www.youtube.com/watch?v=JEA_-Y34y4w",
+    "public_playback": {
+      "sign_in_visible": true,
+      "unlisted_visible": true,
+      "playback": {
+        "duration": 300.041,
+        "height": 1080,
+        "paused": false,
+        "ready": 4,
+        "time": 17.028537,
+        "width": 1920
+      },
+      "verified_at": "2026-11-09T17:08:38.122Z",
+      "url": "https://www.youtube.com/watch?v=JEA_-Y34y4w"
+    },
+    "local_sha256": "9b7230038d0e4b62d0a99eb3e6f6246e7d2a934585ba50fc0c24980ea52735da",
+    "duration": 300.021029,
+    "method": "Previously verified public footage plus actual November 9 capture; no synthesized app visuals. Editorial holds repeat original pixels. Interrupted caution capture uses file times, disclosed; first cropped entry capture not used.",
+    "copyright_and_community_checks": "completed, no issues found"
+  },
+  "figures": [
+    {
+      "path": "cases/screenshots/stronger-estimate-cautions.jpg",
+      "sha256": "7af9c880ac5ff74419a56f69762f5815c37ba574c68c9f5188837376479e1b57"
+    },
+    {
+      "path": "cases/screenshots/stronger-all-entry-narratives.jpg",
+      "sha256": "6fde689b9890aeec17e5c87fd54a1a172ab1d95e9c9824881124f5bf8f6da4a5"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "pages": 34,
+  "figures": 21,
+  "sha256": "e6846fb6306a8c692237a53b9c0d5c0bd13e9ad8031f6df129e792f104bfc66c",
+  "layout": "Continuous case text with numbered original figures grouped two per A3 portrait evidence sheet; four main sections",
+  "image_integrity": "Original JPEG streams / PNG pixels preserved",
+  "qa": "Poppler rendered; all final pages visually inspected; no clipping or missing figures"
+}

@@ -3,8 +3,9 @@
 - [x] Teammate main pulled by fast-forward; Ryan's local editorial work preserved.
 - [x] Five distinct complete cases integrated with original screenshots, sources and conclusions.
 - [x] Four-section validation PDF regenerated and inspected.
-- [x] Reviewed production data and independent numerical checks retained; 180 tests pass.
+- [x] Reviewed production data and independent numerical checks retained; 186 tests pass.
 - [x] Public dashboard and Unlisted demo checked in a separate session without signing in.
+- [x] CR-09/CR-10 implemented and verified live; revised demo shows the response and a concrete follow-up decision.
 - [x] README includes introduction, cohort/scope, public links and laptop setup.
 - [x] Runtime files/dependencies included; private inputs and temporary artifacts excluded.
 - [ ] Final committed-HEAD ZIP uploaded by one member to the team Brightspace assignment.
