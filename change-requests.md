@@ -147,3 +147,15 @@ The version 1.2 clarification and explicit final mapping approvals supersede the
 - **Priority:** medium
 - **Status:** open
 - **Acceptance:** Ryan's response was "Accept this break conclusion". This records his owned evaluation, not a new user study or an implemented feature. CR-02 already supplies counts/unknowns and a general caveat; this request adds sourced stability context at the point of scatter interpretation.
+
+
+## HW11 teammate proposals - recorded November 9, 2026
+
+### CR-10 - Browse all selected injury records (OPEN)
+From Richard's Sarah Chen orientation case (uploaded by Yiqi Rong); also requested by Colby Messih for Jordan. Display all matching narratives when search is blank; preserve filtered totals. Acceptance: Entering/exiting exposes four narratives (254.6187); getting still matches three (202.3912), got off one (52.2275); Belt contact exposes nine and literal belt remains three across all mechanisms. Also explain that Belt contact is an initiating mechanism, not proven belt wear. Original request wording/evidence remains in the case files. Not implemented.
+
+### HW11 Emily - Rehabilitation interpretation panel (OPEN)
+From ps607's Emily Carter case. Explain ED estimates versus individual risk, absent supervision-effect evidence, small counts and the need for clinical assessment. Preserve the author's four requested statements in the integrated case; not implemented.
+
+### HW11 Alex Morgan - Optional primary-diagnosis filter (OPEN)
+From James Liao's hospital educator case. Optional diagnosis multiselect across mechanisms, all-diagnosis default, visible selections/counts/weights, fracture mapped to 57, and clearing restores 109 / 5119.6280. Original acceptance check is in the case. Not implemented. CR-09 remains OPEN.

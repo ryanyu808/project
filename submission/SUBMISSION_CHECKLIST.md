@@ -1,18 +1,14 @@
-# Final submission gates
+# Final submission checklist
 
-**NOT SUBMISSION-READY:** legitimate distinct teammate case coverage remains. Ryan's individual HW11 and five-minute MP4 are complete. One member uploads the team ZIP; Ryan uploads his separate HW11 PDF. Confirm the deadline before Quiz11; maintain hosting through December16.
+- [x] Teammate main pulled by fast-forward; Ryan's local editorial work preserved.
+- [x] Five distinct complete cases integrated with original screenshots, sources and conclusions.
+- [x] Four-section validation PDF regenerated and inspected.
+- [x] Reviewed production data and independent numerical checks retained; 180 tests pass.
+- [x] Public dashboard and Unlisted demo checked in a separate session without signing in.
+- [x] README includes introduction, cohort/scope, public links and laptop setup.
+- [x] Runtime files/dependencies included; private inputs and temporary artifacts excluded.
+- [ ] Final committed-HEAD ZIP uploaded by one member to the team Brightspace assignment.
+- [ ] Individual HW11 PDFs uploaded separately by their authors if not already submitted.
+- [ ] Hosting maintained through December 16.
 
-- [x] All188 genuine source-bound reviews complete; 109 included /79 excluded. Raw source, original171 rows, candidates, review template, policy and one-shot prompt preserved.
-- [x] Guarded finalization and independent real-data checks complete; no synthetic production records.
-- [x] All180 Windows and Ubuntu tests pass; no weakened validation guards.
-- [x] Public app opened without sign-in in a separate browser session; metrics, filters, baselines, narratives, Reset/Undo, empty results, sensitivity and actual CSV checked.
-- [x] Authentic public screenshots saved with controls, UTC times and hashes.
-- [x] Ryan explicitly accepts break verdict; CR-09 is open, not built.
-- [x] Both PDFs contain live evidence; individual five-part PDF stays outside team ZIP. Team PDF honestly identifies missing case coverage.
-- [x] Genuine public footage and prepared AI narration encoded to300-second1920x1080 MP4; tracks/metadata and representative frames checked. Media stays outside ZIP.
-- [x] User-selected Cube Gaming channel; Unlisted upload and playback without signing in verified: https://www.youtube.com/watch?v=f45CShykzbI.
-- [ ] Team provides distinct genuinely owned cases and interpretations covering main users and difficult cases; integrate and inspect PDF.
-- [ ] Fetch/check final diff, commit/push only safe files, confirm CI and clean tracked tree; audit release.
-- [ ] Only after all requirements are met: create and inspect final git-archive ZIP below2GB, verify links and upload correct assignments.
-
-Run `uv run --locked python submission/check_release.py` from the repository root. Only after the substantive gates above, use `uv run --locked python submission/check_release.py --create-zip ../team-repo.zip`. This audits committed HEAD and refuses pending README links, unsafe/private paths, secrets, missing runtime files, oversized files, tracked dirtiness and existing output. It does not validate human case coverage; its PASS alone is insufficient. Never include annual downloads, private review files, environments/caches, secrets, individual HW11 PDF, MP4 or raw recording frames in the team ZIP.
+The release report outside the repository records the final commit, archive path, size, hash and extraction checks. ZIP creation is guarded by submission/check_release.py and uses git archive; no local untracked files are included.

@@ -217,3 +217,8 @@ Public preparation documents now distinguish row completeness from genuine human
 ## Version 1.1 migration and explicit adjudication - November 5
 
 Recorded Ryan's stated eight inclusion decisions and supported conditional mappings separately from AI proposals. Original 171 human rows and all source/AI values are preserved. All 188 narratives were independently read against revised rules; no definite additional prior-label change was identified. Inclusion decisions: 109 Include / 79 Exclude. Complete review entries: 184; four mappings held for missing use context. No production finalization was run. Versioned codebook preparation/transfer/loading/sidebar and exact codebook fingerprint checks are implemented; archive 1.0 and private pre-edit evidence are preserved. No original prompt or policy bytes changed. Offline narration/FFmpeg work; browser/public recording remains unavailable. New tests protect the taxonomy and video input/evidence gates; fresh results are in validation/results/test_summary.json.
+
+
+## November 9 final integration
+
+Fast-forwarded teammate main; integrated five distinct cases and preserved original author files and screenshots. Root validation retains all four sections, numbers and historical test evidence. Current Windows suite passes 180 tests. Public dashboard and Unlisted 5:00 playback rechecked without signing in. All new Break requests remain open; no application/data/test changes were made. Final ZIP is built from committed HEAD after release checks.

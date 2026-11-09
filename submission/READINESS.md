@@ -1,15 +1,9 @@
-# Release readiness - November 5, 2026
+# Release readiness - November 9, 2026
 
-**Production, public verification, Ryan HW11 and genuine five-minute MP4 complete. Team submission not yet ready.**
+The reviewed 109-visit production bundle, public app, Unlisted five-minute demo, five distinct cases and four-section validation are complete. Windows rerun: 180 tests passed. Existing Linux CI evidence is preserved; final commit CI is checked after push.
 
-| Deliverable | Actual status |
-| --- | --- |
-| Reviewed production data | 188 genuine completed reviews; 109 Include / 79 Exclude; zero holds; unchanged guards and source fingerprints. |
-| Numbers / public app | Independent Decimal, actual configured AppTest, public controls and real downloaded CSV agree. Genuine public screenshots include visible selections and exact capture metadata. |
-| Tests | 180 passed, zero failures/errors/skips on Windows Python3.13.15 and Ubuntu Python3.13.18. CI and numerical reports are retained. |
-| Ryan HW11 | Five parts, official CPSC sources, genuine live captures, accepted break verdict; CR-09 open. Individual PDF is separate from the team ZIP. |
-| Team validation | Four required sections, real figures/screens, exact tests and Ryan case present. Legitimate distinct teammate cases / owned interpretations remain absent; no work is invented. |
-| Demo | Genuine public-app footage combined with AI narration; exact300seconds,1920x1080. Unlisted upload and separate-session playback without sign-in verified: https://www.youtube.com/watch?v=f45CShykzbI. |
-| README / release | Real app and verified video URLs present. Team-case coverage remains incomplete; no submission-ready ZIP is claimed. |
+The cases cover Ryan (investigation priority), Colby (belt inspection allocation), Richard's case uploaded by Yiqi (orientation), ps607 (rehabilitation supervision), and James (hospital education). Each has at least two public sources, live figures, decision interpretation and a Break proposal. All proposals remain open; no feature is claimed implemented from these requests.
 
-Next: team supplies its genuinely owned distinct cases covering main users and a difficult case. Merge those into Cases, rebuild/inspect the team PDF, fetch/check/push final safe docs, run the release guard and git archive from committed HEAD. Submit team ZIP and Ryan's separate HW11 PDF to the correct assignments by the confirmed deadline. Keep hosting through December16. Data approvals need not be repeated.
+Release uses git archive of committed HEAD. Raw annual data, private reviews, approvals, environments/caches, temporary captures and secrets are excluded. The runtime CSV/provenance/codebook/lookup and pinned dependencies are included. Ryan's separate final nine-page HW11 PDF remains in the 11-prove-tt folder for individual hand-in.
+
+Remaining actions: one member uploads the verified team ZIP to Brightspace by the course deadline; each student uploads their own HW11 PDF if not already done. Keep the public app working through December 16. See FINAL_GRADING_AUDIT.md for realistic expected scores and limitations.

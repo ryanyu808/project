@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-09",
+  "python": "3.13.15",
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "180",
+    "time": "13.702",
+    "timestamp": "2026-11-09T08:00:09.960557-08:00",
+    "hostname": "Ryan_XPS_15"
+  },
+  "production_csv_sha256": "c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f",
+  "independent_numbers": "PASS",
+  "dashboard_validator": "PASS",
+  "production_AppTest": "PASS",
+  "teammate_numbers": "PASS; Entering/exiting 4/254.6187; getting 3/202.3912; got off 1/52.2275; diagnoses 53/62 = 79.49/20.51%; Colby Decimal check reproduced",
+  "initial_attempt": "102 passed and 78 setup errors due to missing output parent; parent created, complete rerun passed without code/test edits",
+  "public_app": "Anonymous IAB: 109/5120/22.3; entering/exiting 4/255/0; getting 3/202/0; Reset, Undo, definitions, exact reconciliation hash checked",
+  "youtube": "Separate session Sign in link + Unlisted; actual playback 78.29401 seconds, 1920x1080, readyState 4, duration 300.021",
+  "screenshot_provenance": "Teammate submitted live captures inspected with visible filters and matching numbers; their capture-origin statements preserved; no independent timestamp attestation invented",
+  "source_links": "All 11 unique official/municipal/manufacturer source URLs opened successfully in web reader November 9; APTA main article publicly readable",
+  "case_attribution": "Richard credited within Sarah file; Git uploader Yiqi Rong. Emily attributed to ps607; identity not inferred."
+}
