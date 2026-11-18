@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "metric": "total_weight",
+      "publisher": "5119.6280",
+      "app": 5119.628000000001,
+      "difference": 9.094947017729282e-13,
+      "explanation": "Binary floating-point representation only; within 1e-8 absolute / 1e-12 relative tolerance"
+    },
+    {
+      "metric": "record_count",
+      "publisher": 109,
+      "app": 109,
+      "difference": 0.0,
+      "explanation": "Exact agreement"
+    },
+    {
+      "metric": "severe_pct",
+      "publisher": "22.30280403185543949677593763",
+      "app": 22.302804031855437,
+      "difference": -3.552713678800501e-15,
+      "explanation": "Binary floating-point representation only; within 1e-8 absolute / 1e-12 relative tolerance"
+    },
+    {
+      "metric": "fall_weight",
+      "publisher": "3114.4453",
+      "app": 3114.4453,
+      "difference": 0.0,
+      "explanation": "Exact agreement"
+    },
+    {
+      "metric": "fall_severe_pct",
+      "publisher": "28.34016381665139535441511848",
+      "app": 28.340163816651398,
+      "difference": 3.552713678800501e-15,
+      "explanation": "Binary floating-point representation only; within 1e-8 absolute / 1e-12 relative tolerance"
+    },
+    {
+      "metric": "belt_severe_pct",
+      "publisher": "31.61207985526641523503772988",
+      "app": 31.612079855266416,
+      "difference": 0.0,
+      "explanation": "Exact agreement"
+    },
+    {
+      "metric": "fall_severe_records",
+      "publisher": 18,
+      "app": 18,
+      "difference": 0.0,
+      "explanation": "Exact agreement"
+    },
+    {
+      "metric": "fall_fracture_pct",
+      "publisher": "35.08034641032224903741285808",
+      "app": 35.08034641032225,
+      "difference": 0.0,
+      "explanation": "Exact agreement"
+    }
+  ]
+}

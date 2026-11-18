@@ -1,0 +1,22 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______________________ test_main_result[total_weight] ________________________
+
+metric = 'total_weight'
+observed = {'total_weight': 5120.628000000001, 'record_count': 109, 'severe_pct': 22.298448549670077, 'fall_weight': np.float64(3114.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: total_weight
+E       assert 5120.628000000001 == 5119.628 ± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 5120.628000000001
+E         Expected: 5119.628 ± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[total_weight] - Asse...
+1 failed in 1.29s
