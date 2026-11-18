@@ -1,0 +1,132 @@
+{
+  "source_sha256_before": "aaa1267778c8b20843b219408ba15b3c6374cda593db7cc456166d2422fdba02",
+  "source_sha256_after": "aaa1267778c8b20843b219408ba15b3c6374cda593db7cc456166d2422fdba02",
+  "mutations": [
+    {
+      "metric": "total_weight",
+      "exit_code": 1,
+      "caught": true,
+      "command": [
+        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_publisher_results.py::test_main_result[total_weight]"
+      ],
+      "environment_override": {
+        "R8_MUTATION": "total_weight"
+      },
+      "output": "validation/results/r8/total_weight.txt"
+    },
+    {
+      "metric": "severe_pct",
+      "exit_code": 1,
+      "caught": true,
+      "command": [
+        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_publisher_results.py::test_main_result[severe_pct]"
+      ],
+      "environment_override": {
+        "R8_MUTATION": "severe_pct"
+      },
+      "output": "validation/results/r8/severe_pct.txt"
+    },
+    {
+      "metric": "fall_weight",
+      "exit_code": 1,
+      "caught": true,
+      "command": [
+        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_publisher_results.py::test_main_result[fall_weight]"
+      ],
+      "environment_override": {
+        "R8_MUTATION": "fall_weight"
+      },
+      "output": "validation/results/r8/fall_weight.txt"
+    },
+    {
+      "metric": "fall_severe_pct",
+      "exit_code": 1,
+      "caught": true,
+      "command": [
+        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_publisher_results.py::test_main_result[fall_severe_pct]"
+      ],
+      "environment_override": {
+        "R8_MUTATION": "fall_severe_pct"
+      },
+      "output": "validation/results/r8/fall_severe_pct.txt"
+    },
+    {
+      "metric": "belt_severe_pct",
+      "exit_code": 1,
+      "caught": true,
+      "command": [
+        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_publisher_results.py::test_main_result[belt_severe_pct]"
+      ],
+      "environment_override": {
+        "R8_MUTATION": "belt_severe_pct"
+      },
+      "output": "validation/results/r8/belt_severe_pct.txt"
+    },
+    {
+      "metric": "fall_severe_records",
+      "exit_code": 1,
+      "caught": true,
+      "command": [
+        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_publisher_results.py::test_main_result[fall_severe_records]"
+      ],
+      "environment_override": {
+        "R8_MUTATION": "fall_severe_records"
+      },
+      "output": "validation/results/r8/fall_severe_records.txt"
+    },
+    {
+      "metric": "fall_fracture_pct",
+      "exit_code": 1,
+      "caught": true,
+      "command": [
+        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_publisher_results.py::test_main_result[fall_fracture_pct]"
+      ],
+      "environment_override": {
+        "R8_MUTATION": "fall_fracture_pct"
+      },
+      "output": "validation/results/r8/fall_fracture_pct.txt"
+    }
+  ]
+}

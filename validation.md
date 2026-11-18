@@ -684,6 +684,36 @@ Actual post-deployment screenshots and acceptance results follow. These are impl
 
 ## 3. Numbers
 
+### R7.1 publisher-file audit - November 18, 2026
+
+The new standalone `validation/publisher_numbers.py` imports no application code and reads the original CPSC `neiss2025.xlsx`, sheet `NEISS_2025` (53,950,392 bytes; SHA-256 a784574c98a95175342f34d59cf19c61e73dc343e77791bf6b6564e49bbbb066). Obtain it through [CPSC NEISS](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data), Access NEISS, Archived Annual Data, 2025, Excel; [direct workbook](https://www.cpsc.gov/cgibin/NEISSQuery/Data/Archived%20Data/2025/neiss2025.xlsx). This is the unchanged original local workbook, audited November 18; its original download date was not recorded and is not invented. The hash matches the MVP source provenance. No changed or withdrawn replacement source was needed.
+
+The script independently scans all 410,201 rows / 25 columns, treatment dates January 1-December 31, 2025. It screens age 65-120, code 3277 in any of the three product fields (exercise equipment, not treadmill-specific), and a case-insensitive literal treadmill narrative mention: 188 candidates. It joins the separately committed `validation/reviewed_ids.csv` ID/mechanism allowlist: 109 included, 79 left excluded. The allowlist was exported from the existing 188 completed genuine decisions only after verifying review SHA-256 7e0a3fe0e43d26ceabcec170817bd6e28a1116e93c6bb4377d69922ccca7f9e5 against release provenance. No new review decision or narrative interpretation was made; no private notes were exported. The checker never reads the prepared CSV, candidate CSV or application loader.
+
+Main results: unit = sampled ED visit / weighted national ED visits, fixed calendar 2025, reviewed adults 65-120. Total = sum of original weights; severe share = 100 times weight with disposition 2/4/5/8 divided by all cohort weight. Fall/Belt results restrict to the existing hand-assigned mechanism. Severe Fall count is unweighted, filtered to Fall and dispositions 2/4/5/8. Fall fracture share uses primary Diagnosis 57 only, divided by all Fall weight, preserving other/missing diagnoses in the denominator. All controls are clear except the explicitly named mechanism/severity selection. These are descriptive estimates, not injury risk or causal effects.
+
+| Main result | Publisher calculation | App builder / displayed result |
+| --- | --- | --- |
+| Total weighted visits | 5119.6280 | 5119.628000000001 / 5,120 |
+| Sampled records | 109 | 109 |
+| Severe share | 22.30280403185544% | 22.302804031855437% / 22.3% |
+| Fall weighted visits | 3114.4453 | 3114.4453 / 3,114 |
+| Fall severe share | 28.34016381665140% | 28.340163816651398% / 28.3% |
+| Belt contact severe share | 31.61207985526642% | 31.612079855266416% / 31.6% |
+| Severe Fall records | 18 | 18 |
+| Fall primary-fracture share | 35.08034641032225% | 35.08034641032225% / 35.1% |
+
+`validation/results/publisher_2025.json` preserves the exact Decimal results, source size/hash, counts and mechanism numerators. `publisher_comparison.json` records each app value and difference. Binary floating-point differences are at most 9.095e-13 in these comparisons and pass max(1e-8 absolute, 1e-12 relative) tolerance; the displayed differences are rounding. There is no unexplained discrepancy. This checks the current local app calculation builders against the unchanged released data; the existing public screenshots remain historical public evidence, not newly captured live screenshots.
+
+Reproduce from the repository root (the original workbook remains local and excluded from Git):
+
+```text
+uv run --locked python validation/publisher_numbers.py --source dataset_neiss-sports-injuries/data/neiss2025.xlsx --output validation/results/publisher_2025.json
+uv run --locked python validation/compare_publisher.py
+```
+
+Historical MVP numerical validation follows unchanged.
+
 The guarded production workflow passed with **188 completed genuine reviews, 109 Include / 79 Exclude**, zero held cases and exactly 109 retained IDs. All retained weights match the original candidates as Decimal values. The full annual source has 410,201 records / 25 columns and dates January 1-December 31, 2025. Production CSV SHA-256: `c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f`. Codebook version **1.2**. No candidate count is presented as an injury estimate.
 
 Total T = **5119.6280 weighted ED visits**, 109 sampled visits. Severe dispositions 2/4/5/8 contribute **1141.8206** weight from **24** visits. S/T x 100 = **22.30280403185543949677593763%** (headline 22.3%). Unknown disposition U = **0**, zero records. Both conditional sensitivity endpoints therefore equal 22.30280403185543949677593763%; these are not confidence intervals.
@@ -712,6 +742,26 @@ Evidence: validation/results/real_2025_results.json, real_2025_dashboard_check.j
 The earlier invented hand-worked fixture remains documented in validation/results/fixture_results.json and dashboard_fixture_results.json. It tests 120 weight / five records / 41.666667% severe and unknown endpoints 41.666667-75%; it is never substituted for real findings. Canonical integer-code normalization resolved an earlier fixture 53.0-versus-53 representation issue without changing metric definitions. Actual real-data discrepancies are fully resolved; the separate public comparison also passes.
 
 ## 4. Tests
+
+### R8.1 calculation fault evidence - November 18, 2026
+
+Run `uv run --locked python validation/run_result_mutations.py`. Seven isolated pytest child runs compile deliberately modified copies of the actual `views.py` calculation function in memory. Each run targets the corresponding `test_main_result` assertion against the independently computed publisher results. The normal on-disk implementation is never overwritten. Its before/after hash is recorded in `validation/results/r8/summary.json`. The count exception is interpreted as the overall record count; the 18 severe Fall records are additionally protected and challenged.
+
+| Required result | Deliberate incorrect calculation | Actual result |
+| --- | --- | --- |
+| Total weight | Add one weighted visit | targeted assertion failed, exit 1 |
+| Overall severe share | Multiply severe numerator by 99 instead of 100 | targeted assertion failed, exit 1 |
+| Fall burden | Add one to Fall's grouped weight | targeted assertion failed, exit 1 |
+| Fall severe share | Add one percentage point | targeted assertion failed, exit 1 |
+| Belt severe share | Add one percentage point | targeted assertion failed, exit 1 |
+| Severe Fall records | Add one to the selected count | targeted assertion failed, exit 1 |
+| Fall fracture share | Use 99 instead of 100 in diagnosis share | targeted assertion failed, exit 1 |
+
+Complete actual failing outputs are in `validation/results/r8/<metric>.txt` and reproduced in the Part 4 PDF continuation. They are genuine assertion failures, not expected-failure decorators or startup errors. One controlled mutation is a sensitivity demonstration for its result, not proof against every possible bug. Nine new normal tests protect the eight main results and the checker's import independence. The first premature test run happened before the publisher scan finished and returned eight missing-oracle-file failures plus one pass; this was a run-order error, not evidence of a wrong calculation. After the source audit completed, the unchanged assertions passed with the correct implementation.
+
+Full correct-implementation regression run: `python -m pytest -q -p no:cacheprovider`, **195 passed in 50.33s**, no skips/failures. Historical suite counts below refer to earlier releases.
+
+Final captured repeat: **195 passed in 48.84s**; complete stdout/stderr is retained in `validation/results/r7r8_regression.txt`. The focused contribution check returned **9 passed in 0.14s**, with full output in `validation/results/publisher_check.txt`. Configured production AppTest and the existing independent dashboard/filter/CSV validator both passed again. These are local checks; no new public browser session or deployment is claimed.
 
 **Current strengthened suite: 186 passed, zero failures/errors/skips**, Windows/Python 3.13.15, 15.51 seconds. Six new tests protect the exact count/estimate thresholds, complete blank-search membership, and an empty selected subset with a nonempty scatter baseline. The implementation commit also passed Linux CI and production validators. Current release evidence is in validation/results/stronger_release_20261109.json. The historical runs below show how the test protection developed; they are not the latest test count.
 

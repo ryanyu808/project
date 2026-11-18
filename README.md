@@ -33,6 +33,16 @@ Brief narratives, medical triggers, selection and taxonomy decisions constrain i
 
 ## Validation, review and submission
 
+R7/R8 additions (November 18): the standalone original-publisher audit and seven actual calculation-fault failures are documented in Parts 3/4 of `validation.md` and `validation.pdf`. Existing cases and screenshots are preserved.
+
+```text
+uv run --locked python validation/publisher_numbers.py --source dataset_neiss-sports-injuries/data/neiss2025.xlsx --output validation/results/publisher_2025.json
+uv run --locked python validation/compare_publisher.py
+uv run --locked python validation/run_result_mutations.py
+```
+
+The raw CPSC workbook is deliberately not committed; obtain it from the CPSC Archived Annual Data 2025 link in Part 3. The checked-in ID/mechanism list is exported from existing legitimate review decisions and contains no private review notes. The independent checker reads original weights/outcomes/diagnoses from the workbook, not the prepared CSV. The separate comparison adapter imports the app. Normal tests use the frozen publisher-audit JSON so they also run without the private/local source inputs. Re-run the source audit when validating a release; frozen results alone cannot certify a changed source or cohort.
+
 ```text
 uv run --locked python -m pytest -q -p no:cacheprovider
 uv run --locked python validation/verify_app.py --output ../local-app-check.json

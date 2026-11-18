@@ -1,0 +1,22 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____________________ test_main_result[fall_fracture_pct] _____________________
+
+metric = 'fall_fracture_pct'
+observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct': 22.302804031855437, 'fall_weight': np.float64(3114.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: fall_fracture_pct
+E       assert np.float64(34.72954294621903) == 35.08034641032225 ± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 34.72954294621903
+E         Expected: 35.08034641032225 ± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[fall_fracture_pct]
+1 failed in 0.20s
