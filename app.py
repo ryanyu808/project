@@ -55,6 +55,29 @@ def render_dashboard(config, loaded):
     slots[1].metric('NEISS record count', f"{headline['record_count']:,}")
     percentage = headline['severe_outcome_pct']
     slots[2].metric('Weighted severe-outcome percentage', 'N/A' if percentage is None else f'{percentage:.1f}%')
+
+    # R2: CPSC reliability warning for the currently filtered headline.
+    caution_reasons = []
+
+    if headline['weighted_ed_visits'] < 1200:
+        caution_reasons.append('fewer than 1,200 weighted ED visits')
+
+    if headline['record_count'] < 20:
+        caution_reasons.append('fewer than 20 sampled records')
+
+    if caution_reasons:
+        st.warning(
+            'CPSC reliability caution for the current filtered results: '
+            + '; '.join(caution_reasons) + '. '
+            'Survey-design CV is not calculated, so additional '
+            'sampling instability cannot be ruled out.'
+        )
+    else:
+        st.caption(
+            'Headline passes the CPSC count and estimate screening thresholds. '
+            'CV is not calculated; statistical reliability is not established.'
+        )
+
     quality = result['quality']
     st.caption('Severity denominator includes all selected visit weight, including unknown dispositions. '
                f"Unknown disposition: {quality['unknown_disposition_record_count']:,} records / {quality['unknown_disposition_weight']:,.0f} weighted ED visits.")
