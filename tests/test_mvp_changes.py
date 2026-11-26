@@ -159,7 +159,8 @@ def test_cr05_undo_restores_all_controls_and_is_session_local():
     at.button[0].click().run()
     at.button[0].click().run()
     at.button[1].click().run()
-    assert at.multiselect[0].value == [] and at.text_input[0].value == ''
+    assert at.multiselect[0].value == ['Fall'] and at.multiselect[1].value == ['Severe']
+    assert at.text_input[0].value == 'belt'
 
 
 def test_cr06_conditional_endpoints_and_empty(visits, lookup, context):

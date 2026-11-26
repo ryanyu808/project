@@ -1,5 +1,6 @@
 """Pure row selection plus session-specific sidebar controls."""
 from dataclasses import dataclass, replace
+from itertools import combinations
 import pandas as pd
 from contracts import require_columns, severity_display
 
@@ -37,6 +38,46 @@ def apply_filters(data: pd.DataFrame, selection: FilterSelection) -> pd.DataFram
     return data.loc[mask].copy()
 
 
+def minimal_filter_relaxations(data: pd.DataFrame, selection: FilterSelection) -> list:
+    """Return successful sets of cleared filter dimensions, omitting supersets.
+
+    Each returned set is inclusion-minimal: none of its proper subsets can
+    restore records. Counts always retain every filter outside that set.
+    """
+    if not apply_filters(data, selection).empty or data.empty:
+        return []
+    defaults = {'mechanisms': (), 'severities': (), 'narrative_query': ''}
+    active = [field for field in defaults
+              if (selection.narrative_query.strip() if field == 'narrative_query'
+                  else getattr(selection, field))]
+    solutions = []
+    for size in range(1, len(active) + 1):
+        for fields in combinations(active, size):
+            if any(set(previous).issubset(fields) for previous, _ in solutions):
+                continue
+            relaxed = replace(selection, **{field: defaults[field] for field in fields})
+            count = len(apply_filters(data, relaxed))
+            if count:
+                solutions.append((fields, count))
+    return solutions
+
+
+def empty_selection_message(data: pd.DataFrame, selection: FilterSelection) -> str:
+    labels = {
+        'mechanisms': f"Injury mechanism ({', '.join(selection.mechanisms)})",
+        'severities': f"Severity ({', '.join(selection.severities)})",
+        'narrative_query': f"Narrative search ({selection.narrative_query.strip()!r})",
+    }
+    alternatives = [
+        f"Clear {' and '.join(labels[field] for field in fields)} to see "
+        f"{count:,} {'record' if count == 1 else 'records'}."
+        for fields, count in minimal_filter_relaxations(data, selection)
+    ]
+    return ('No records match the current filters. '
+            'Each alternative keeps the other selections unchanged: '
+            + ' Alternatively: '.join(alternatives))
+
+
 def render_sidebar(data: pd.DataFrame) -> FilterSelection:
     import streamlit as st
     defaults = {'filter_mechanisms': [], 'filter_severities': [], 'filter_query': ''}
@@ -45,6 +86,8 @@ def render_sidebar(data: pd.DataFrame) -> FilterSelection:
             st.session_state[key] = value
 
     def reset():
+        if all(st.session_state[key] == value for key, value in defaults.items()):
+            return
         st.session_state['selection_before_reset'] = {
             key: list(st.session_state[key]) if isinstance(value, list) else st.session_state[key]
             for key, value in defaults.items()

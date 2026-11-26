@@ -42,7 +42,10 @@ def render_dashboard(config, loaded):
         st.info('No prepared treadmill cases are available.')
     result = views.build_view_data(filtered, context=context, diagnosis_lookup=loaded['diagnosis_lookup'])
     for message in result['messages']:
-        st.info(message)
+        if result['status'] == 'empty' and not data.empty:
+            st.info(filters.empty_selection_message(data, selection))
+        else:
+            st.info(message)
     if result['status'] in ('invalid_input', 'unavailable'):
         return
     period = views.period_label(context)
