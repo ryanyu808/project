@@ -65,6 +65,11 @@ def render_dashboard(config, loaded):
         'selected visit weight, including records with unknown outcomes.'
     )
     st.caption(
+        '**Which visits are included?** These figures cover a reviewed subset of 2025 emergency '
+        'department visits among adults age 65 or older that mention a treadmill. '
+        'The team set some screened visits aside after review.'
+    )
+    st.caption(
         '**Severe outcomes** include treated and transferred (2), treated and admitted to the '
         'hospital (4), held for observation (5), and fatalities recorded in the ED, including '
         'dead on arrival (8).'

@@ -11,6 +11,20 @@ def metrics(at):
     return [item.value for item in at.metric]
 
 
+def test_headline_explains_reviewed_cohort_with_and_without_filters():
+    at = AppTest.from_function(fixture_app, default_timeout=20).run()
+    expected = (
+        'These figures cover a reviewed subset of 2025 emergency department visits '
+        'among adults age 65 or older that mention a treadmill. '
+        'The team set some screened visits aside after review.'
+    )
+    assert any(expected in caption.value for caption in at.caption)
+
+    at.multiselect[0].set_value(['Fall']).run()
+    assert metrics(at) == ['40', '2', '25.0%']
+    assert any(expected in caption.value for caption in at.caption)
+
+
 def test_initial_and_full_filter_reset_cycle():
     at = AppTest.from_function(fixture_app, default_timeout=20).run()
     assert not at.exception
