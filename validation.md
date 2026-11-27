@@ -25,6 +25,37 @@ The team deliberately did not build exposure-adjusted risk, geographic/brand att
 
 Meaningful alternatives are the official [NEISS query builder](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Instructions-for-Using-the-NEISS-Estimates-Query-Builder), an independent spreadsheet/script, and CPSC follow-back investigation. The official query provides selectable confidence intervals/CV and downloadable records; it does not automatically reproduce our narrative-screened, manually classified cohort. A separate analysis can explore broader fall-involving definitions but takes reconciliation work. Follow-back can supply circumstances absent from short narratives; this dashboard cannot replace it. A database or automated classifier does not supply missing narrative circumstances or evidence of usefulness. Small, precomputed flat files keep interactions in memory and avoid exposing preparation inputs.
 
+### Empirical comparison with the CPSC NEISS Estimates Query Builder (R5.1)
+
+On November 26, 2026, we used the official [CPSC NEISS Estimates Query Builder](https://www.cpsc.gov/cgibin/NEISSQuery/UserCriteria.aspx) with the closest available selection to our dashboard: treatment dates from January 1 to December 31, 2025, adults aged 65 and older, and product code 3277 (Exercise Equipment).
+
+The official query returned 24,577 estimated national ED visits based on 509 NEISS cases.
+
+| Comparison | CPSC Query Builder | Our Dashboard |
+| --- | --- | --- |
+| Treatment year | 2025 | 2025 |
+| Age | 65+ | 65–120 |
+| Product code | 3277 | 3277 |
+| Cohort | Exercise equipment injuries | Reviewed treadmill-related injuries |
+| Estimated national ED visits | 24,577 | 5,120 |
+| NEISS records | 509 | 109 |
+| Weighted severe share | Not reported in this query | 22.3% |
+| Narrative screening | Not directly available | Available |
+| Manual case review | No custom cohort review | Yes |
+| Injury mechanism classification | Not directly available | Available |
+| CV and confidence intervals | Optional outputs | Not computed |
+
+![CPSC NEISS Query Builder results, captured November 26, 2026.](cases/screenshots/cpsc-query-2025-result.png)
+
+The official query provides a broader estimate because product code 3277 covers all exercise equipment, rather than treadmills specifically. The query interface does not directly support narrative screening or our injury mechanism classification. Our dashboard further screens treadmill-related narratives and manually reviews 188 candidate records, retaining 109 injury-related ED visits and excluding 79.
+
+For a CPSC epidemiology analyst deciding which treadmill injury mechanisms warrant further investigation, our dashboard provides additional decision-relevant evidence. Falls account for approximately 3,114 estimated ED visits with a weighted severe share of 28.3%, compared with 31.6% for Belt contact. The analyst can also inspect all 18 severe Fall records to identify questions for further investigation.
+
+However, Belt contact contains only nine records and approximately 330 estimated visits, failing both the CPSC minimum estimate and case-count reliability screens. Its higher severe share should not be interpreted as a reliable ranking above Fall.
+
+The two tools therefore serve complementary purposes. The official CPSC tool supports broader injury surveillance and optional statistical uncertainty measures, while our dashboard supports focused treadmill injury investigations and narrative-level follow-up. The different totals reflect different cohort definitions and should not be interpreted as a calculation discrepancy.
+
+
 Preparation, loading, filtering, aggregation and UI wiring remain separate. Source and candidate fingerprints bind a completed review to its exact export; the loader rejects missing, edited, incomplete or sample artifacts instead of silently displaying national estimates. The injury-focused policy narrows the original broader involvement contract. Ryan explicitly accepts the matching policy and confirms his case review. The policy document retains its original authorship/fingerprint, and the actual acceptance is preserved in private review documentation. His subsequent version 1.2 taxonomy clarification supersedes only the old mechanism-version reference; inclusion scope and the original prompt are not silently changed. All records and taxonomy boundaries require real human verification; AI agreement does not satisfy that gate.
 
 Public evidence appears in Cases, with visible controls and recorded capture times. Ryan's original Break verdict and CR-09 are preserved as the historical case evaluation. CR-09's implementation response is now verified separately in the November 9 release-response subsection. No independent analyst interview, usability experiment or observed adoption is claimed.
