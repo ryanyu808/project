@@ -242,7 +242,7 @@ The app's 0.0% severe-outcome figure means none of the four records had one of t
 Compared with the overall cohort's 22.3028% weighted severe share (109 records), the difference does not establish that entering/exiting is safer because the subgroup contains only four records (kind 9: small groups/chance).
 
 **Who is in the rows, and who is not?** 
-One row represents an ED visit, not a unique individual (kind 1). The team's prepared 2025 dataset contains 109 reviewed injury-related ED visits for adults ages 65–120, linked to treadmill product code 3277 and a narrative treadmill mention.
+One row represents an ED visit, not a unique individual (kind 1). The team's prepared 2025 dataset contains 109 reviewed injury-related ED visits for adults ages 65-120, screened using NEISS product code 3277 (Exercise Equipment) and a narrative mention of a treadmill.
 
 The team reviewed 188 screened candidates and excluded 79 under its accepted injury-focused policy. Within the selected Entering/exiting mechanism, the four records involve patients aged 72, 76, 77, and 87.
 
