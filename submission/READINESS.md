@@ -1,7 +1,7 @@
-# Deliverable 5 readiness - November 27, 2026 Pacific
+# Deliverable 5 release
 
-NOT READY TO SUBMIT: the authentic final recording is still required. See FINAL_DEMO_PLAN.md for the narration and recording instructions. The historical YouTube link does not satisfy this requirement.
+The final recording is included as root demo.mp4 and was inspected against R5.2a-c. validation.pdf and response-letter.pdf are rendered from current sources. All teammate implementations and the original five cases are preserved. The full pinned test suite passes 204 tests; original publisher validation, seven deliberate calculation failures, five-category hardening, production AppTest and clean extraction/startup checks are documented.
 
-All fetched teammate code is integrated; the production suite passes 204 tests, original publisher audit and eight-result comparison pass, and all seven deliberate calculation errors are caught. Five-category local hardening and final public captures are recorded. validation.pdf was rebuilt from current Markdown; the old builder cannot discard newer pages.
+Create the submission ZIP from the final verified Git commit using git archive. Its required root artifacts are README.md, validation.pdf, response-letter.pdf and demo.mp4. Exclude private inputs and temporary video-production files. Compare the final ZIP to Git and run the extracted tests before upload.
 
-Use requirements-matrix.md, response-letter.pdf and hardening-report.md for current status. Any archive marked CANDIDATE is incomplete until demo.mp4/demo.mov is included or the course-permitted Drive fallback is verified. Keep the live app available and unchanged until grades arrive, December 16 at the latest. One teammate uploads one ZIP by December 4, 6 pm Pacific.
+One teammate uploads the verified final ZIP to Brightspace by December 4, 6 pm Pacific. Keep the public app running unchanged until grades arrive, December 16 at the latest. No outside-team audience comprehension study is claimed; source download-date and automated-source-link access limitations remain documented.

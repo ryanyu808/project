@@ -1,10 +1,12 @@
-> Final integration status (November 27): all teammate code is integrated and the pinned suite passes **204 tests**. The final video file and release packaging gates are tracked in `requirements-matrix.md`. The historical MVP video below is not the Deliverable 5 video. Do not submit until these gates are complete.
-
 # CPSC Treadmill Injury Dashboard
 
 This dashboard helps a CPSC epidemiology analyst decide which treadmill injury mechanisms among adults 65-120 deserve closer investigation. It brings weighted emergency-department visit estimates, recorded severe outcomes, primary diagnoses and narrative evidence together. It is an investigation aid; product association does not establish causation or injury risk per treadmill user.
 
 **Public app URL:** [Open the dashboard](https://treadmill-injury-dashboard.streamlit.app/)
+
+**Final Deliverable 5 video:** [demo.mp4](demo.mp4), 322.7 seconds, 1920x1080 H.264/AAC, 7,407,910 bytes. Real deployed-app interactions and browser address bar; synthetic narration. [Transcript and timestamps](submission/FINAL_DEMO_TRANSCRIPT.md).
+
+**Final integrated suite:** 204 tests pass in the pinned production environment. Full verification and hardening evidence: [requirements matrix](requirements-matrix.md) and [hardening report](hardening-report.md).
 
 **Historical MVP demo (not the final recording):** [Watch the earlier demonstration](https://www.youtube.com/watch?v=JEA_-Y34y4w)
 
@@ -52,6 +54,6 @@ uv run --locked python validation/verify_app.py --output ../local-app-check.json
 
 Historical November 9 suite: **186 passed**, no failures/errors/skips, Windows/Python 3.13.15. All eight original CRs, review/source guards, taxonomy, filters/exports, empty states and Git byte preservation are covered. [Current results](validation/results/stronger_release_20261109.json). Ubuntu/Python 3.13.18 also passed all 180 tests, genuine production validators/AppTest and HTTP health. [Actual CI evidence](deployment/CI_RESULTS.md).
 
-[validation.md](validation.md) and root [validation.pdf](validation.pdf) retain Design / Cases / Numbers / Tests and genuine public screenshots. Ryan's [individual HW11 case](cases/ryan-treadmill-falls-final.md) includes his explicitly accepted break verdict and open CR-09. Its final PDF is separate from the team ZIP. The preserved case describes the original Break; CR-09 and CR-10 are now implemented in release 79c884e and verified separately in validation. The historical MVP had a five-minute, 1920x1080 public-app MP4 with AI narration outside the repository; it is not the required final recording. The Unlisted video plays in a separate browser session without signing in. Five distinct cases are integrated in the final validation: investigation priority, belt inspections, orientation, rehabilitation supervision and hospital education. [Readiness](submission/READINESS.md), [demo sequence](submission/DEMO_SCRIPT.md), and [release guard](submission/check_release.py).
+[validation.md](validation.md) and root [validation.pdf](validation.pdf) retain Design / Cases / Numbers / Tests and genuine public screenshots. Ryan's [individual HW11 case](cases/ryan-treadmill-falls-final.md) includes his explicitly accepted break verdict and open CR-09. Its final PDF is separate from the team ZIP. The preserved case describes the original Break; CR-09 and CR-10 are now implemented in release 79c884e and verified separately in validation. The historical MVP had a five-minute, 1920x1080 public-app MP4 with AI narration outside the repository; it is not the required final recording. The Unlisted video plays in a separate browser session without signing in. Five distinct cases are integrated in the final validation: investigation priority, belt inspections, orientation, rehabilitation supervision and hospital education. [Readiness](submission/READINESS.md), [final demo sequence](submission/FINAL_DEMO_TRANSCRIPT.md), and [release guard](submission/check_release.py).
 
 The final small runtime CSV, matching provenance, 1.2 codebook and official lookup are sufficient for hosting. Raw annual files, private reviews/workbooks and audit inputs are excluded. The existing source/candidate/review template, original 171 approval rows and one-shot-prompt.md remain unchanged. [Review workflow/history](review_tools/README.md). Do not rerun finalization over existing outputs or publish private review material. The submission ZIP is generated from the final committed HEAD; its manifest and release audit are checked before hand-in.

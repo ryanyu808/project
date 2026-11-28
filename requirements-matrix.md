@@ -11,9 +11,9 @@ November 27, 2026 Pacific. Based on all pages of the official T9 MVP Feedback Re
 | R4.1 | Parth | Empty intersection identifies filters or combinations to change. | filters.py; tests/test_r4_recovery.py | PASS locally |
 | R4.2 | Parth | Two consecutive Resets retain last meaningful selection for Undo. | filters.py; tests/test_r4_recovery.py; five repeated production cycles | PASS locally |
 | R5.1 | Richard | Design reports actual nearest CPSC query result and selection limits. | validation.md Design; cases/screenshots/cpsc-query-2025-result.png | PASS: teammate capture gives 24,577 / 509 for exercise equipment |
-| R5.2a | Ryan integration | Every narrated step performed on screen in final live app. | submission/FINAL_DEMO_PLAN.md | PENDING authentic final recording |
-| R5.2b | Ryan integration | Every spoken number remains readable during narration. | submission/FINAL_DEMO_PLAN.md | PENDING recording review |
-| R5.2c | Ryan integration | Browser address bar shows README live link at least once. | submission/FINAL_DEMO_PLAN.md | PENDING recording |
+| R5.2a | Ryan integration | Every narrated step performed on screen in final live app. | demo.mp4; submission/FINAL_DEMO_TRANSCRIPT.md | PASS: real actions; getting 04:09-04:22; got off 04:30-04:45 |
+| R5.2b | Ryan integration | Every spoken number remains readable during narration. | demo.mp4; submission/FINAL_DEMO_TRANSCRIPT.md | PASS: decoded frame review; overview 00:24-00:50; comparison 00:52-01:16 |
+| R5.2c | Ryan integration | Browser address bar shows README live link at least once. | demo.mp4; submission/FINAL_DEMO_TRANSCRIPT.md | PASS: native address bar from 00:02-00:23 |
 | R6.1 | Richard | Case 3 no longer calls 3277 treadmill-specific. | cases/case-sarah-treadmill-orientation.md; validation.md | PASS in current source; rendered from current Markdown |
 | R7.1a | Ryan | Standalone original-2025-publisher check imports no app; documents source location. | validation/publisher_numbers.py; original workbook SHA in Part 3 | PASS: original workbook rerun, 410,201 rows |
 | R7.1b | Ryan | Each main result beside app value, all discrepancies explained. | validation/compare_publisher.py; Part 3; final_20261127/publisher.json | PASS: eight values agree within stated floating-point tolerance |

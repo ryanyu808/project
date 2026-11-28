@@ -9,3 +9,6 @@ Fast-forwarded local main from 4f6e56b to 21eb833. Created final-integration-202
 Fresh checks: original NEISS workbook, eight-result comparison, seven mutation failures, 14 dashboard/export scenarios, real production AppTest and scripted five-category hardening. Raw results are under validation/results/final_20261127 and validation/results/r8. Publication claims are limited to observed public app behavior; browser captures are under cases/screenshots/final-20261127.
 
 Remaining recording is a tool limitation: browser API provides still captures but no continuous recording. The plan is ready; final video evidence is not fabricated. Candidate archive is not submission-ready until that gate is closed.
+
+
+Follow-up recording completion (November 27 Pacific): native PrintWindow capture and Windows speech synthesis made the final real-app recording possible. The earlier browser-only limitation was resolved. Metadata, exact timings and inspected final-MP4 frames are recorded under validation/results/final_demo_20261127 and submission/video-evidence.

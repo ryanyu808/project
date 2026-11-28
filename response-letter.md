@@ -1,6 +1,6 @@
 # Team T9 response to MVP feedback
 
-Final integration draft, November 27, 2026 Pacific. Technical checks below are executed evidence; pending items are explicitly identified. Attribution follows the assigned division and Git history.
+Final response, November 27, 2026 Pacific. Technical and video claims below are supported by executed checks and decoded recording evidence. Attribution follows the assigned division and Git history.
 
 ## R1.1a
 
@@ -48,19 +48,19 @@ Response (Richard): PASS: teammate capture gives 24,577 / 509 for exercise equip
 
 Requirement: Every narrated step performed on screen in final live app.
 
-Response (Ryan integration): PENDING authentic final recording. Evidence: submission/FINAL_DEMO_PLAN.md. See `requirements-matrix.md` and the current validation PDF for context.
+Response (Ryan integration): PASS. Every described control action is performed in the actual deployed app. The getting search is typed/applied during 04:06-04:09, with its result shown at 04:09-04:22; got off is typed/applied during 04:22-04:30, with its result at 04:30-04:45. The video also performs mechanism/severity filtering, narrative expansion, the empty intersection, two Resets and Undo. See root demo.mp4 and submission/FINAL_DEMO_TRANSCRIPT.md.
 
 ## R5.2b
 
 Requirement: Every spoken number remains readable during narration.
 
-Response (Ryan integration): PENDING recording review. Evidence: submission/FINAL_DEMO_PLAN.md. See `requirements-matrix.md` and the current validation PDF for context.
+Response (Ryan integration): PASS. Spoken opening results remain readable at 00:24-00:50; both mechanisms' totals, supporting counts and severe percentages remain in the summary table at 00:52-01:16. The selected severe Fall headline is shown at 02:09-02:26; search counts remain on screen during both search explanations. The final recorded narrative focuses on the analyst workflow and does not discuss a fracture-bar value or off-screen full-precision total. Decoded final-MP4 frames and timing evidence: submission/video-evidence and validation/results/final_demo_20261127/video-verification.json.
 
 ## R5.2c
 
 Requirement: Browser address bar shows README live link at least once.
 
-Response (Ryan integration): PENDING recording. Evidence: submission/FINAL_DEMO_PLAN.md. See `requirements-matrix.md` and the current validation PDF for context.
+Response (Ryan integration): PASS. The actual Chrome address bar displays treadmill-injury-dashboard.streamlit.app during the opening 00:02-00:23 and remains in the native window capture. This is the deployed URL in README, not a typed slide or simulated browser bar. See submission/video-evidence/opening.jpg and root demo.mp4.
 
 ## R6.1
 

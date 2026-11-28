@@ -17,6 +17,7 @@ styles.add(ParagraphStyle(name='Output',fontName='Courier',fontSize=7,leading=9)
 def markup(s):
     s=escape(s)
     s=re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)',r'<link href="\2" color="blue">\1</link>',s)
+    s=re.sub(r'\[([^\]]+)\]\((?!https?://)[^)]+\)',r'\1',s)
     return re.sub(r'\*\*([^*]+)\*\*',r'<b>\1</b>',s).replace('`','')
 def build(source,destination):
     lines=source.read_text(encoding='utf-8').splitlines(); story=[]; i=0

@@ -1,19 +1,30 @@
-# Final five-minute live-app recording
+# Final recorded demo
 
-Status: recording required. The available browser automation supports still captures and controls, but no continuous video recording API. No new video file or published URL is claimed. The old YouTube recording is the MVP demo and does not satisfy R5.2.
+## Final recorded demo - November 27, 2026 Pacific
 
-Use https://treadmill-injury-dashboard.streamlit.app/ in a normal desktop browser. Record browser chrome and address bar; show all filter controls. Save as root `demo.mp4`. Keep each discussed number in frame while speaking. Do not replace app interactions with slides or still images. Pause narration during loading; do not narrate a result before it is visible.
+The required final recording is root `demo.mp4`: 322.700 seconds, 1920x1080 H.264 video at 12/1 fps, AAC audio with synthetic Microsoft Zira Desktop narration, 7,407,910 bytes. It shows the actual deployed dashboard in an isolated Chrome window with its real address bar. The file was fully decoded without errors and inspected through decoded frames for every narrated scene and the required interactions. No full-black interval of half a second or more was detected. Static reading intervals are deliberate; the actual filter/search/reset actions are continuously captured. No outside-team audience comprehension test is claimed.
 
-| Time | Actual actions and visible evidence | Narration |
-| --- | --- | --- |
-| 0:00-0:40 | Address bar visible at README live link; Reset; show headline and cohort/severity captions. | You are a CPSC analyst deciding whether to prioritize Fall or Belt contact for follow-up among older-adult treadmill-related ED visits. This dashboard supports that investigation decision. These are reviewed 2025 records, not all treadmill injuries or injury risk per user. |
-| 0:40-1:20 | Show 5,120 / 109 / 22.3%; keep captions visible. Scroll to mechanism summary with Fall and Belt contact rows readable. | The opening view estimates 5,120 ED visits from 109 sampled records; 22.3 percent of visit weight has severe outcomes. Severe includes transfer, admission, observation and ED fatalities. Falls have 3,114 weighted visits from 65 records; Belt contact has about 330 from nine. |
-| 1:20-2:10 | Select Fall, close dropdown, then Severe. Show 883 / 18 / 100.0%, warning and all-outcome baseline table. | I choose Fall for the first follow-up shortlist because it combines the larger observed burden with 18 severe records. The selected percentage becomes 100 percent because I selected Severe; the all-outcome baseline remains 28.3 percent. Belt contact's 31.6 percent comes from only nine records and is not a reliable ranking above Fall. The app has no exposure denominator or validated survey CV. |
-| 2:10-2:50 | Expand Browse 18 selected narratives. Then enter belt; press Enter; show empty result and specific Clear guidance. Reset twice and Undo; verify selections restore. | The shortlist provides original narratives for investigation questions. Adding belt produces an empty intersection, not evidence that belt injuries never occur. The message names filters I can clear. Two Resets followed by Undo restore the selection. These controls were hardened after feedback. |
-| 2:50-3:35 | Reset; Entering/exiting; type getting and press Enter; show three records. Replace with got off and press Enter; show one record. Keep controls and counts visible. | Literal searches describe text rather than mechanisms. Here getting finds three of the entering/exiting records, and got off finds the other one. A search term alone can miss relevant cases. The four-record group cannot demonstrate that mounting is safe or that a training intervention works. |
-| 3:35-4:20 | Reset; select Fall only; scroll to diagnosis; hover fracture segment until 35.1% is readable, then show supporting counts. | Primary fractures account for 35.1 percent of Fall visit weight. This is the first diagnosis field, not all fractures in either diagnosis field. A clinical educator could use this pattern for discussion, but cannot infer prevention effectiveness or prescribe supervision from surveillance records alone. |
-| 4:20-5:00 | Reset; expand weighted-total reconciliation; scroll so selected-total row 5119.6280 and download are readable. Return to Fall severe shortlist if time permits. | The full-precision total is 5,119.6280, displayed as 5,120. Our independent check starts from the original CPSC workbook, not this prepared export, and reproduces all eight main results. Seven deliberate calculation errors each failed a test; the integrated suite passes 204 tests. My next step as the analyst is to take the 18 severe Fall records into follow-back investigation and assess circumstances and classification boundaries before deciding whether an intervention is justified. |
+- R5.2a: PASS. Every described control action is performed in the actual deployed app. The getting search is typed/applied during 04:06-04:09, with its result shown at 04:09-04:22; got off is typed/applied during 04:22-04:30, with its result at 04:30-04:45. The video also performs mechanism/severity filtering, narrative expansion, the empty intersection, two Resets and Undo. See root demo.mp4 and submission/FINAL_DEMO_TRANSCRIPT.md.
+- R5.2b: PASS. Spoken opening results remain readable at 00:24-00:50; both mechanisms' totals, supporting counts and severe percentages remain in the summary table at 00:52-01:16. The selected severe Fall headline is shown at 02:09-02:26; search counts remain on screen during both search explanations. The final recorded narrative focuses on the analyst workflow and does not discuss a fracture-bar value or off-screen full-precision total. Decoded final-MP4 frames and timing evidence: submission/video-evidence and validation/results/final_demo_20261127/video-verification.json.
+- R5.2c: PASS. The actual Chrome address bar displays treadmill-injury-dashboard.streamlit.app during the opening 00:02-00:23 and remains in the native window capture. This is the deployed URL in README, not a typed slide or simulated browser bar. See submission/video-evidence/opening.jpg and root demo.mp4.
 
-Before handing in: watch the actual recording, check every spoken number and performed step, and ask someone outside the team to say back the decision and answer. Record the result truthfully. If the app changes, re-record affected material. About five minutes is the official duration, not a requirement to force exactly 300.000 seconds.
+The final workflow ends with Fall plus Severe as the initial follow-up shortlist and states the next investigation steps and limits. Exact narration and timestamps are in submission/FINAL_DEMO_TRANSCRIPT.md; machine metadata and hashes are in validation/results/final_demo_20261127/video-verification.json. Video production inputs remain outside the team repository.
 
-Under 100 MB: commit `demo.mp4` before `git archive`. Otherwise add the file to the ZIP as instructed in `13-iterate/final.md`. Google Drive set to Anyone with the link, with its verified link in README, is the course fallback if ZIP inclusion fails. YouTube publication alone does not replace handing in the actual file under these instructions.
+## Recorded sequence
+
+- 00:02-00:23: opening
+- 00:24-00:50: overview
+- 00:52-01:16: comparison
+- 01:21-01:41: belt
+- 01:47-02:04: fall
+- 02:09-02:26: severe
+- 02:27-02:43: baseline
+- 02:45-03:03: narratives
+- 03:06-03:22: empty
+- 03:28-03:43: undo
+- 03:50-04:06: entry
+- 04:09-04:22: getting
+- 04:30-04:45: got-off
+- 04:54-05:21: decision
+
+The recorded sequence focuses on the investigation decision, visible numbers, warnings, the shortlist, recovery and both actual searches. See FINAL_DEMO_TRANSCRIPT.md for exact narration. The earlier storyboard was revised to keep every spoken result on screen.
