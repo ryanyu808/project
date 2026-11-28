@@ -55,9 +55,28 @@ def render_dashboard(config, loaded):
     headline = rendered['headline']
     slots = st.columns(3)
     slots[0].metric(views.visit_axis(context), f"{headline['weighted_ed_visits']:,.0f}")
+    slots[0].caption(
+        'Estimated U.S. emergency department visits for the current selection, '
+        'calculated by adding the NEISS survey weights of matching records.'
+    )
     slots[1].metric('NEISS record count', f"{headline['record_count']:,}")
+    slots[1].caption('Number of sampled emergency department records that match the current filters.')
     percentage = headline['severe_outcome_pct']
     slots[2].metric('Weighted severe-outcome percentage', 'N/A' if percentage is None else f'{percentage:.1f}%')
+    slots[2].caption(
+        'Share of selected visit weight classified as severe. The denominator includes all '
+        'selected visit weight, including records with unknown outcomes.'
+    )
+    st.caption(
+        '**Which visits are included?** These figures cover a reviewed subset of 2025 emergency '
+        'department visits among adults age 65 or older that mention a treadmill. '
+        'The team set some screened visits aside after review.'
+    )
+    st.caption(
+        '**Severe outcomes** include treated and transferred (2), treated and admitted to the '
+        'hospital (4), held for observation (5), and fatalities recorded in the ED, including '
+        'dead on arrival (8).'
+    )
 
     # R2: CPSC reliability warning for the currently filtered headline.
     caution_reasons = []
@@ -82,8 +101,8 @@ def render_dashboard(config, loaded):
         )
 
     quality = result['quality']
-    st.caption('Severity denominator includes all selected visit weight, including unknown dispositions. '
-               f"Unknown disposition: {quality['unknown_disposition_record_count']:,} records / {quality['unknown_disposition_weight']:,.0f} weighted ED visits.")
+    st.caption(f"Unknown disposition: {quality['unknown_disposition_record_count']:,} records / "
+               f"{quality['unknown_disposition_weight']:,.0f} weighted ED visits.")
     if selection.severities:
         st.info('Percentages describe the selected cases; the severity filter changes both numerator and denominator.')
         baseline_df = filters.apply_filters(data, filters.without_severity(selection))
