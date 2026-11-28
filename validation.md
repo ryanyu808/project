@@ -1198,3 +1198,15 @@ The required final recording is root [demo.mp4](demo.mp4): 322.700 seconds, 1920
 - R5.2c: PASS. The actual Chrome address bar displays treadmill-injury-dashboard.streamlit.app during the opening 00:02-00:23 and remains in the native window capture. This is the deployed URL in README, not a typed slide or simulated browser bar. See submission/video-evidence/opening.jpg and root demo.mp4.
 
 The final workflow ends with Fall plus Severe as the initial follow-up shortlist and states the next investigation steps and limits. Exact narration and timestamps are in submission/FINAL_DEMO_TRANSCRIPT.md; machine metadata and hashes are in validation/results/final_demo_20261127/video-verification.json. Video production inputs remain outside the team repository.
+
+
+### Final demo archive regression verification
+
+The clean extraction of video release commit a9d97c3 installed with `uv sync --locked --python 3.13`. Running the extracted project's installed Python with `-m pytest -q -p no:cacheprovider` produced the complete actual output below. The production AppTest also passed. Raw commands/output and production-data fingerprint are in `validation/results/final_demo_20261127/extracted-checks.json`, `extracted-tests.txt`, `extracted-apptest.txt` and `extracted-app.json`. No application or test changes followed this check; subsequent final documentation and evidence additions do not change the tested runtime.
+
+```text
+........................................................................ [ 35%]
+........................................................................ [ 70%]
+............................................................             [100%]
+204 passed in 22.61s
+```

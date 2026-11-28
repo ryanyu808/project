@@ -1,0 +1,2 @@
+PASS: actual production AppTest; no public verification claimed
+2026-11-27 20:27:37.900 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
