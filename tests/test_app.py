@@ -162,3 +162,17 @@ def test_configuration_stops_before_loader(tmp_path):
     at = AppTest.from_string(source, default_timeout=20).run()
     assert not at.exception and not at.metric and not at.multiselect
     assert 'Configuration error' in at.error[0].value
+
+
+def test_narrative_table_uses_friendly_display_labels():
+    import json
+    at = AppTest.from_function(fixture_app, default_timeout=20).run()
+    table = next(d for d in at.dataframe if 'Narrative_1' in d.value.columns)
+    columns = json.loads(table.proto.columns)
+    expected = {'CPSC_Case_Number': 'Case ID', 'Narrative_1': 'Injury narrative',
+                'injury_mechanism': 'Injury mechanism', 'Disposition': 'ED outcome code',
+                'Weight': 'Estimated ED visits represented'}
+    assert {key: columns[key]['label'] for key in expected} == expected
+    assert all(columns[key]['label'] != key for key in expected)
+    assert table.value.columns.tolist() == list(expected)
+    assert metrics(at) == ['120', '5', '41.7%']

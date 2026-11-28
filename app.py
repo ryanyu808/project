@@ -219,7 +219,14 @@ def render_dashboard(config, loaded):
                'belt wear or a confirmed defect. Each row is one ED visit, not one unique person.')
     with st.expander(f'Browse {len(filtered)} selected narratives', expanded=bool(selection.narrative_query.strip())):
         st.dataframe(filtered[['CPSC_Case_Number', 'Narrative_1', 'injury_mechanism',
-                               'Disposition', 'Weight']], hide_index=True, use_container_width=True)
+                               'Disposition', 'Weight']], hide_index=True, use_container_width=True,
+                     column_config={
+                         'CPSC_Case_Number': st.column_config.TextColumn('Case ID'),
+                         'Narrative_1': st.column_config.TextColumn('Injury narrative'),
+                         'injury_mechanism': st.column_config.TextColumn('Injury mechanism'),
+                         'Disposition': st.column_config.NumberColumn('ED outcome code', help='Original NEISS emergency department disposition code; severe outcomes are defined beside the headline.', format='%d'),
+                         'Weight': st.column_config.NumberColumn('Estimated ED visits represented', help='NEISS survey weight for this sampled visit; not a count of directly observed people.', format='%.4f'),
+                     })
     st.caption('Descriptive investigation aid. Visits are not unique people. No exposure denominator, causal conclusion, '
                'or design-defect claim is supported. Record counts do not measure statistical precision.')
 
