@@ -1,0 +1,267 @@
+{
+  "status": "PASS",
+  "evidence_kind": "local production AppTest and data checks; not public screenshots",
+  "elapsed_seconds": 18.27,
+  "categories": {
+    "heavy everyday use": [
+      {
+        "selection": "cycle 1: Fall + Severe + belt",
+        "metrics": [
+          "0",
+          "0",
+          "N/A"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": [
+          "No records match the current filters. Each alternative keeps the other selections unchanged: Clear Severity (Severe) to see 1 record. Alternatively: Clear Narrative search ('belt') to see 18 records.",
+          "Percentages describe the selected cases; the severity filter changes both numerator and denominator.",
+          "Outcome completeness unavailable: no selected visit weight."
+        ]
+      },
+      {
+        "selection": "cycle 2: Fall + Severe + belt",
+        "metrics": [
+          "0",
+          "0",
+          "N/A"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": [
+          "No records match the current filters. Each alternative keeps the other selections unchanged: Clear Severity (Severe) to see 1 record. Alternatively: Clear Narrative search ('belt') to see 18 records.",
+          "Percentages describe the selected cases; the severity filter changes both numerator and denominator.",
+          "Outcome completeness unavailable: no selected visit weight."
+        ]
+      },
+      {
+        "selection": "cycle 3: Fall + Severe + belt",
+        "metrics": [
+          "0",
+          "0",
+          "N/A"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": [
+          "No records match the current filters. Each alternative keeps the other selections unchanged: Clear Severity (Severe) to see 1 record. Alternatively: Clear Narrative search ('belt') to see 18 records.",
+          "Percentages describe the selected cases; the severity filter changes both numerator and denominator.",
+          "Outcome completeness unavailable: no selected visit weight."
+        ]
+      },
+      {
+        "selection": "cycle 4: Fall + Severe + belt",
+        "metrics": [
+          "0",
+          "0",
+          "N/A"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": [
+          "No records match the current filters. Each alternative keeps the other selections unchanged: Clear Severity (Severe) to see 1 record. Alternatively: Clear Narrative search ('belt') to see 18 records.",
+          "Percentages describe the selected cases; the severity filter changes both numerator and denominator.",
+          "Outcome completeness unavailable: no selected visit weight."
+        ]
+      },
+      {
+        "selection": "cycle 5: Fall + Severe + belt",
+        "metrics": [
+          "0",
+          "0",
+          "N/A"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": [
+          "No records match the current filters. Each alternative keeps the other selections unchanged: Clear Severity (Severe) to see 1 record. Alternatively: Clear Narrative search ('belt') to see 18 records.",
+          "Percentages describe the selected cases; the severity filter changes both numerator and denominator.",
+          "Outcome completeness unavailable: no selected visit weight."
+        ]
+      }
+    ],
+    "unusual selections": [
+      {
+        "selection": "'[.*]'",
+        "metrics": [
+          "0",
+          "0",
+          "N/A"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": [
+          "No records match the current filters. Each alternative keeps the other selections unchanged: Clear Narrative search ('[.*]') to see 109 records.",
+          "No baseline records for estimate screening.",
+          "Outcome completeness unavailable: no selected visit weight."
+        ]
+      },
+      {
+        "selection": "'999999999999999999'",
+        "metrics": [
+          "0",
+          "0",
+          "N/A"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": [
+          "No records match the current filters. Each alternative keeps the other selections unchanged: Clear Narrative search ('999999999999999999') to see 109 records.",
+          "No baseline records for estimate screening.",
+          "Outcome completeness unavailable: no selected visit weight."
+        ]
+      },
+      {
+        "selection": "'not-a-real-case'",
+        "metrics": [
+          "0",
+          "0",
+          "N/A"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": [
+          "No records match the current filters. Each alternative keeps the other selections unchanged: Clear Narrative search ('not-a-real-case') to see 109 records.",
+          "No baseline records for estimate screening.",
+          "Outcome completeness unavailable: no selected visit weight."
+        ]
+      },
+      {
+        "selection": "'   '",
+        "metrics": [
+          "5,120",
+          "109",
+          "22.3%"
+        ],
+        "warnings": [],
+        "messages": []
+      },
+      {
+        "selection": "'senior'",
+        "metrics": [
+          "106",
+          "3",
+          "49.3%"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": []
+      },
+      {
+        "selection": "'button'",
+        "metrics": [
+          "103",
+          "3",
+          "0.0%"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": []
+      },
+      {
+        "selection": "'wrong'",
+        "metrics": [
+          "75",
+          "2",
+          "0.0%"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": []
+      }
+    ],
+    "tiny groups": [
+      {
+        "selection": "senior",
+        "metrics": [
+          "106",
+          "3",
+          "49.3%"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": []
+      },
+      {
+        "selection": "button",
+        "metrics": [
+          "103",
+          "3",
+          "0.0%"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": []
+      },
+      {
+        "selection": "wrong",
+        "metrics": [
+          "75",
+          "2",
+          "0.0%"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": []
+      },
+      {
+        "selection": "Entering/exiting",
+        "metrics": [
+          "255",
+          "4",
+          "0.0%"
+        ],
+        "warnings": [
+          "CPSC reliability caution for the current filtered results: fewer than 1,200 weighted ED visits; fewer than 20 sampled records. Survey-design CV is not calculated, so additional sampling instability cannot be ruled out."
+        ],
+        "messages": []
+      }
+    ],
+    "data problems": [
+      {
+        "records": 109,
+        "duplicate_ids": 0,
+        "invalid_ages": 0,
+        "nonpositive_weights": 0,
+        "blank_mechanisms": 0,
+        "note": "Runtime cohort inspected; publisher audit separately verifies full-year coverage. Loader/preparation failure injections are in the regression suite."
+      }
+    ],
+    "consistency": [
+      {
+        "status": "PASS",
+        "scenarios": [
+          "all",
+          "Belt contact",
+          "Entering/exiting",
+          "Equipment/cord obstacle or landing falls",
+          "Fall",
+          "Repair/moving",
+          "Unknown/Unclassified",
+          "Severe",
+          "Other known disposition",
+          "Unknown",
+          "literal belt",
+          "literal metacharacters",
+          "empty",
+          "Fall Severe belt"
+        ],
+        "checks": "independent membership, dashboard totals, baselines, diagnoses, sensitivity and export reconciliation"
+      }
+    ]
+  }
+}

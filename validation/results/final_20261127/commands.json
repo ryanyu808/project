@@ -1,0 +1,51 @@
+{
+  "regression": {
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ]
+  },
+  "publisher_comparison": {
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+      "validation/compare_publisher.py"
+    ]
+  },
+  "mutations": {
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+      "validation/run_result_mutations.py"
+    ]
+  },
+  "production_apptest": {
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+      "validation/verify_app.py",
+      "--output",
+      "C:\\Users\\ryany\\dso576\\project\\validation\\results\\final_20261127\\production_apptest.json"
+    ]
+  },
+  "dashboard_exports": {
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+      "validation/verify_dashboard.py",
+      "--cohort",
+      "data/prepared/treadmill_2025.csv",
+      "--provenance",
+      "data/prepared/treadmill_2025.provenance.json",
+      "--lookup",
+      "data/reference/neiss_code_lookup_2025.csv",
+      "--output",
+      "C:\\Users\\ryany\\dso576\\project\\validation\\results\\final_20261127\\dashboard_exports.json"
+    ]
+  }
+}

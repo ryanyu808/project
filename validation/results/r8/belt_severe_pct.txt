@@ -19,4 +19,4 @@ E         Expected: 31.612079855266416 ± 1.0e-08
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
 FAILED tests/test_publisher_results.py::test_main_result[belt_severe_pct] - A...
-1 failed in 0.19s
+1 failed in 0.27s
