@@ -1,0 +1,88 @@
+{
+  "source_filename": "neiss2025.xlsx",
+  "source_bytes": 53950392,
+  "source_sha256": "a784574c98a95175342f34d59cf19c61e73dc343e77791bf6b6564e49bbbb066",
+  "source_rows": 410201,
+  "source_columns": 25,
+  "first_date": "2025-01-01",
+  "last_date": "2025-12-31",
+  "screened": 188,
+  "included": 109,
+  "excluded": 79,
+  "decisions_sha256": "279701bb7e06c39beebc2697318f58d1bf4ad092f78f1eee7a8e3b65b4b2f608",
+  "main_results": {
+    "total_weight": "5119.6280",
+    "record_count": 109,
+    "severe_pct": "22.30280403185543949677593763",
+    "fall_weight": "3114.4453",
+    "fall_severe_pct": "28.34016381665139535441511848",
+    "belt_severe_pct": "31.61207985526641523503772988",
+    "fall_severe_records": 18,
+    "fall_fracture_pct": "35.08034641032224903741285808"
+  },
+  "mechanisms": {
+    "ALL": {
+      "records": 109,
+      "weight": "5119.6280",
+      "severe_records": 24,
+      "severe_weight": "1141.8206",
+      "fracture_weight": "1353.8712",
+      "severe_pct": "22.30280403185543949677593763",
+      "fracture_pct": "26.44471824906028328620751351"
+    },
+    "Repair/moving": {
+      "records": 8,
+      "weight": "277.7898",
+      "severe_records": 0,
+      "severe_weight": "0",
+      "fracture_weight": "0",
+      "severe_pct": "0E+4",
+      "fracture_pct": "0E+4"
+    },
+    "Fall": {
+      "records": 65,
+      "weight": "3114.4453",
+      "severe_records": 18,
+      "severe_weight": "882.6389",
+      "fracture_weight": "1092.5582",
+      "severe_pct": "28.34016381665139535441511848",
+      "fracture_pct": "35.08034641032224903741285808"
+    },
+    "Belt contact": {
+      "records": 9,
+      "weight": "330.4278",
+      "severe_records": 2,
+      "severe_weight": "104.4551",
+      "fracture_weight": "104.0447",
+      "severe_pct": "31.61207985526641523503772988",
+      "fracture_pct": "31.48787723066884808118445240"
+    },
+    "Unknown/Unclassified": {
+      "records": 15,
+      "weight": "697.4813",
+      "severe_records": 3,
+      "severe_weight": "102.9095",
+      "fracture_weight": "0",
+      "severe_pct": "14.75444574643076452372271486",
+      "fracture_pct": "0E+4"
+    },
+    "Entering/exiting": {
+      "records": 4,
+      "weight": "254.6187",
+      "severe_records": 0,
+      "severe_weight": "0",
+      "fracture_weight": "0",
+      "severe_pct": "0E+4",
+      "fracture_pct": "0E+4"
+    },
+    "Equipment/cord obstacle or landing falls": {
+      "records": 8,
+      "weight": "444.8651",
+      "severe_records": 1,
+      "severe_weight": "51.8171",
+      "fracture_weight": "157.2683",
+      "severe_pct": "11.64782312660624535392864039",
+      "fracture_pct": "35.35190780306209680192939388"
+    }
+  }
+}

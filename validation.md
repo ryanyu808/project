@@ -767,6 +767,24 @@ Actual post-deployment screenshots and acceptance results follow. These are impl
 
 ## 3. Results
 
+### Publisher acquisition provenance completed - November 27, 2026 Pacific
+
+A fresh unchanged publisher workbook was downloaded in this release session through CPSC's Archived Annual NEISS Data interface (Researcher; 2025; Excel; Find Data). The browser download's Zone.Identifier records the official home.aspx referrer and workbook HostUrl. This is a new, directly observed acquisition, not an inferred historical download date.
+
+| Source field | Verified value |
+|---|---|
+| Acquisition date | November 27, 2026, America/Los_Angeles |
+| Download creation / completion, UTC | 2026-11-28 05:31:20 / 05:31:29 UTC |
+| Official source URL | https://www.cpsc.gov/cgibin/NEISSQuery/Data/Archived%20Data/2025/neiss2025.xlsx |
+| Filename | neiss2025.xlsx |
+| Size | 53,950,392 bytes |
+| SHA-256 | a784574c98a95175342f34d59cf19c61e73dc343e77791bf6b6564e49bbbb066 |
+| Comparison | Byte-identical SHA-256 to the previously audited original; no cohort or result change |
+
+Machine-readable evidence is validation/results/final_corrections/source_acquisition.json. The fresh file is preserved unchanged locally, outside Git; obtain the same official workbook using the source route above. The original historical acquisition date remains unknown: the older file's creation and modification timestamps alone are not treated as proof of download. All references below to an unrecorded original date concern that historical acquisition, not the newly documented copy.
+
+The independent publisher command was rerun on the newly acquired workbook, importing no application code. Its complete output is validation/results/final_corrections/publisher.json. It reproduces 410,201 source rows, 188 screened, 109 included, 79 excluded and all eight main results. The existing definitions and comparison table below apply unchanged.
+
 ### R7.1 publisher-file audit - November 18, 2026
 
 The new standalone `validation/publisher_numbers.py` imports no application code and reads the original CPSC `neiss2025.xlsx`, sheet `NEISS_2025` (53,950,392 bytes; SHA-256 a784574c98a95175342f34d59cf19c61e73dc343e77791bf6b6564e49bbbb066). Obtain it through [CPSC NEISS](https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data), Access NEISS, Archived Annual Data, 2025, Excel; [direct workbook](https://www.cpsc.gov/cgibin/NEISSQuery/Data/Archived%20Data/2025/neiss2025.xlsx). This is the unchanged original local workbook, audited November 18; its original download date was not recorded and is not invented. The hash matches the MVP source provenance. No changed or withdrawn replacement source was needed.
@@ -1191,7 +1209,7 @@ The link audit checked 21 extracted URLs. CDC/CPSC automated HEAD requests retur
 
 ### Final recorded demo - November 27, 2026 Pacific
 
-The required final recording is root [demo.mp4](demo.mp4): 322.700 seconds, 1920x1080 H.264 video at 12/1 fps, AAC audio with synthetic Microsoft Zira Desktop narration, 7,407,910 bytes. It shows the actual deployed dashboard in an isolated Chrome window with its real address bar. The file was fully decoded without errors and inspected through decoded frames for every narrated scene and the required interactions. No full-black interval of half a second or more was detected. Static reading intervals are deliberate; the actual filter/search/reset actions are continuously captured. No outside-team audience comprehension test is claimed.
+The required final recording is root [demo.mp4](demo.mp4): 322.700 seconds, 1920x1080 H.264 video at 12/1 fps, AAC audio with synthetic Microsoft Zira Desktop narration, 7,386,827 bytes. It shows the actual deployed dashboard in an isolated Chrome window with its real address bar. The file was fully decoded without errors and inspected through decoded frames for every narrated scene and the required interactions. No full-black interval of half a second or more was detected. Static reading intervals are deliberate; the actual filter/search/reset actions are continuously captured. No outside-team audience comprehension test is claimed.
 
 - R5.2a: PASS. Every described control action is performed in the actual deployed app. The getting search is typed/applied during 04:06-04:09, with its result shown at 04:09-04:22; got off is typed/applied during 04:22-04:30, with its result at 04:30-04:45. The video also performs mechanism/severity filtering, narrative expansion, the empty intersection, two Resets and Undo. See root demo.mp4 and submission/FINAL_DEMO_TRANSCRIPT.md.
 - R5.2b: PASS. Spoken opening results remain readable at 00:24-00:50; both mechanisms' totals, supporting counts and severe percentages remain in the summary table at 00:52-01:16. The selected severe Fall headline is shown at 02:09-02:26; search counts remain on screen during both search explanations. The final recorded narrative focuses on the analyst workflow and does not discuss a fracture-bar value or off-screen full-precision total. Decoded final-MP4 frames and timing evidence: submission/video-evidence and validation/results/final_demo_20261127/video-verification.json.
@@ -1209,4 +1227,36 @@ The clean extraction of video release commit a9d97c3 installed with `uv sync --l
 ........................................................................ [ 70%]
 ............................................................             [100%]
 204 passed in 22.61s
+```
+
+
+### Final rubric corrections and regression evidence
+
+Narrative-table headings now read Case ID, Injury narrative, Injury mechanism, ED outcome code and Estimated ED visits represented. Streamlit column configuration changes only presentation; the internal frame, filters, arithmetic, runtime bundle and CSV export are unchanged. The focused AppTest inspects the rendered column labels and preserves original column names and metric values.
+
+The final correction suite returned 205 passed in 47.54s. Production AppTest, all 14 dashboard/export scenarios, five-category hardening, all eight fresh-source comparisons and seven deliberate calculation faults passed their checks. Complete terminal evidence is in validation/results/final_corrections. Historical suite counts above remain dated history.
+
+```text
+........................................................................ [ 35%]
+........................................................................ [ 70%]
+.............................................................            [100%]
+205 passed in 47.54s
+```
+
+
+### Final deployed label and video verification
+
+After the pushed UI correction, Streamlit's owner console reboot loaded the current code. The public app displays Case ID, Injury narrative, Injury mechanism, ED outcome code and Estimated ED visits represented. The following new live screenshot supplements the preserved five cases and historical evidence.
+
+![Final public narrative table with friendly labels and visible active selections](cases/screenshots/final-friendly-narratives.png)
+
+The final MP4 replaces frames 1969-2201 (approximately 02:44-03:03) with newly captured real deployed-app footage. The same narrative browser is opened and inspected with the corrected headings. Other scenes and the original narration remain accurate and unchanged in content; the original audio stream is preserved. Duration remains 322.7 seconds. All discussed numbers, both typed searches and the actual browser address bar remain present. Full decoding succeeds. Updated hashes, size and splice provenance: validation/results/final_corrections/video.json.
+
+Latest correct-implementation repeat (after UTF-8 text preservation was checked):
+
+```text
+........................................................................ [ 35%]
+........................................................................ [ 70%]
+.............................................................            [100%]
+205 passed in 18.60s
 ```

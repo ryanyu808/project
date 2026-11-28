@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "evidence_kind": "local production AppTest and data checks; not public screenshots",
-  "elapsed_seconds": 18.27,
+  "elapsed_seconds": 17.78,
   "categories": {
     "heavy everyday use": [
       {

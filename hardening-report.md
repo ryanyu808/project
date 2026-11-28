@@ -28,7 +28,7 @@ The link audit checked 21 extracted URLs. CDC/CPSC automated HEAD requests retur
 
 ## Final recorded demo - November 27, 2026 Pacific
 
-The required final recording is root [demo.mp4](demo.mp4): 322.700 seconds, 1920x1080 H.264 video at 12/1 fps, AAC audio with synthetic Microsoft Zira Desktop narration, 7,407,910 bytes. It shows the actual deployed dashboard in an isolated Chrome window with its real address bar. The file was fully decoded without errors and inspected through decoded frames for every narrated scene and the required interactions. No full-black interval of half a second or more was detected. Static reading intervals are deliberate; the actual filter/search/reset actions are continuously captured. No outside-team audience comprehension test is claimed.
+The required final recording is root [demo.mp4](demo.mp4): 322.700 seconds, 1920x1080 H.264 video at 12/1 fps, AAC audio with synthetic Microsoft Zira Desktop narration, 7,386,827 bytes. It shows the actual deployed dashboard in an isolated Chrome window with its real address bar. The file was fully decoded without errors and inspected through decoded frames for every narrated scene and the required interactions. No full-black interval of half a second or more was detected. Static reading intervals are deliberate; the actual filter/search/reset actions are continuously captured. No outside-team audience comprehension test is claimed.
 
 - R5.2a: PASS. Every described control action is performed in the actual deployed app. The getting search is typed/applied during 04:06-04:09, with its result shown at 04:09-04:22; got off is typed/applied during 04:22-04:30, with its result at 04:30-04:45. The video also performs mechanism/severity filtering, narrative expansion, the empty intersection, two Resets and Undo. See root demo.mp4 and submission/FINAL_DEMO_TRANSCRIPT.md.
 - R5.2b: PASS. Spoken opening results remain readable at 00:24-00:50; both mechanisms' totals, supporting counts and severe percentages remain in the summary table at 00:52-01:16. The selected severe Fall headline is shown at 02:09-02:26; search counts remain on screen during both search explanations. The final recorded narrative focuses on the analyst workflow and does not discuss a fracture-bar value or off-screen full-precision total. Decoded final-MP4 frames and timing evidence: submission/video-evidence and validation/results/final_demo_20261127/video-verification.json.
@@ -47,3 +47,8 @@ The clean extraction of video release commit a9d97c3 installed with `uv sync --l
 ............................................................             [100%]
 204 passed in 22.61s
 ```
+
+
+## Final rubric correction verification
+
+Friendly narrative-table display labels are covered by a focused AppTest; internal columns and metrics are unchanged. Fresh official workbook acquisition on November 27 Pacific is documented with browser URL metadata and byte-identical source SHA-256. All eight results, 14 dashboard/export scenarios, five hardening categories and seven mutation failures rechecked successfully. Current raw outputs and video replacement evidence are in validation/results/final_corrections. Deployment reboot was necessary to refresh stale hosting code; the new live table was visually verified before encoding its replacement video segment.

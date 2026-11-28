@@ -19,4 +19,4 @@ E         Expected: 35.08034641032225 ± 1.0e-08
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
 FAILED tests/test_publisher_results.py::test_main_result[fall_fracture_pct]
-1 failed in 0.26s
+1 failed in 0.29s

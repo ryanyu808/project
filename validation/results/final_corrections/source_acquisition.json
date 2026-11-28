@@ -1,0 +1,19 @@
+{
+  "acquisition_date": "2026-11-27",
+  "timezone": "America/Los_Angeles",
+  "download_created_utc": "2026-11-28T05:31:20.503114+00:00",
+  "download_completed_mtime_utc": "2026-11-28T05:31:29.831070+00:00",
+  "official_url": "https://www.cpsc.gov/cgibin/NEISSQuery/Data/Archived%20Data/2025/neiss2025.xlsx",
+  "route": "CPSC home.aspx > Researcher > Archived Annual NEISS Data > 2025 > Excel > Find Data > neiss2025 - MS - Excel",
+  "filename": "neiss2025.xlsx",
+  "bytes": 53950392,
+  "sha256": "a784574c98a95175342f34d59cf19c61e73dc343e77791bf6b6564e49bbbb066",
+  "matches_previously_audited_original": true,
+  "historical_download_date": null,
+  "historical_metadata_note": "Old local copy creation 2026-09-12T23:51:00Z and modification 2026-09-12T23:51:04Z do not independently establish original acquisition. Fresh download was directly initiated and observed in this session; dates above describe that acquisition only.",
+  "browser_download_zone_identifier": {
+    "ZoneId": 3,
+    "ReferrerUrl": "https://www.cpsc.gov/cgibin/NEISSQuery/home.aspx",
+    "HostUrl": "https://www.cpsc.gov/cgibin/NEISSQuery/Data/Archived%20Data/2025/neiss2025.xlsx"
+  }
+}

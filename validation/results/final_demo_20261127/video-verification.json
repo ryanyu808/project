@@ -1,7 +1,7 @@
 {
   "file": "demo.mp4",
-  "bytes": 7407910,
-  "sha256": "9e58203931a86f9ce4bc1aeee1afc55cf26db7899652d65f46f5ec35f7f1ab7a",
+  "bytes": 7386827,
+  "sha256": "0b3a32dc44821c24d18f401b6ff4dc7b32f4a31501f9c197ca45e96389f74b64",
   "duration": 322.7,
   "width": 1920,
   "height": 1080,
@@ -211,5 +211,14 @@
     "loudness_range_LU": 3.8,
     "true_peak_dBFS": -0.9,
     "clipping_detected": false
+  },
+  "rubric_correction": {
+    "replaced_frames": [
+      1969,
+      2202
+    ],
+    "reason": "Actual deployed friendly-label narrative-table footage; other scenes and original audio retained",
+    "live_code_commit": "fd9c37f",
+    "verified_deployed_labels": true
   }
 }

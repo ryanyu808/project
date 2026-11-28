@@ -126,3 +126,10 @@ Not implemented in this integration: the existing literal-metacharacter fixture 
 
 Deferred: zero-valued severe charts and the severity-filter wording were retained. They do not change calculations; this report does not claim those displays were redesigned.
 
+
+
+## Final rubric corrections
+
+The final narrative table uses friendly headings through display-only column configuration (app.py; tests/test_app.py::test_narrative_table_uses_friendly_display_labels). No data, filter, calculation or export definition changed. A new CPSC publisher workbook was acquired November 27, 2026 Pacific, with official download URL/referrer metadata, size and SHA-256 recorded in validation/results/final_corrections/source_acquisition.json. It exactly matches the previously audited original. The old historical acquisition date remains unknown. Results in validation.pdf document the new acquisition and all eight independently recalculated comparisons. All 11 required feedback points retain their implementations and evidence.
+
+The affected narrative-table footage was replaced with an authentic current public-app capture (approximately 02:44-03:03). Narration and the rest of the workflow retain the same meaning; duration remains 5:22.7 and R5.2a-c evidence remains intact. See validation/results/final_corrections/video.json and the final live screenshot in Results/Tests continuation.

@@ -7,7 +7,7 @@
       "exit_code": 1,
       "caught": true,
       "command": [
-        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "-q",
@@ -25,7 +25,7 @@
       "exit_code": 1,
       "caught": true,
       "command": [
-        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "-q",
@@ -43,7 +43,7 @@
       "exit_code": 1,
       "caught": true,
       "command": [
-        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "-q",
@@ -61,7 +61,7 @@
       "exit_code": 1,
       "caught": true,
       "command": [
-        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "-q",
@@ -79,7 +79,7 @@
       "exit_code": 1,
       "caught": true,
       "command": [
-        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "-q",
@@ -97,7 +97,7 @@
       "exit_code": 1,
       "caught": true,
       "command": [
-        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "-q",
@@ -115,7 +115,7 @@
       "exit_code": 1,
       "caught": true,
       "command": [
-        "C:\\Users\\ryany\\dso576\\project\\.venv-mvp\\Scripts\\python.exe",
+        "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
         "-m",
         "pytest",
         "-q",

@@ -4,7 +4,7 @@ This dashboard helps a CPSC epidemiology analyst decide which treadmill injury m
 
 **Public app URL:** [Open the dashboard](https://treadmill-injury-dashboard.streamlit.app/)
 
-**Final Deliverable 5 video:** [demo.mp4](demo.mp4), 322.7 seconds, 1920x1080 H.264/AAC, 7,407,910 bytes. Real deployed-app interactions and browser address bar; synthetic narration. [Transcript and timestamps](submission/FINAL_DEMO_TRANSCRIPT.md).
+**Final Deliverable 5 video:** [demo.mp4](demo.mp4), 322.7 seconds, 1920x1080 H.264/AAC, 7,386,827 bytes. Real deployed-app interactions and browser address bar; synthetic narration. [Transcript and timestamps](submission/FINAL_DEMO_TRANSCRIPT.md).
 
 **Final integrated suite:** 204 tests pass in the pinned production environment. Full verification and hardening evidence: [requirements matrix](requirements-matrix.md) and [hardening report](hardening-report.md).
 
@@ -57,3 +57,5 @@ Historical November 9 suite: **186 passed**, no failures/errors/skips, Windows/P
 [validation.md](validation.md) and root [validation.pdf](validation.pdf) retain Design / Cases / Numbers / Tests and genuine public screenshots. Ryan's [individual HW11 case](cases/ryan-treadmill-falls-final.md) includes his explicitly accepted break verdict and open CR-09. Its final PDF is separate from the team ZIP. The preserved case describes the original Break; CR-09 and CR-10 are now implemented in release 79c884e and verified separately in validation. The historical MVP had a five-minute, 1920x1080 public-app MP4 with AI narration outside the repository; it is not the required final recording. The Unlisted video plays in a separate browser session without signing in. Five distinct cases are integrated in the final validation: investigation priority, belt inspections, orientation, rehabilitation supervision and hospital education. [Readiness](submission/READINESS.md), [final demo sequence](submission/FINAL_DEMO_TRANSCRIPT.md), and [release guard](submission/check_release.py).
 
 The final small runtime CSV, matching provenance, 1.2 codebook and official lookup are sufficient for hosting. Raw annual files, private reviews/workbooks and audit inputs are excluded. The existing source/candidate/review template, original 171 approval rows and one-shot-prompt.md remain unchanged. [Review workflow/history](review_tools/README.md). Do not rerun finalization over existing outputs or publish private review material. The submission ZIP is generated from the final committed HEAD; its manifest and release audit are checked before hand-in.
+
+Final rubric correction: narrative records now use plain display labels while preserving internal columns and calculations. Publisher acquisition evidence for the unchanged November 27 copy is in `validation/results/final_corrections/source_acquisition.json`; see Results in `validation.pdf`.

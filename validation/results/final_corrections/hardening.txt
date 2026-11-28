@@ -1,0 +1,2 @@
+PASS: five-category production hardening; evidence: validation\results\final_20261127\hardening.json
+2026-11-27 21:33:46.494 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.

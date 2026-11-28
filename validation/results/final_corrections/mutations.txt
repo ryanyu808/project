@@ -1,0 +1,8 @@
+total_weight: exit=1; caught=True
+severe_pct: exit=1; caught=True
+fall_weight: exit=1; caught=True
+fall_severe_pct: exit=1; caught=True
+belt_severe_pct: exit=1; caught=True
+fall_severe_records: exit=1; caught=True
+fall_fracture_pct: exit=1; caught=True
+All seven faulty calculations caught; on-disk implementation unchanged.
