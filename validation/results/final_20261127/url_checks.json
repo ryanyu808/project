@@ -1,0 +1,95 @@
+[
+  {
+    "url": "https://actoncoa.com/161/Exercise-Information",
+    "status": 200,
+    "final_url": "https://actoncoa.com/161/Exercise-Information"
+  },
+  {
+    "url": "https://github.com/ryanyu808/project/actions/runs/42125610831",
+    "status": 200,
+    "final_url": "https://github.com/ryanyu808/project/actions/runs/42125610831"
+  },
+  {
+    "url": "https://github.com/ryanyu808/project/blob/main/validation/REAL_DATA_RESULTS.md",
+    "status": 200,
+    "final_url": "https://github.com/ryanyu808/project/blob/main/validation/REAL_DATA_RESULTS.md"
+  },
+  {
+    "url": "https://static.precor.com/precor-at-home/legacy/TRM_211_Manuals_103117_ENU.pdf",
+    "status": 200,
+    "final_url": "https://static.precor.com/precor-at-home/legacy/TRM_211_Manuals_103117_ENU.pdf"
+  },
+  {
+    "url": "https://treadmill-injury-dashboard.streamlit.app/",
+    "error": "HTTP Error 303: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nSee Other"
+  },
+  {
+    "url": "https://treadmill-injury-dashboard.streamlit.app/.",
+    "error": "HTTP Error 303: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nSee Other"
+  },
+  {
+    "url": "https://www.apta.org/your-practice/documentation/defensible-documentation/elements-within-the-patientclient-management-model/initial-examination",
+    "status": 200,
+    "final_url": "https://www.apta.org/your-practice/documentation/defensible-documentation/elements-within-the-patientclient-management-model/initial-examination"
+  },
+  {
+    "url": "https://www.cdc.gov/falls/interventions/falls-compendium.html",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cdc.gov/falls/prevention/",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cdc.gov/steadi/hcp/clinical-resources/inpatient-care.html",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Explanation-Of-NEISS-Estimates-Obtained-Through-The-CPSC-Website",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Instructions-for-Using-the-NEISS-Estimates-Query-Builder",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cpsc.gov/Research--Statistics/NEISS-Injury-Data/Neiss-Frequently-Asked-Questions",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cpsc.gov/cgibin/NEISSQuery/Data/Archived%20Data/2025/neiss2025.xlsx",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.cpsc.gov/cgibin/NEISSQuery/UserCriteria.aspx",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.precor.com/en-US/preventative-maintenance",
+    "status": 200,
+    "final_url": "https://www.precor.com/en-US/preventative-maintenance"
+  },
+  {
+    "url": "https://www.rockvillemd.gov/services/classes-and-programs-at-rockville-senior-center/",
+    "status": 200,
+    "final_url": "https://www.rockvillemd.gov/services/classes-and-programs-at-rockville-senior-center/"
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=JEA_-Y34y4w",
+    "status": 200,
+    "final_url": "https://www.youtube.com/watch?v=JEA_-Y34y4w"
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=f45CShykzbI",
+    "status": 200,
+    "final_url": "https://www.youtube.com/watch?v=f45CShykzbI"
+  }
+]

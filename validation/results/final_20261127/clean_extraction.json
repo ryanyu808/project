@@ -1,0 +1,15 @@
+{
+  "archive_commit_tested": "89af745c93f1cdda79359f48f2bcddf70261bab2",
+  "setup": "uv sync --locked --python 3.13",
+  "setup_exit_code": 0,
+  "startup": "uv run --locked python -m streamlit run app.py --server.headless true --server.address 127.0.0.1 --server.port 8520",
+  "health_status": 200,
+  "health_body": "ok",
+  "first_test_command": "uv run --locked python -m pytest -q -p no:cacheprovider",
+  "first_test_result": "126 passed, 78 errors in 90.39s (0:01:30)",
+  "first_error": "PermissionError: access denied to C:/Users/ryany/AppData/Local/Temp/pytest-of-ryany in elevated process",
+  "followup_command": ".venv/Scripts/python.exe -m pytest -x -q -p no:cacheprovider",
+  "followup_result": "204 passed in 61.52s (0:01:01)",
+  "followup_exit_code": 0,
+  "explanation": "Same clean installed environment; ordinary tool process can access temporary fixtures. No application code or tests changed to resolve this process permission issue."
+}

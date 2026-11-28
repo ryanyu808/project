@@ -34,7 +34,7 @@ The official query returned 24,577 estimated national ED visits based on 509 NEI
 | Comparison | CPSC Query Builder | Our Dashboard |
 | --- | --- | --- |
 | Treatment year | 2025 | 2025 |
-| Age | 65+ | 65Ã¢â‚¬â€œ120 |
+| Age | 65+ | 65ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“120 |
 | Product code | 3277 | 3277 |
 | Cohort | Exercise equipment injuries | Reviewed treadmill-related injuries |
 | Estimated national ED visits | 24,577 | 5,120 |
@@ -793,6 +793,101 @@ uv run --locked python validation/publisher_numbers.py --source dataset_neiss-sp
 uv run --locked python validation/compare_publisher.py
 ```
 
+### November 27 original-publisher output
+
+Actual output file from the rerun of the documented source command (all main results and source metadata; complete mechanism values retained).
+
+```text
+{
+  "source_filename": "neiss2025.xlsx",
+  "source_bytes": 53950392,
+  "source_sha256": "a784574c98a95175342f34d59cf19c61e73dc343e77791bf6b6564e49bbbb066",
+  "source_rows": 410201,
+  "source_columns": 25,
+  "first_date": "2025-01-01",
+  "last_date": "2025-12-31",
+  "screened": 188,
+  "included": 109,
+  "excluded": 79,
+  "decisions_sha256": "279701bb7e06c39beebc2697318f58d1bf4ad092f78f1eee7a8e3b65b4b2f608",
+  "main_results": {
+    "total_weight": "5119.6280",
+    "record_count": 109,
+    "severe_pct": "22.30280403185543949677593763",
+    "fall_weight": "3114.4453",
+    "fall_severe_pct": "28.34016381665139535441511848",
+    "belt_severe_pct": "31.61207985526641523503772988",
+    "fall_severe_records": 18,
+    "fall_fracture_pct": "35.08034641032224903741285808"
+  },
+  "mechanisms": {
+    "ALL": {
+      "records": 109,
+      "weight": "5119.6280",
+      "severe_records": 24,
+      "severe_weight": "1141.8206",
+      "fracture_weight": "1353.8712",
+      "severe_pct": "22.30280403185543949677593763",
+      "fracture_pct": "26.44471824906028328620751351"
+    },
+    "Repair/moving": {
+      "records": 8,
+      "weight": "277.7898",
+      "severe_records": 0,
+      "severe_weight": "0",
+      "fracture_weight": "0",
+      "severe_pct": "0E+4",
+      "fracture_pct": "0E+4"
+    },
+    "Fall": {
+      "records": 65,
+      "weight": "3114.4453",
+      "severe_records": 18,
+      "severe_weight": "882.6389",
+      "fracture_weight": "1092.5582",
+      "severe_pct": "28.34016381665139535441511848",
+      "fracture_pct": "35.08034641032224903741285808"
+    },
+    "Belt contact": {
+      "records": 9,
+      "weight": "330.4278",
+      "severe_records": 2,
+      "severe_weight": "104.4551",
+      "fracture_weight": "104.0447",
+      "severe_pct": "31.61207985526641523503772988",
+      "fracture_pct": "31.48787723066884808118445240"
+    },
+    "Unknown/Unclassified": {
+      "records": 15,
+      "weight": "697.4813",
+      "severe_records": 3,
+      "severe_weight": "102.9095",
+      "fracture_weight": "0",
+      "severe_pct": "14.75444574643076452372271486",
+      "fracture_pct": "0E+4"
+    },
+    "Entering/exiting": {
+      "records": 4,
+      "weight": "254.6187",
+      "severe_records": 0,
+      "severe_weight": "0",
+      "fracture_weight": "0",
+      "severe_pct": "0E+4",
+      "fracture_pct": "0E+4"
+    },
+    "Equipment/cord obstacle or landing falls": {
+      "records": 8,
+      "weight": "444.8651",
+      "severe_records": 1,
+      "severe_weight": "51.8171",
+      "fracture_weight": "157.2683",
+      "severe_pct": "11.64782312660624535392864039",
+      "fracture_pct": "35.35190780306209680192939388"
+    }
+  }
+}
+```
+
 Historical MVP numerical validation follows unchanged.
 
 The guarded production workflow passed with **188 completed genuine reviews, 109 Include / 79 Exclude**, zero held cases and exactly 109 retained IDs. All retained weights match the original candidates as Decimal values. The full annual source has 410,201 records / 25 columns and dates January 1-December 31, 2025. Production CSV SHA-256: `c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f`. Codebook version **1.2**. No candidate count is presented as an injury estimate.
@@ -875,7 +970,7 @@ Run `uv run --locked python validation/final_hardening.py`. Complete observation
 | Unusual selections | Literal [.*], huge numeric text, absent name, whitespace, senior, button and wrong searches. No traceback or misleading substantive empty answer; identify what to change. | All checks passed. Empty selections gave recovery guidance. Whitespace restored the full population. Numeric text is narrative text, not an unsupported numeric input. The app has no editable age/date/ID controls; incompatible dates cannot be submitted. |
 | Tiny groups | senior, button, wrong and Entering/exiting. Expect visible CPSC headline warnings. | All warned. Entering/exiting showed 255 / 4 / 0.0% with warning. James's warning checks current filtered headline, including severity. Survey CV remains uncomputed, explicitly disclosed; four records cannot establish safety or intervention effectiveness. |
 | Data problems | Inspect runtime duplicate IDs, age bounds, positive weights, missing/variant mechanism labels; rescan publisher workbook and reviewed IDs. Regression suite also injects malformed/missing/source-mismatched bundles. | No duplicate runtime IDs, invalid ages, nonpositive weights or blank/variant labels. Source audit reproduced 188 screened / 109 included / 79 excluded. Missing outcomes are handled by explicit denominator/sensitivity logic. Fixed calendar 2025 is the only period, verified across original annual dates. Brief narratives, classification boundaries and absent exposure remain inherent data limits. |
-| Consistency | Independently compare membership, totals, severity/diagnosis baselines and CSV across 14 selections; publisher-versus-app comparison; seven controlled calculation errors. | All 14 dashboard/export scenarios passed; all eight main values reconciled; all seven mutants failed as intended and views.py remained unchanged. Floating-point differences are explained in Part 3. Final video and final live screenshots still require separate verification. |
+| Consistency | Independently compare membership, totals, severity/diagnosis baselines and CSV across 14 selections; publisher-versus-app comparison; seven controlled calculation errors. | All 14 dashboard/export scenarios passed; all eight main values reconciled; all seven mutants failed as intended and views.py remained unchanged. Floating-point differences are explained in Part 3. Final live case captures are recorded separately; the final video still requires recording and verification. |
 
 Commands and full raw outputs are in `validation/results/final_20261127/commands.json` and adjacent text files. The pinned Streamlit 1.45.1 suite passed 204 tests in 56.16s. A second run with the existing Streamlit 1.66.0 environment also passed 204 tests in 81.08s. Production AppTest and dashboard/export checks passed. No automated test was deleted or weakened during integration. R1 adds its caption regression, R4 adds empty-guidance and Undo regressions, and the existing main-result tests protect numerical behavior. Layout-only screenshot defects are checked visually.
 
@@ -910,11 +1005,11 @@ observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct'
         expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
 >       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
 E       AssertionError: belt_severe_pct
-E       assert np.float64(32.612079855266416) == 31.612079855266416 Ãƒâ€šÃ‚Â± 1.0e-08
+E       assert np.float64(32.612079855266416) == 31.612079855266416 ± 1.0e-08
 E         
 E         comparison failed
 E         Obtained: 32.612079855266416
-E         Expected: 31.612079855266416 Ãƒâ€šÃ‚Â± 1.0e-08
+E         Expected: 31.612079855266416 ± 1.0e-08
 
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
@@ -937,11 +1032,11 @@ observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct'
         expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
 >       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
 E       AssertionError: fall_fracture_pct
-E       assert np.float64(34.72954294621903) == 35.08034641032225 Ãƒâ€šÃ‚Â± 1.0e-08
+E       assert np.float64(34.72954294621903) == 35.08034641032225 ± 1.0e-08
 E         
 E         comparison failed
 E         Obtained: 34.72954294621903
-E         Expected: 35.08034641032225 Ãƒâ€šÃ‚Â± 1.0e-08
+E         Expected: 35.08034641032225 ± 1.0e-08
 
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
@@ -964,11 +1059,11 @@ observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct'
         expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
 >       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
 E       AssertionError: fall_severe_pct
-E       assert np.float64(29.340163816651398) == 28.340163816651394 Ãƒâ€šÃ‚Â± 1.0e-08
+E       assert np.float64(29.340163816651398) == 28.340163816651394 ± 1.0e-08
 E         
 E         comparison failed
 E         Obtained: 29.340163816651398
-E         Expected: 28.340163816651394 Ãƒâ€šÃ‚Â± 1.0e-08
+E         Expected: 28.340163816651394 ± 1.0e-08
 
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
@@ -991,11 +1086,11 @@ observed = {'total_weight': 5119.628000000001, 'record_count': 110, 'severe_pct'
         expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
 >       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
 E       AssertionError: fall_severe_records
-E       assert 19 == 18.0 Ãƒâ€šÃ‚Â± 1.0e-08
+E       assert 19 == 18.0 ± 1.0e-08
 E         
 E         comparison failed
 E         Obtained: 19
-E         Expected: 18.0 Ãƒâ€šÃ‚Â± 1.0e-08
+E         Expected: 18.0 ± 1.0e-08
 
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
@@ -1018,11 +1113,11 @@ observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct'
         expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
 >       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
 E       AssertionError: fall_weight
-E       assert np.float64(3115.4453) == 3114.4453 Ãƒâ€šÃ‚Â± 1.0e-08
+E       assert np.float64(3115.4453) == 3114.4453 ± 1.0e-08
 E         
 E         comparison failed
 E         Obtained: 3115.4453
-E         Expected: 3114.4453 Ãƒâ€šÃ‚Â± 1.0e-08
+E         Expected: 3114.4453 ± 1.0e-08
 
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
@@ -1045,11 +1140,11 @@ observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct'
         expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
 >       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
 E       AssertionError: severe_pct
-E       assert 22.079775991536884 == 22.30280403185544 Ãƒâ€šÃ‚Â± 1.0e-08
+E       assert 22.079775991536884 == 22.30280403185544 ± 1.0e-08
 E         
 E         comparison failed
 E         Obtained: 22.079775991536884
-E         Expected: 22.30280403185544 Ãƒâ€šÃ‚Â± 1.0e-08
+E         Expected: 22.30280403185544 ± 1.0e-08
 
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
@@ -1072,14 +1167,21 @@ observed = {'total_weight': 5120.628000000001, 'record_count': 109, 'severe_pct'
         expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
 >       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
 E       AssertionError: total_weight
-E       assert 5120.628000000001 == 5119.628 Ãƒâ€šÃ‚Â± 1.0e-08
+E       assert 5120.628000000001 == 5119.628 ± 1.0e-08
 E         
 E         comparison failed
 E         Obtained: 5120.628000000001
-E         Expected: 5119.628 Ãƒâ€šÃ‚Â± 1.0e-08
+E         Expected: 5119.628 ± 1.0e-08
 
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
 FAILED tests/test_publisher_results.py::test_main_result[total_weight] - Asse...
 1 failed in 0.27s
 ```
+
+
+### Clean extraction and link checks (November 27)
+
+A git-archive extraction of integration commit 89af745 installed from README with `uv sync --locked --python 3.13` and started with the README Streamlit command. Its health endpoint returned HTTP 200 / ok. The first elevated pytest process reported 126 passed / 78 setup errors because it could not access Windows pytest's existing temporary directory. Running that installed environment normally, without changing code or tests, completed successfully: `204 passed in 61.52s (0:01:01)`. The full command and diagnosis are recorded in `validation/results/final_20261127/clean_extraction.json`. This is an environment permission issue, not an application calculation failure; the earlier pinned full regression output remains reproduced above.
+
+The link audit checked 21 extracted URLs. CDC/CPSC automated HEAD requests returned HTTP 403; those checks cannot establish that the source pages are inaccessible to a person. The public Streamlit link loops under a bare HTTP client but was successfully opened and exercised in the browser without sign-in. The scanner also captured one sentence-ending `/.` variant, which is not a separate published link. See `validation/results/final_20261127/url_checks.json`. Original workbook acquisition date remains undocumented. Final recording and final video-to-app consistency remain open.

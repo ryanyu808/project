@@ -27,7 +27,7 @@ def build(source,destination):
             code=[]
             while i<len(lines) and not lines[i].startswith('```'):
                 code.extend(textwrap.wrap(lines[i],110,replace_whitespace=False,drop_whitespace=False) or ['']); i+=1
-            i+=1; story.append(Preformatted(escape('\n'.join(code)),styles['Output']))
+            i+=1; story.append(Preformatted('\n'.join(code),styles['Output']))
         elif line.startswith('|'):
             rows=[line]
             while i<len(lines) and lines[i].startswith('|'): rows.append(lines[i]); i+=1
