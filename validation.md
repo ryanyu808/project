@@ -1,6 +1,6 @@
-# MVP validation
+# Team T9 final validation
 
-**Final strengthened release - November 9, 2026 Pacific.** Five distinct source-backed cases, authentic public-app figures, reviewed production data, independent numbers and the complete test suite are integrated below. The revised Unlisted five-minute demo and dashboard were checked without signing in. [Watch the demo](https://www.youtube.com/watch?v=JEA_-Y34y4w).
+**Historical MVP release - November 9, 2026 Pacific.** Five distinct source-backed cases, authentic public-app figures, reviewed production data, independent numbers and the complete test suite are integrated below. The revised Unlisted five-minute demo and dashboard were checked without signing in. [Watch the demo](https://www.youtube.com/watch?v=JEA_-Y34y4w).
 
 This dashboard helps a CPSC epidemiology analyst prioritize questions about treadmill injury mechanisms among adults 65-120. It combines weighted ED burden, recorded severe outcomes, primary diagnoses and original narratives. The genuine 2025 cohort contains 109 approved visits from 188 screened candidates; 79 are excluded under Ryan's accepted injury-focused policy. The annual source has 410,201 records and 25 original fields. One row is one ED visit; no exposure-adjusted risk, causation or automatic priority is inferred.
 
@@ -34,7 +34,7 @@ The official query returned 24,577 estimated national ED visits based on 509 NEI
 | Comparison | CPSC Query Builder | Our Dashboard |
 | --- | --- | --- |
 | Treatment year | 2025 | 2025 |
-| Age | 65+ | 65–120 |
+| Age | 65+ | 65Ã¢â‚¬â€œ120 |
 | Product code | 3277 | 3277 |
 | Cohort | Exercise equipment injuries | Reviewed treadmill-related injuries |
 | Estimated national ED visits | 24,577 | 5,120 |
@@ -45,7 +45,7 @@ The official query returned 24,577 estimated national ED visits based on 509 NEI
 | Injury mechanism classification | Not directly available | Available |
 | CV and confidence intervals | Optional outputs | Not computed |
 
-![CPSC NEISS Query Builder results, captured November 26, 2026.](cases/screenshots/cpsc-query-2025-result.png)
+![Historical MVP figure: CPSC NEISS Query Builder results, captured November 26, 2026.](cases/screenshots/cpsc-query-2025-result.png)
 
 The official query provides a broader estimate because product code 3277 covers all exercise equipment, rather than treadmills specifically. The query interface does not directly support narrative screening or our injury mechanism classification. Our dashboard further screens treadmill-related narratives and manually reviews 188 candidate records, retaining 109 injury-related ED visits and excluding 79.
 
@@ -85,9 +85,23 @@ Five decisions cover investigation, facility operations, senior-center training,
 
 Attribution follows the case text and Git history. Richard is credited within the Sarah case, which Yiqi Rong uploaded; that discrepancy is reported rather than resolved by guessing authorship. Emily's file is attributed to Git contributor ps607. User confirmation that teammates completed their cases is the ownership basis; integration does not claim an independent interview or reapproval on their behalf.
 
-Screenshots are retained byte-for-byte from the submitted public-app captures. Visible controls, displayed populations and figures were inspected against the released data; the original author statements identify their live origin. New November 9 public checks reproduce the same production hash and entering/exiting search behavior. Historical capture dates remain unchanged. Original individual Markdown/PDF files are preserved, including drafts; only the final versions below count as cases. Template guidance/comments are omitted from this combined presentation.
+Original screenshots are retained as historical evidence. Final November 27 public captures supplement them below; final captures govern the current release. Visible controls, displayed populations and figures were inspected against the released data; the original author statements identify their live origin. New November 9 public checks reproduce the same production hash and entering/exiting search behavior. Historical capture dates remain unchanged. Original individual Markdown/PDF files are preserved, including drafts; only the final versions below count as cases. Template guidance/comments are omitted from this combined presentation.
 
 ### Case 1: Analyst Alex: investigation priority
+
+**Final live-app evidence, November 27, 2026 Pacific.** The controls are visible and dropdowns closed. These captures supersede the historical figures below for the final interface; the original narrative, selections, conclusions and attribution remain unchanged. New captions and reliability warnings do not alter cohort arithmetic.
+
+![Final live selection: overview; all active filters visible.](cases/screenshots/final-20261127/overview.jpg)
+
+![Final live selection: fall; all active filters visible.](cases/screenshots/final-20261127/fall.jpg)
+
+![Final live selection: fall-severe; all active filters visible.](cases/screenshots/final-20261127/fall-severe.jpg)
+
+![Final live selection: fall-severe-belt-empty; all active filters visible.](cases/screenshots/final-20261127/fall-severe-belt-empty.jpg)
+
+![Final live selection: belt-search; all active filters visible.](cases/screenshots/final-20261127/belt-search.jpg)
+
+
 
 **Contribution:** Ryan Yu. **Source file:** `cases/ryan-treadmill-falls-final.md`.
 
@@ -119,15 +133,15 @@ Alex starts with all controls clear, compares mechanisms, then selects Fall and 
 
 **Public evidence figures A-E.** Captions identify the active controls; the original full captures are preserved unchanged. See the machine-readable capture manifest for exact UTC times and hashes.
 
-![A. Public overview: 2025, all mechanisms, all outcomes, blank search; 5,120 / 109 / 22.3%.](cases/screenshots/17-final-public-overview.jpg)
+![Historical MVP figure: A. Public overview: 2025, all mechanisms, all outcomes, blank search; 5,120 / 109 / 22.3%.](cases/screenshots/17-final-public-overview.jpg)
 
-![B. Fall, all outcomes, blank search: 65 records and expanded outcome-completeness endpoints; no unknown weight.](cases/screenshots/07-fall-sensitivity.jpg)
+![Historical MVP figure: B. Fall, all outcomes, blank search: 65 records and expanded outcome-completeness endpoints; no unknown weight.](cases/screenshots/07-fall-sensitivity.jpg)
 
-![C. Fall and Severe, blank search: selected and all-outcome comparison populations remain explicitly separate.](cases/screenshots/11-severity-comparison-table.jpg)
+![Historical MVP figure: C. Fall and Severe, blank search: selected and all-outcome comparison populations remain explicitly separate.](cases/screenshots/11-severity-comparison-table.jpg)
 
-![D. Fall and Severe with belt search: genuine zero-result state, 0 / 0 / N/A, with controls visible.](cases/screenshots/12-fall-severe-belt-empty.jpg)
+![Historical MVP figure: D. Fall and Severe with belt search: genuine zero-result state, 0 / 0 / N/A, with controls visible.](cases/screenshots/12-fall-severe-belt-empty.jpg)
 
-![E. All mechanisms and outcomes with trimmed case-insensitive belt search: three matching records and narrative evidence.](cases/screenshots/14-belt-matching-narratives.jpg)
+![Historical MVP figure: E. All mechanisms and outcomes with trimmed case-insensitive belt search: three matching records and narrative evidence.](cases/screenshots/14-belt-matching-narratives.jpg)
 
 The actual public download independently reconciles all six contributions and the selected-total row to 109 records and 5119.6280 weight, with matching period/scope/filters/data hash. The maximum float difference is 1E-12. Decimal computations, dashboard validators and configured local AppTest provide a different method from visually reading rounded values. Fall primary-fracture weight is 1092.5582, or 35.080346% of Fall weight. Evidence and reproducible commands are in validation/REAL_DATA_RESULTS.md and validation/results/public_export_check.json.
 
@@ -169,6 +183,14 @@ This is Ryan's evaluation of the evidence; the captures were performed as part o
 
 ### Case 2: Jordan Lee: extra belt inspections
 
+**Final live-app evidence, November 27, 2026 Pacific.** The controls are visible and dropdowns closed. These captures supersede the historical figures below for the final interface; the original narrative, selections, conclusions and attribution remain unchanged. New captions and reliability warnings do not alter cohort arithmetic.
+
+![Final live selection: belt-contact; all active filters visible.](cases/screenshots/final-20261127/belt-contact.jpg)
+
+![Final live selection: belt-search; all active filters visible.](cases/screenshots/final-20261127/belt-search.jpg)
+
+
+
 **Contribution:** Colby Messih. **Source file:** `cases/colby-jordan-belt-inspections/jordan-belt-inspections-final.md`.
 
 Colby Messih | DSO 576 | HW11
@@ -193,9 +215,9 @@ Live app: https://treadmill-injury-dashboard.streamlit.app/. Genuine Chrome capt
 
 Start with all controls clear: 109 prepared visits, approximately 5,120 weighted ED visits and 22.3% weighted severe outcomes. Next select Belt contact, leave severity unrestricted and search blank. The headline becomes 9 records, 330 weighted visits and 31.6% severe outcomes. Finally reset filters and search belt with both selectors unrestricted: only 3 records, 124 weighted visits and 0.0% severe outcomes remain. The category and the literal word search select different populations.
 
-![Belt contact; all severity; blank search](cases/colby-jordan-belt-inspections/screenshots/02-belt-contact-crop.png)
+![Historical MVP figure: Belt contact; all severity; blank search](cases/colby-jordan-belt-inspections/screenshots/02-belt-contact-crop.png)
 
-![All mechanisms; all severity; literal belt search](cases/colby-jordan-belt-inspections/screenshots/03-literal-belt-search-crop.png)
+![Historical MVP figure: All mechanisms; all severity; literal belt search](cases/colby-jordan-belt-inspections/screenshots/03-literal-belt-search-crop.png)
 
 ### 4. Reading the result for the decision
 
@@ -237,6 +259,18 @@ Team code and released data: ryanyu808/project, commit e3eebd9, retrieved Novemb
 Scenario and initial draft were AI-assisted; Colby explicitly accepted the interpretation and break verdict in chat. No user interview, maintenance experiment or causal validation is claimed.
 
 ### Case 3: Sarah Chen: senior-center orientation
+
+**Final live-app evidence, November 27, 2026 Pacific.** The controls are visible and dropdowns closed. These captures supersede the historical figures below for the final interface; the original narrative, selections, conclusions and attribution remain unchanged. New captions and reliability warnings do not alter cohort arithmetic.
+
+![Final live selection: overview; all active filters visible.](cases/screenshots/final-20261127/overview.jpg)
+
+![Final live selection: entering-exiting; all active filters visible.](cases/screenshots/final-20261127/entering-exiting.jpg)
+
+![Final live selection: getting; all active filters visible.](cases/screenshots/final-20261127/getting.jpg)
+
+![Final live selection: got-off; all active filters visible.](cases/screenshots/final-20261127/got-off.jpg)
+
+
 
 **Contribution:** Richard (credited in case); uploaded by Yiqi Rong. **Source file:** `cases/case-sarah-treadmill-orientation.md`.
 
@@ -302,7 +336,7 @@ The mechanism chart shows different categories of treadmill-related injuries, in
 
 This overview helps Sarah identify which injury mechanisms may be relevant to her safety training program.
 
-![Overall Dashboard](cases/screenshots/live-overview.jpg)
+![Historical MVP figure: Overall Dashboard](cases/screenshots/live-overview.jpg)
 
 Screen B: Entering/exiting injuries
 
@@ -322,7 +356,7 @@ The weighted severe-outcome percentage is 0.0%, with no records classified as ha
 
 This suggests that entering and exiting treadmills is a documented injury mechanism among older adults. However, the small sample means Sarah cannot conclude that these incidents are uncommon or harmless.
 
-![Entering/Exiting Filter](cases/screenshots/live-entering-exiting-headline.jpg)
+![Historical MVP figure: Entering/Exiting Filter](cases/screenshots/live-entering-exiting-headline.jpg)
 
 Screen C: Diagnosis composition
 
@@ -346,7 +380,7 @@ The supporting evidence table confirms that these results come from only four NE
 
 This information helps Sarah understand the types of injuries associated with getting on and off treadmills. However, these diagnosis proportions do not represent injury probabilities for treadmill users.
 
-![Diagnosis Summary](cases/screenshots/live-entering-exiting-diagnosis-summary.jpg)
+![Historical MVP figure: Diagnosis Summary](cases/screenshots/live-entering-exiting-diagnosis-summary.jpg)
 
 Screen D: Searching injury narratives
 
@@ -368,7 +402,7 @@ However, Sarah notices that the search returns fewer records than the four shown
 
 This suggests that the keyword search may not capture every relevant injury narrative.
 
-![Search Getting](cases/screenshots/live-getting-three-matches.jpg)
+![Historical MVP figure: Search Getting](cases/screenshots/live-getting-three-matches.jpg)
 
 Screen E: Identifying a missing case
 
@@ -392,7 +426,7 @@ This demonstrates an important limitation: the dashboard's narrative search reli
 
 For Sarah, reviewing all entering/exiting injury narratives is important when deciding what safety instructions should be included in her training program.
 
-![Search Got Off](cases/screenshots/live-got-off-one-match.jpg)
+![Historical MVP figure: Search Got Off](cases/screenshots/live-got-off-one-match.jpg)
 
 ### 4. Reading the result for their decision
 
@@ -490,6 +524,14 @@ Therefore, the dashboard is useful for identifying potential safety concerns but
 
 ### Case 4: Emily Carter: rehabilitation supervision
 
+**Final live-app evidence, November 27, 2026 Pacific.** The controls are visible and dropdowns closed. These captures supersede the historical figures below for the final interface; the original narrative, selections, conclusions and attribution remain unchanged. New captions and reliability warnings do not alter cohort arithmetic.
+
+![Final live selection: entering-exiting; all active filters visible.](cases/screenshots/final-20261127/entering-exiting.jpg)
+
+![Final live selection: fall; all active filters visible.](cases/screenshots/final-20261127/fall.jpg)
+
+
+
 **Contribution:** ps607 (Git attribution). **Source file:** `cases/emily-carter-physical-therapy-case.md`.
 
 ### 1. The Person and the Decision
@@ -541,7 +583,7 @@ The dashboard displays:
 - NEISS injury records: **4**
 - Weighted severe-outcome percentage: **0.0%**
 
-![Entering and exiting treadmill injuries](cases/screenshots/emily-entering-exiting.png)
+![Historical MVP figure: Entering and exiting treadmill injuries](cases/screenshots/emily-entering-exiting.png)
 
 Emily then changes the injury mechanism filter to **Fall**, leaving the other settings unchanged.
 
@@ -551,7 +593,7 @@ The dashboard displays:
 - NEISS injury records: **65**
 - Weighted severe-outcome percentage: **28.3%**
 
-![Fall-related treadmill injuries](cases/screenshots/emily-falls.png)
+![Historical MVP figure: Fall-related treadmill injuries](cases/screenshots/emily-falls.png)
 
 The results show substantially more estimated emergency department visits classified as falls than as entering/exiting injuries.
 
@@ -622,6 +664,14 @@ This improvement would help rehabilitation professionals and other users interpr
 
 ### Case 5: Alex Morgan: hospital fracture education
 
+**Final live-app evidence, November 27, 2026 Pacific.** The controls are visible and dropdowns closed. These captures supersede the historical figures below for the final interface; the original narrative, selections, conclusions and attribution remain unchanged. New captions and reliability warnings do not alter cohort arithmetic.
+
+![Final live selection: overview; all active filters visible.](cases/screenshots/final-20261127/overview.jpg)
+
+![Final live selection: fall; all active filters visible.](cases/screenshots/final-20261127/fall.jpg)
+
+
+
 **Contribution:** James Liao (Git attribution). **Source file:** `cases/hospital_fracture_education.md`.
 
 *DSO 576 | Module 11 | Individual Case - Treadmill Injury Dashboard*
@@ -653,23 +703,23 @@ Alex's alternatives are to use CDC STEADI materials, examine the hospital's own 
 
 **Screen 1 - Overall baseline, all filters cleared.** The dashboard reports **109 retained NEISS records**, **5,120 estimated national ED visits**, and **22.3% weighted severe outcomes**. These are sample records, estimated visits, and a conditional outcome percentage respectively; they are not interchangeable.
 
-![Live dashboard baseline with no filters and headline metrics](cases/screenshots/case-alex-overview.png)
+![Historical MVP figure: Live dashboard baseline with no filters and headline metrics](cases/screenshots/case-alex-overview.png)
 
 **Screen 2 - Compare mechanisms before filtering.** The unfiltered mechanism and evidence tables report `Fall` as **65 records / 3,114.45 weighted visits / 28.3% recorded severe outcomes**. Other mechanisms remain distinct: equipment/cord obstacle or landing falls **8 / 444.87**, belt contact **9 / 330.43**, and entering/exiting **4 / 254.62**. This is a useful comparison but not a per-user injury-rate ranking.
 
-![Unfiltered mechanism totals and supporting evidence across injury mechanisms](cases/screenshots/case-alex-records.png)
+![Historical MVP figure: Unfiltered mechanism totals and supporting evidence across injury mechanisms](cases/screenshots/case-alex-records.png)
 
 **Screen 3 - Select `Fall`.** The sidebar visibly shows **Injury mechanism = Fall**, with Severity still at all and the narrative search empty. The resulting cohort has **65 of 109 prepared sample records**, **3,114 estimated national ED visits**, and **28.3% weighted severe outcomes**. This confirms that Alex is now viewing only the app's `Fall` mechanism group, not every mechanism involving a fall.
 
-![Live Fall selection and filtered headline statistics](cases/screenshots/case-alex-fall-overview.png)
+![Historical MVP figure: Live Fall selection and filtered headline statistics](cases/screenshots/case-alex-fall-overview.png)
 
 **Screen 4 - Examine fracture diagnoses under `Fall`.** With `Fall` selected, the *Primary-diagnosis composition* chart includes a segment labeled **`57 - FRACTURE`**. Its width is approximately one-third of the weighted Fall visits. The chart screenshot has **no numeric hover tooltip**, so the precise value below comes from the independent validation report [4], not from visual estimation of the bar.
 
-![Live Fall filter with fracture diagnosis segment and diagnosis legend](cases/screenshots/case-alex-fall-fracture.png)
+![Historical MVP figure: Live Fall filter with fracture diagnosis segment and diagnosis legend](cases/screenshots/case-alex-fall-fracture.png)
 
 **Screen 5 - Check the evidence denominator.** The filtered *Mechanism summary* and *Supporting evidence* tables show **3,114.45 selected weighted visits**, **65 NEISS sample records**, **28.3% recorded severe outcomes**, and **zero unknown-outcome records**. The dashboard itself warns that visits are not unique people, no exposure denominator is available, and statistical precision is not estimated in this MVP.
 
-![Live Fall filter with sample records, weighted ED visits and evidence limitations](cases/screenshots/case-alex-fall-evidence.png)
+![Historical MVP figure: Live Fall filter with sample records, weighted ED visits and evidence limitations](cases/screenshots/case-alex-fall-evidence.png)
 
 **Independent arithmetic check.** The team's independent validation report [4] gives **1,092.5582 fracture-primary-diagnosis weighted visits** among **3,114.4453 `Fall` weighted visits**. Therefore the fracture share is `1,092.5582 / 3,114.4453 x 100 = 35.1%` (one decimal). It also reconciles the all-mechanism total to **109 records and 5,119.6280 weighted ED visits**, consistent with the live app's rounded **5,120** headline. This comparison checks the numerical result without claiming the app has measured patient-level risk.
 
@@ -709,11 +759,11 @@ The preceding case narratives, screenshots and Break verdicts document the autho
 
 Actual post-deployment screenshots and acceptance results follow. These are implementation verification, not new personal approvals by the case authors. The rehabilitation and diagnosis-filter proposals remain open with the data limits and scope rationale in Design. Historical references to CR-09/10 being open describe the original review; the current implementation commit and evidence below supersede only their implementation status.
 
-![New release: sourced cautions next to the scatter, including count/estimate screens and uncomputed CV.](cases/screenshots/stronger-estimate-cautions.jpg)
+![Historical MVP figure: New release: sourced cautions next to the scatter, including count/estimate screens and uncomputed CV.](cases/screenshots/stronger-estimate-cautions.jpg)
 
-![New release: all four Entering/exiting narratives with blank search and visible active controls.](cases/screenshots/stronger-all-entry-narratives.jpg)
+![Historical MVP figure: New release: all four Entering/exiting narratives with blank search and visible active controls.](cases/screenshots/stronger-all-entry-narratives.jpg)
 
-## 3. Numbers
+## 3. Results
 
 ### R7.1 publisher-file audit - November 18, 2026
 
@@ -772,7 +822,7 @@ Evidence: validation/results/real_2025_results.json, real_2025_dashboard_check.j
 
 The earlier invented hand-worked fixture remains documented in validation/results/fixture_results.json and dashboard_fixture_results.json. It tests 120 weight / five records / 41.666667% severe and unknown endpoints 41.666667-75%; it is never substituted for real findings. Canonical integer-code normalization resolved an earlier fixture 53.0-versus-53 representation issue without changing metric definitions. Actual real-data discrepancies are fully resolved; the separate public comparison also passes.
 
-## 4. Tests
+## 4. Tests and hardening
 
 ### R8.1 calculation fault evidence - November 18, 2026
 
@@ -794,7 +844,7 @@ Full correct-implementation regression run: `python -m pytest -q -p no:cacheprov
 
 Final captured repeat: **195 passed in 48.84s**; complete stdout/stderr is retained in `validation/results/r7r8_regression.txt`. The focused contribution check returned **9 passed in 0.14s**, with full output in `validation/results/publisher_check.txt`. Configured production AppTest and the existing independent dashboard/filter/CSV validator both passed again. These are local checks; no new public browser session or deployment is claimed.
 
-**Current strengthened suite: 186 passed, zero failures/errors/skips**, Windows/Python 3.13.15, 15.51 seconds. Six new tests protect the exact count/estimate thresholds, complete blank-search membership, and an empty selected subset with a nonempty scatter baseline. The implementation commit also passed Linux CI and production validators. Current release evidence is in validation/results/stronger_release_20261109.json. The historical runs below show how the test protection developed; they are not the latest test count.
+**Historical November 9 strengthened suite: 186 passed, zero failures/errors/skips**, Windows/Python 3.13.15, 15.51 seconds. Six new tests protect the exact count/estimate thresholds, complete blank-search membership, and an empty selected subset with a nonempty scatter baseline. The implementation commit also passed Linux CI and production validators. Current release evidence is in validation/results/stronger_release_20261109.json. The historical runs below show how the test protection developed; they are not the latest test count.
 
 Historical production release suite: **180 passed, 0 failures, 0 errors, 0 skipped**, Windows/Python 3.13.15, JUnit 38.457 seconds. Results and module counts are in validation/results/test_summary.json. That recorded run includes the finalized runtime pair. A complete post-public-evidence rerun also passed all 180 tests in 16.57 seconds, with zero failures/errors/skips; validation/results/live_release_tests.json records the actual report. Two additional taxonomy regressions beyond 178 protect rejection of the old Non-use label and separation of surface Fall from equipment relationship in baselines/exports. The missing-file AppTest now uses an explicitly absent temporary path, preserving that behavior test when production data is shipped; it was not deleted or weakened.
 
@@ -809,3 +859,227 @@ Release guards exclude raw downloads, private reviews/workbooks/audits, environm
 Final integration rerun: **180 passed, zero failures/errors/skips**, Python 3.13.15 on Windows, 13.70 seconds (November 9). An initial attempt had 78 temporary-directory setup errors because its parent folder did not exist; creating that output folder resolved the harness issue without changing application code or tests. Independent production validators and the teammate numerical checks were rerun; see validation/results/final_release_20261109.json.
 
 Strengthened release checks: **186 passed** on Windows Python 3.13.15 in **15.51 seconds**, including six additional count/estimate-boundary, blank-search membership and empty-selected/nonempty-baseline regressions. Production dashboard/CSV and configured AppTest still pass with unchanged 109 records and 5119.6280 weight. The archive helper now checks regular files rather than mistaking the data/prepared directory marker for a private file. All file-level private-path and source-validation guards remain unchanged.
+
+
+### November 27 integrated hardening report
+
+# Final hardening report
+
+Executed November 27, 2026 Pacific on the integrated production cohort. Local AppTest evidence is not represented as live-browser screenshots. This is one scripted hardening pass, not a claim that several independent review rounds or a user study occurred.
+
+Run `uv run --locked python validation/final_hardening.py`. Complete observations, selected metrics, warnings and empty messages are in `validation/results/final_20261127/hardening.json`.
+
+| Kind | Tried and expected behavior | Actual finding and action |
+| --- | --- | --- |
+| Heavy everyday use | Five Fall + Severe + belt cycles; Reset twice; Undo; Reset. Controls must restore all selections and clear them on Reset. | All five cycles passed. Empty 0 / 0 / N/A was explicitly explained; actionable Clear guidance was visible. Parth's repeated-Reset fix retained the meaningful snapshot; no additional control defect found. |
+| Unusual selections | Literal [.*], huge numeric text, absent name, whitespace, senior, button and wrong searches. No traceback or misleading substantive empty answer; identify what to change. | All checks passed. Empty selections gave recovery guidance. Whitespace restored the full population. Numeric text is narrative text, not an unsupported numeric input. The app has no editable age/date/ID controls; incompatible dates cannot be submitted. |
+| Tiny groups | senior, button, wrong and Entering/exiting. Expect visible CPSC headline warnings. | All warned. Entering/exiting showed 255 / 4 / 0.0% with warning. James's warning checks current filtered headline, including severity. Survey CV remains uncomputed, explicitly disclosed; four records cannot establish safety or intervention effectiveness. |
+| Data problems | Inspect runtime duplicate IDs, age bounds, positive weights, missing/variant mechanism labels; rescan publisher workbook and reviewed IDs. Regression suite also injects malformed/missing/source-mismatched bundles. | No duplicate runtime IDs, invalid ages, nonpositive weights or blank/variant labels. Source audit reproduced 188 screened / 109 included / 79 excluded. Missing outcomes are handled by explicit denominator/sensitivity logic. Fixed calendar 2025 is the only period, verified across original annual dates. Brief narratives, classification boundaries and absent exposure remain inherent data limits. |
+| Consistency | Independently compare membership, totals, severity/diagnosis baselines and CSV across 14 selections; publisher-versus-app comparison; seven controlled calculation errors. | All 14 dashboard/export scenarios passed; all eight main values reconciled; all seven mutants failed as intended and views.py remained unchanged. Floating-point differences are explained in Part 3. Final video and final live screenshots still require separate verification. |
+
+Commands and full raw outputs are in `validation/results/final_20261127/commands.json` and adjacent text files. The pinned Streamlit 1.45.1 suite passed 204 tests in 56.16s. A second run with the existing Streamlit 1.66.0 environment also passed 204 tests in 81.08s. Production AppTest and dashboard/export checks passed. No automated test was deleted or weakened during integration. R1 adds its caption regression, R4 adds empty-guidance and Undo regressions, and the existing main-result tests protect numerical behavior. Layout-only screenshot defects are checked visually.
+
+The initial network-restricted Git fetch failed; the authorized network fetch succeeded. The public app was asleep, then woke without sign-in. Initially it lacked the unmerged R1 captions; R1 was merged after tests and successful CI. The old PDF builder loaded a stale historical PDF; it was replaced by current-source rendering to preserve Richard's new comparison and wording corrections. The original workbook's historical download date was not recorded; no date was invented.
+
+Open release gates: authentic final five-minute recording and its review, complete current-source PDF visual review, and clean archive setup/startup verification. These are not inherent limits and cannot be waived by passing local tests.
+
+
+### Full pinned-environment regression output
+
+```text
+........................................................................ [ 35%]
+........................................................................ [ 70%]
+............................................................             [100%]
+204 passed in 56.16s
+```
+
+### Refreshed R8 complete failed-test outputs
+
+#### belt_severe_pct
+
+```text
+F                                                                        [100%]
+================================== FAILURES ===================================
+______________________ test_main_result[belt_severe_pct] ______________________
+
+metric = 'belt_severe_pct'
+observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct': 22.302804031855437, 'fall_weight': np.float64(3114.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: belt_severe_pct
+E       assert np.float64(32.612079855266416) == 31.612079855266416 Ãƒâ€šÃ‚Â± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 32.612079855266416
+E         Expected: 31.612079855266416 Ãƒâ€šÃ‚Â± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[belt_severe_pct] - A...
+1 failed in 0.27s
+```
+
+#### fall_fracture_pct
+
+```text
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____________________ test_main_result[fall_fracture_pct] _____________________
+
+metric = 'fall_fracture_pct'
+observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct': 22.302804031855437, 'fall_weight': np.float64(3114.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: fall_fracture_pct
+E       assert np.float64(34.72954294621903) == 35.08034641032225 Ãƒâ€šÃ‚Â± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 34.72954294621903
+E         Expected: 35.08034641032225 Ãƒâ€šÃ‚Â± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[fall_fracture_pct]
+1 failed in 0.26s
+```
+
+#### fall_severe_pct
+
+```text
+F                                                                        [100%]
+================================== FAILURES ===================================
+______________________ test_main_result[fall_severe_pct] ______________________
+
+metric = 'fall_severe_pct'
+observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct': 22.302804031855437, 'fall_weight': np.float64(3114.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: fall_severe_pct
+E       assert np.float64(29.340163816651398) == 28.340163816651394 Ãƒâ€šÃ‚Â± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 29.340163816651398
+E         Expected: 28.340163816651394 Ãƒâ€šÃ‚Â± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[fall_severe_pct] - A...
+1 failed in 0.24s
+```
+
+#### fall_severe_records
+
+```text
+F                                                                        [100%]
+================================== FAILURES ===================================
+____________________ test_main_result[fall_severe_records] ____________________
+
+metric = 'fall_severe_records'
+observed = {'total_weight': 5119.628000000001, 'record_count': 110, 'severe_pct': 22.302804031855437, 'fall_weight': np.float64(3114.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: fall_severe_records
+E       assert 19 == 18.0 Ãƒâ€šÃ‚Â± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 19
+E         Expected: 18.0 Ãƒâ€šÃ‚Â± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[fall_severe_records]
+1 failed in 0.27s
+```
+
+#### fall_weight
+
+```text
+F                                                                        [100%]
+================================== FAILURES ===================================
+________________________ test_main_result[fall_weight] ________________________
+
+metric = 'fall_weight'
+observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct': 22.302804031855437, 'fall_weight': np.float64(3115.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: fall_weight
+E       assert np.float64(3115.4453) == 3114.4453 Ãƒâ€šÃ‚Â± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 3115.4453
+E         Expected: 3114.4453 Ãƒâ€šÃ‚Â± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[fall_weight] - Asser...
+1 failed in 0.25s
+```
+
+#### severe_pct
+
+```text
+F                                                                        [100%]
+================================== FAILURES ===================================
+________________________ test_main_result[severe_pct] _________________________
+
+metric = 'severe_pct'
+observed = {'total_weight': 5119.628000000001, 'record_count': 109, 'severe_pct': 22.079775991536884, 'fall_weight': np.float64(3114.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: severe_pct
+E       assert 22.079775991536884 == 22.30280403185544 Ãƒâ€šÃ‚Â± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 22.079775991536884
+E         Expected: 22.30280403185544 Ãƒâ€šÃ‚Â± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[severe_pct] - Assert...
+1 failed in 0.27s
+```
+
+#### total_weight
+
+```text
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______________________ test_main_result[total_weight] ________________________
+
+metric = 'total_weight'
+observed = {'total_weight': 5120.628000000001, 'record_count': 109, 'severe_pct': 22.298448549670077, 'fall_weight': np.float64(3114.4453), ...}
+
+    @pytest.mark.parametrize('metric', ['record_count', *MUTATIONS])
+    def test_main_result(metric, observed):
+        expected = json.loads((ROOT/'validation/results/publisher_2025.json').read_text())['main_results']
+>       assert observed[metric] == pytest.approx(float(expected[metric]), rel=1e-12, abs=1e-8), metric
+E       AssertionError: total_weight
+E       assert 5120.628000000001 == 5119.628 Ãƒâ€šÃ‚Â± 1.0e-08
+E         
+E         comparison failed
+E         Obtained: 5120.628000000001
+E         Expected: 5119.628 Ãƒâ€šÃ‚Â± 1.0e-08
+
+tests\test_publisher_results.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publisher_results.py::test_main_result[total_weight] - Asse...
+1 failed in 0.27s
+```

@@ -1,10 +1,12 @@
+> Final integration status (November 27): all teammate code is integrated and the pinned suite passes **204 tests**. The final video file and release packaging gates are tracked in `requirements-matrix.md`. The historical MVP video below is not the Deliverable 5 video. Do not submit until these gates are complete.
+
 # CPSC Treadmill Injury Dashboard
 
 This dashboard helps a CPSC epidemiology analyst decide which treadmill injury mechanisms among adults 65-120 deserve closer investigation. It brings weighted emergency-department visit estimates, recorded severe outcomes, primary diagnoses and narrative evidence together. It is an investigation aid; product association does not establish causation or injury risk per treadmill user.
 
 **Public app URL:** [Open the dashboard](https://treadmill-injury-dashboard.streamlit.app/)
 
-**Demo video URL:** [Watch the Unlisted five-minute demonstration](https://www.youtube.com/watch?v=JEA_-Y34y4w)
+**Historical MVP demo (not the final recording):** [Watch the earlier demonstration](https://www.youtube.com/watch?v=JEA_-Y34y4w)
 
 **Reviewed production release, five team cases and submission validation complete.** All 188 screened candidates have complete, source-bound human decisions: 109 retained injury visits, 79 exclusions. The genuine production CSV/provenance are included. Local production checks show **5,119.6280 weighted ED visits**, **24 severe records** and **22.3028% weighted severe outcomes**. The actual public app and downloaded CSV match these independent results; a separate browser session opened the app without signing in. [Live evidence](validation/results/public_dashboard_verification.json). See [independent real-data evidence](validation/REAL_DATA_RESULTS.md).
 
@@ -48,7 +50,7 @@ uv run --locked python -m pytest -q -p no:cacheprovider
 uv run --locked python validation/verify_app.py --output ../local-app-check.json
 ```
 
-Full suite: **186 passed**, no failures/errors/skips, Windows/Python 3.13.15. All eight original CRs, review/source guards, taxonomy, filters/exports, empty states and Git byte preservation are covered. [Current results](validation/results/stronger_release_20261109.json). Ubuntu/Python 3.13.18 also passed all 180 tests, genuine production validators/AppTest and HTTP health. [Actual CI evidence](deployment/CI_RESULTS.md).
+Historical November 9 suite: **186 passed**, no failures/errors/skips, Windows/Python 3.13.15. All eight original CRs, review/source guards, taxonomy, filters/exports, empty states and Git byte preservation are covered. [Current results](validation/results/stronger_release_20261109.json). Ubuntu/Python 3.13.18 also passed all 180 tests, genuine production validators/AppTest and HTTP health. [Actual CI evidence](deployment/CI_RESULTS.md).
 
 [validation.md](validation.md) and root [validation.pdf](validation.pdf) retain Design / Cases / Numbers / Tests and genuine public screenshots. Ryan's [individual HW11 case](cases/ryan-treadmill-falls-final.md) includes his explicitly accepted break verdict and open CR-09. Its final PDF is separate from the team ZIP. The preserved case describes the original Break; CR-09 and CR-10 are now implemented in release 79c884e and verified separately in validation. A genuine five-minute, 1920x1080 public-app MP4 with AI narration is complete outside the repository. The Unlisted video plays in a separate browser session without signing in. Five distinct cases are integrated in the final validation: investigation priority, belt inspections, orientation, rehabilitation supervision and hospital education. [Readiness](submission/READINESS.md), [demo sequence](submission/DEMO_SCRIPT.md), and [release guard](submission/check_release.py).
 

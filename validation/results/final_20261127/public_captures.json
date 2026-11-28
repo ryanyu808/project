@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-27 Pacific",
+  "url": "https://treadmill-injury-dashboard.streamlit.app/",
+  "observed_deployment": "R1 captions and R2 warnings visible; original headline 5120/109/22.3; no sign-in",
+  "captures": [
+    {
+      "file": "cases\\screenshots\\final-20261127\\belt-contact.jpg",
+      "sha256": "0ff3dd83e6059cf255f230b82bc33b50204bc663633e729df4eacd3c85093c0b",
+      "bytes": 102001
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\belt-search.jpg",
+      "sha256": "b22a80f9cd33d0501275a1f9c82cca3ee6ae150c23f361413ad947e13eb1ac95",
+      "bytes": 100586
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\entering-exiting.jpg",
+      "sha256": "001958002aa71dbc3f7bcf7e2a848d066d849ef7a6353d8ec1c58d3721e50b7d",
+      "bytes": 101671
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\fall-severe-belt-empty.jpg",
+      "sha256": "47a89187c012d53d4075119142ed2fdedce229298a34e8e081401161cf4ae073",
+      "bytes": 116222
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\fall-severe.jpg",
+      "sha256": "21ef91bac118c20adf7d5cf4294ade064183cbe1d38269b4bd4aa6ddbb65133b",
+      "bytes": 113910
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\fall.jpg",
+      "sha256": "129cd8141cdd7fa54faa834f838df4cfafa36dd4cad48d344569de3ac783bfb3",
+      "bytes": 93647
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\getting.jpg",
+      "sha256": "d76b8ea02d4f6ba9647b775fd009546d129219fdf8fd5a289beeed1ba7ac53c5",
+      "bytes": 101718
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\got-off.jpg",
+      "sha256": "ad3889f5868f848b1c4f0ad2e02e40ebce39f02feea167f6f5bc000edc93df67",
+      "bytes": 101386
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\overview.jpg",
+      "sha256": "8e0a3752b89be1bdd535b45a836d54baca0282d91e249ec0dd008249d990e9ce",
+      "bytes": 100774
+    },
+    {
+      "file": "cases\\screenshots\\final-20261127\\senior-warning.jpg",
+      "sha256": "e447cceecdbccc5828eecda119827f914b9d7988c7f844352744365aac0ec3d2",
+      "bytes": 101490
+    }
+  ]
+}
