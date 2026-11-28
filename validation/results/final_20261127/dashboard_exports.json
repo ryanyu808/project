@@ -1,0 +1,631 @@
+{
+  "status": "PASS",
+  "source_scope": "full_annual",
+  "prepared_sha256": "c97b9ef421000d5a6e476a5e1598e16d6c8fde9ad20b5cd32d83c626480e985f",
+  "tolerance": "max(1e-8 absolute, 1e-12 relative); IDs/counts/sets exact",
+  "comparison": "Actual filter and dashboard builder outputs, baselines, sensitivity and downloaded CSV; public UI capture remains separate",
+  "scenarios": {
+    "all": {
+      "total_weight": "5119.6280",
+      "record_count": 109,
+      "severe_weight": "1141.8206",
+      "severe_pct": "22.30280403185543949677593763",
+      "mechanisms": {
+        "Repair/moving": {
+          "weight": "277.7898",
+          "count": 8,
+          "severe_weight": "0",
+          "diagnosis": {
+            "64": "51.8171",
+            "71": "97.5170",
+            "61": "25.5462",
+            "62": "77.3633",
+            "50": "25.5462"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "64": "18.65334868306899677381962909",
+            "71": "35.10460067288287762905621445",
+            "61": "9.196233986993042941101509127",
+            "62": "27.84958267006203971492113821",
+            "50": "9.196233986993042941101509127"
+          }
+        },
+        "Fall": {
+          "weight": "3114.4453",
+          "count": 65,
+          "severe_weight": "882.6389",
+          "diagnosis": {
+            "71": "557.0833",
+            "53": "542.8389",
+            "57": "1092.5582",
+            "55": "129.5195",
+            "62": "345.4056",
+            "64": "129.5908",
+            "59": "102.9095",
+            "60": "101.4187",
+            "58": "113.1208"
+          },
+          "severe_pct": "28.34016381665139535441511848",
+          "diagnosis_pct": {
+            "71": "17.88707928182267320604410679",
+            "53": "17.42971372783461632798623883",
+            "57": "35.08034641032224903741285808",
+            "55": "4.158669924304016512988685337",
+            "62": "11.09043719599120909267534736",
+            "64": "4.160959256532776478687874210",
+            "59": "3.304264165435816130724787493",
+            "60": "3.256396893533496960116782273",
+            "58": "3.632133144223146253363319625"
+          }
+        },
+        "Belt contact": {
+          "weight": "330.4278",
+          "count": 9,
+          "severe_weight": "104.4551",
+          "diagnosis": {
+            "62": "97.5170",
+            "57": "104.0447",
+            "59": "25.5462",
+            "71": "52.2275",
+            "53": "51.0924"
+          },
+          "severe_pct": "31.61207985526641523503772988",
+          "diagnosis_pct": {
+            "62": "29.51234732670798280289975601",
+            "57": "31.48787723066884808118445240",
+            "59": "7.731250215629556592998530995",
+            "71": "15.80602479573449933692019860",
+            "53": "15.46250043125911318599706199"
+          }
+        },
+        "Unknown/Unclassified": {
+          "weight": "697.4813",
+          "count": 15,
+          "severe_weight": "102.9095",
+          "diagnosis": {
+            "62": "28.1008",
+            "64": "384.7596",
+            "71": "178.7463",
+            "53": "80.3284",
+            "66": "25.5462"
+          },
+          "severe_pct": "14.75444574643076452372271486",
+          "diagnosis_pct": {
+            "62": "4.028896545326734924649592756",
+            "64": "55.16414561938793197753115388",
+            "71": "25.62739674884473605242176385",
+            "53": "11.51692525663412051333849381",
+            "66": "3.662635829806476532058995704"
+          }
+        },
+        "Entering/exiting": {
+          "weight": "254.6187",
+          "count": 4,
+          "severe_weight": "0",
+          "diagnosis": {
+            "53": "202.3912",
+            "62": "52.2275"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "53": "79.48795591211486037749780358",
+            "62": "20.51204408788513962250219642"
+          }
+        },
+        "Equipment/cord obstacle or landing falls": {
+          "weight": "444.8651",
+          "count": 8,
+          "severe_weight": "51.8171",
+          "diagnosis": {
+            "64": "28.1008",
+            "57": "157.2683",
+            "62": "103.6342",
+            "53": "155.8618"
+          },
+          "severe_pct": "11.64782312660624535392864039",
+          "diagnosis_pct": {
+            "64": "6.316701400042394874311336178",
+            "57": "35.35190780306209680192939388",
+            "62": "23.29564625321249070785728078",
+            "53": "35.03574454368301761590198916"
+          }
+        }
+      },
+      "severe_record_count": 24,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "22.30280403185543949677593763"
+    },
+    "Belt contact": {
+      "total_weight": "330.4278",
+      "record_count": 9,
+      "severe_weight": "104.4551",
+      "severe_pct": "31.61207985526641523503772988",
+      "mechanisms": {
+        "Belt contact": {
+          "weight": "330.4278",
+          "count": 9,
+          "severe_weight": "104.4551",
+          "diagnosis": {
+            "62": "97.5170",
+            "57": "104.0447",
+            "59": "25.5462",
+            "71": "52.2275",
+            "53": "51.0924"
+          },
+          "severe_pct": "31.61207985526641523503772988",
+          "diagnosis_pct": {
+            "62": "29.51234732670798280289975601",
+            "57": "31.48787723066884808118445240",
+            "59": "7.731250215629556592998530995",
+            "71": "15.80602479573449933692019860",
+            "53": "15.46250043125911318599706199"
+          }
+        }
+      },
+      "severe_record_count": 2,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "31.61207985526641523503772988"
+    },
+    "Entering/exiting": {
+      "total_weight": "254.6187",
+      "record_count": 4,
+      "severe_weight": "0",
+      "severe_pct": "0E+4",
+      "mechanisms": {
+        "Entering/exiting": {
+          "weight": "254.6187",
+          "count": 4,
+          "severe_weight": "0",
+          "diagnosis": {
+            "53": "202.3912",
+            "62": "52.2275"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "53": "79.48795591211486037749780358",
+            "62": "20.51204408788513962250219642"
+          }
+        }
+      },
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "0E+4"
+    },
+    "Equipment/cord obstacle or landing falls": {
+      "total_weight": "444.8651",
+      "record_count": 8,
+      "severe_weight": "51.8171",
+      "severe_pct": "11.64782312660624535392864039",
+      "mechanisms": {
+        "Equipment/cord obstacle or landing falls": {
+          "weight": "444.8651",
+          "count": 8,
+          "severe_weight": "51.8171",
+          "diagnosis": {
+            "64": "28.1008",
+            "57": "157.2683",
+            "62": "103.6342",
+            "53": "155.8618"
+          },
+          "severe_pct": "11.64782312660624535392864039",
+          "diagnosis_pct": {
+            "64": "6.316701400042394874311336178",
+            "57": "35.35190780306209680192939388",
+            "62": "23.29564625321249070785728078",
+            "53": "35.03574454368301761590198916"
+          }
+        }
+      },
+      "severe_record_count": 1,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "11.64782312660624535392864039"
+    },
+    "Fall": {
+      "total_weight": "3114.4453",
+      "record_count": 65,
+      "severe_weight": "882.6389",
+      "severe_pct": "28.34016381665139535441511848",
+      "mechanisms": {
+        "Fall": {
+          "weight": "3114.4453",
+          "count": 65,
+          "severe_weight": "882.6389",
+          "diagnosis": {
+            "71": "557.0833",
+            "53": "542.8389",
+            "57": "1092.5582",
+            "55": "129.5195",
+            "62": "345.4056",
+            "64": "129.5908",
+            "59": "102.9095",
+            "60": "101.4187",
+            "58": "113.1208"
+          },
+          "severe_pct": "28.34016381665139535441511848",
+          "diagnosis_pct": {
+            "71": "17.88707928182267320604410679",
+            "53": "17.42971372783461632798623883",
+            "57": "35.08034641032224903741285808",
+            "55": "4.158669924304016512988685337",
+            "62": "11.09043719599120909267534736",
+            "64": "4.160959256532776478687874210",
+            "59": "3.304264165435816130724787493",
+            "60": "3.256396893533496960116782273",
+            "58": "3.632133144223146253363319625"
+          }
+        }
+      },
+      "severe_record_count": 18,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "28.34016381665139535441511848"
+    },
+    "Repair/moving": {
+      "total_weight": "277.7898",
+      "record_count": 8,
+      "severe_weight": "0",
+      "severe_pct": "0E+4",
+      "mechanisms": {
+        "Repair/moving": {
+          "weight": "277.7898",
+          "count": 8,
+          "severe_weight": "0",
+          "diagnosis": {
+            "64": "51.8171",
+            "71": "97.5170",
+            "61": "25.5462",
+            "62": "77.3633",
+            "50": "25.5462"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "64": "18.65334868306899677381962909",
+            "71": "35.10460067288287762905621445",
+            "61": "9.196233986993042941101509127",
+            "62": "27.84958267006203971492113821",
+            "50": "9.196233986993042941101509127"
+          }
+        }
+      },
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "0E+4"
+    },
+    "Unknown/Unclassified": {
+      "total_weight": "697.4813",
+      "record_count": 15,
+      "severe_weight": "102.9095",
+      "severe_pct": "14.75444574643076452372271486",
+      "mechanisms": {
+        "Unknown/Unclassified": {
+          "weight": "697.4813",
+          "count": 15,
+          "severe_weight": "102.9095",
+          "diagnosis": {
+            "62": "28.1008",
+            "64": "384.7596",
+            "71": "178.7463",
+            "53": "80.3284",
+            "66": "25.5462"
+          },
+          "severe_pct": "14.75444574643076452372271486",
+          "diagnosis_pct": {
+            "62": "4.028896545326734924649592756",
+            "64": "55.16414561938793197753115388",
+            "71": "25.62739674884473605242176385",
+            "53": "11.51692525663412051333849381",
+            "66": "3.662635829806476532058995704"
+          }
+        }
+      },
+      "severe_record_count": 3,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "14.75444574643076452372271486"
+    },
+    "Severe": {
+      "total_weight": "1141.8206",
+      "record_count": 24,
+      "severe_weight": "1141.8206",
+      "severe_pct": "100",
+      "mechanisms": {
+        "Fall": {
+          "weight": "882.6389",
+          "count": 18,
+          "severe_weight": "882.6389",
+          "diagnosis": {
+            "57": "515.9203",
+            "53": "131.7350",
+            "62": "53.6470",
+            "60": "101.4187",
+            "55": "28.1008",
+            "71": "51.8171"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "57": "58.45202381177625413971670635",
+            "53": "14.92512963115493776673563787",
+            "62": "6.078023526948562996713605077",
+            "60": "11.49039544937346405194695135",
+            "55": "3.183725530338624323038560843",
+            "71": "5.870702050408156721848538513"
+          }
+        },
+        "Unknown/Unclassified": {
+          "weight": "102.9095",
+          "count": 3,
+          "severe_weight": "102.9095",
+          "diagnosis": {
+            "66": "25.5462",
+            "64": "51.8171",
+            "71": "25.5462"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "66": "24.82394725462663796831196342",
+            "64": "50.35210549074672406337607315",
+            "71": "24.82394725462663796831196342"
+          }
+        },
+        "Belt contact": {
+          "weight": "104.4551",
+          "count": 2,
+          "severe_weight": "104.4551",
+          "diagnosis": {
+            "71": "52.2275",
+            "57": "52.2276"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "71": "49.99995213254307353111528303",
+            "57": "50.00004786745692646888471697"
+          }
+        },
+        "Equipment/cord obstacle or landing falls": {
+          "weight": "51.8171",
+          "count": 1,
+          "severe_weight": "51.8171",
+          "diagnosis": {
+            "53": "51.8171"
+          },
+          "severe_pct": "100",
+          "diagnosis_pct": {
+            "53": "100"
+          }
+        }
+      },
+      "severe_record_count": 24,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "100"
+    },
+    "Other known disposition": {
+      "total_weight": "3977.8074",
+      "record_count": 85,
+      "severe_weight": "0",
+      "severe_pct": "0E+4",
+      "mechanisms": {
+        "Repair/moving": {
+          "weight": "277.7898",
+          "count": 8,
+          "severe_weight": "0",
+          "diagnosis": {
+            "64": "51.8171",
+            "71": "97.5170",
+            "61": "25.5462",
+            "62": "77.3633",
+            "50": "25.5462"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "64": "18.65334868306899677381962909",
+            "71": "35.10460067288287762905621445",
+            "61": "9.196233986993042941101509127",
+            "62": "27.84958267006203971492113821",
+            "50": "9.196233986993042941101509127"
+          }
+        },
+        "Fall": {
+          "weight": "2231.8064",
+          "count": 47,
+          "severe_weight": "0",
+          "diagnosis": {
+            "71": "505.2662",
+            "53": "411.1039",
+            "57": "576.6379",
+            "55": "101.4187",
+            "64": "129.5908",
+            "59": "102.9095",
+            "62": "291.7586",
+            "58": "113.1208"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "71": "22.63933825084469692353243543",
+            "53": "18.42023125303341723547347118",
+            "57": "25.83727244441991025744885399",
+            "55": "4.544242726430034433094196701",
+            "64": "5.806543076496240892579212964",
+            "59": "4.611040635065837251833313140",
+            "62": "13.07275577308139272295303033",
+            "58": "5.068575840628470283085486268"
+          }
+        },
+        "Belt contact": {
+          "weight": "225.9727",
+          "count": 7,
+          "severe_weight": "0",
+          "diagnosis": {
+            "62": "97.5170",
+            "57": "51.8171",
+            "59": "25.5462",
+            "53": "51.0924"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "62": "43.15432793430356852841073280",
+            "57": "22.93069030019997990907751246",
+            "59": "11.30499392183215052083725158",
+            "53": "22.60998784366430104167450316"
+          }
+        },
+        "Unknown/Unclassified": {
+          "weight": "594.5718",
+          "count": 12,
+          "severe_weight": "0",
+          "diagnosis": {
+            "62": "28.1008",
+            "64": "332.9425",
+            "71": "153.2001",
+            "53": "80.3284"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "62": "4.726224822637064186360671663",
+            "64": "55.99702172218729512566859040",
+            "71": "25.76645915598418895749848883",
+            "53": "13.51029429919145173047224910"
+          }
+        },
+        "Entering/exiting": {
+          "weight": "254.6187",
+          "count": 4,
+          "severe_weight": "0",
+          "diagnosis": {
+            "53": "202.3912",
+            "62": "52.2275"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "53": "79.48795591211486037749780358",
+            "62": "20.51204408788513962250219642"
+          }
+        },
+        "Equipment/cord obstacle or landing falls": {
+          "weight": "393.0480",
+          "count": 7,
+          "severe_weight": "0",
+          "diagnosis": {
+            "64": "28.1008",
+            "57": "157.2683",
+            "62": "103.6342",
+            "53": "104.0447"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "64": "7.149457572611996499155319452",
+            "57": "40.01249211292259469581323401",
+            "62": "26.36680507215403716594410861",
+            "53": "26.47124524231137163908733793"
+          }
+        }
+      },
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "0E+4"
+    },
+    "Unknown": {
+      "total_weight": "0",
+      "record_count": 0,
+      "severe_weight": "0",
+      "severe_pct": null,
+      "mechanisms": {},
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": null,
+      "all_unknown_severe_pct": null
+    },
+    "literal belt": {
+      "total_weight": "123.7879",
+      "record_count": 3,
+      "severe_weight": "0",
+      "severe_pct": "0E+4",
+      "mechanisms": {
+        "Belt contact": {
+          "weight": "71.9708",
+          "count": 2,
+          "severe_weight": "0",
+          "diagnosis": {
+            "62": "46.4246",
+            "53": "25.5462"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "62": "64.50477137950390991902271477",
+            "53": "35.49522862049609008097728523"
+          }
+        },
+        "Fall": {
+          "weight": "51.8171",
+          "count": 1,
+          "severe_weight": "0",
+          "diagnosis": {
+            "62": "51.8171"
+          },
+          "severe_pct": "0E+4",
+          "diagnosis_pct": {
+            "62": "100"
+          }
+        }
+      },
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": "0E+4",
+      "all_unknown_severe_pct": "0E+4"
+    },
+    "literal metacharacters": {
+      "total_weight": "0",
+      "record_count": 0,
+      "severe_weight": "0",
+      "severe_pct": null,
+      "mechanisms": {},
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": null,
+      "all_unknown_severe_pct": null
+    },
+    "empty": {
+      "total_weight": "0",
+      "record_count": 0,
+      "severe_weight": "0",
+      "severe_pct": null,
+      "mechanisms": {},
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": null,
+      "all_unknown_severe_pct": null
+    },
+    "Fall Severe belt": {
+      "total_weight": "0",
+      "record_count": 0,
+      "severe_weight": "0",
+      "severe_pct": null,
+      "mechanisms": {},
+      "severe_record_count": 0,
+      "unknown_record_count": 0,
+      "unknown_weight": "0",
+      "unknown_pct": null,
+      "all_unknown_severe_pct": null
+    }
+  }
+}

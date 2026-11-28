@@ -1,11 +1,7 @@
-# Release readiness - November 9, 2026
+# Deliverable 5 release
 
-The reviewed 109-visit production bundle, public app, five distinct cases and four-section validation are complete. Windows rerun: 186 tests passed. CR-09 and CR-10 are implemented in 79c884e and verified on the public app after an explicitly approved reboot. Existing Linux CI evidence is preserved; the implementation CI passed all production checks.
+The final recording is included as root demo.mp4 and was inspected against R5.2a-c. validation.pdf and response-letter.pdf are rendered from current sources. All teammate implementations and the original five cases are preserved. The full pinned test suite passes 204 tests; original publisher validation, seven deliberate calculation failures, five-category hardening, production AppTest and clean extraction/startup checks are documented.
 
-The cases cover Ryan (investigation priority), Colby (belt inspection allocation), Richard's case uploaded by Yiqi (orientation), ps607 (rehabilitation supervision), and James (hospital education). Each has at least two public sources, live figures, decision interpretation and a Break proposal. Original verdicts remain unchanged. The current response implements sourced uncertainty guidance and complete filtered-record browsing; the rehabilitation and diagnosis-filter proposals remain open with an explicit scope rationale.
+Create the submission ZIP from the final verified Git commit using git archive. Its required root artifacts are README.md, validation.pdf, response-letter.pdf and demo.mp4. Exclude private inputs and temporary video-production files. Compare the final ZIP to Git and run the extracted tests before upload.
 
-Release uses git archive of committed HEAD. Raw annual data, private reviews, approvals, environments/caches, temporary captures and secrets are excluded. The runtime CSV/provenance/codebook/lookup and pinned dependencies are included. Ryan's separate final nine-page HW11 PDF remains in the 11-prove-tt folder for individual hand-in.
-
-The revised Unlisted demo is public without sign-in: https://www.youtube.com/watch?v=JEA_-Y34y4w. It shows the new controls and ends with a concrete follow-up choice. Root validation retains all cases and 21 authentic figures in a more compact layout. See FINAL_GRADING_AUDIT.md for the criterion-by-criterion evidence and limits.
-
-Remaining actions: one member uploads the replacement team ZIP to Brightspace by the course deadline; each student uploads their own HW11 PDF if not already done. Keep the public app working through December 16.
+One teammate uploads the verified final ZIP to Brightspace by December 4, 6 pm Pacific. Keep the public app running unchanged until grades arrive, December 16 at the latest. No outside-team audience comprehension study is claimed; source download-date and automated-source-link access limitations remain documented.

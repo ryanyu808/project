@@ -1,0 +1,10 @@
+{
+  "http://127.0.0.1:8519/_stcore/health": {
+    "status": 200,
+    "response": "ok"
+  },
+  "http://127.0.0.1:8519/": {
+    "status": 200,
+    "response": "<!--\n Copyright (c) Streamlit Inc. (2018-2022) Snowflake Inc. (2022-2025)\n\n Lice"
+  }
+}

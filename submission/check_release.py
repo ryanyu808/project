@@ -16,7 +16,8 @@ def audit():
   content=git('show','HEAD:'+n)
   if len(content)>=100_000_000:too_large.append(n)
   if token.search(content):secret_files.append(n)
- missing=[n for n in REQUIRED if n not in names]
+ missing=[n for n in [*REQUIRED,'response-letter.pdf'] if n not in names]
+ if not any(n in names for n in ['demo.mp4','demo.mov']):missing.append('demo.mp4 or demo.mov (or verified course-permitted Drive fallback)')
  readme=git('show','HEAD:README.md').decode('utf-8')
  urls_pending=any(x in readme for x in ['[PENDING','[TO COMPLETE'])
  dirty=bool(git('status','--porcelain','--untracked-files=no').strip())

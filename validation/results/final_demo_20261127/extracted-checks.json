@@ -1,0 +1,22 @@
+{
+  "final-extracted-tests": {
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ]
+  },
+  "final-extracted-apptest": {
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\ryany\\dso576\\tmp\\t9-demo-release-check-20261127\\.venv\\Scripts\\python.exe",
+      "validation/verify_app.py",
+      "--output",
+      "C:\\Users\\ryany\\dso576\\tmp\\final-demo-production\\final-extracted-app.json"
+    ]
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "file": "demo.mp4",
+  "bytes": 7407910,
+  "sha256": "9e58203931a86f9ce4bc1aeee1afc55cf26db7899652d65f46f5ec35f7f1ab7a",
+  "duration": 322.7,
+  "width": 1920,
+  "height": 1080,
+  "video_codec": "h264",
+  "fps": "12/1",
+  "audio_codec": "aac",
+  "audio_sample_rate": "96000",
+  "audio_channels": 1,
+  "audio_source": "Microsoft Zira Desktop synthesized narration; normalized to -16 LUFS target",
+  "native_capture": "Authentic 12 fps PrintWindow captures of the task-owned Chrome window. Edited live segments improve narrative framing and complete the final decision; no dashboard UI, values or browser chrome recreated.",
+  "decode_errors": "",
+  "black_intervals_detected": false,
+  "status": "VERIFIED_FINAL_VIDEO",
+  "scenes": [
+    {
+      "id": "opening",
+      "action_start": 0.052083492279052734,
+      "audio_start": 2.3880834579467773,
+      "audio_duration": 21.158367346938775,
+      "metrics": [
+        "5,120",
+        "109",
+        "22.3%"
+      ],
+      "text": "Welcome to Team T nine's CPSC Treadmill Injury Dashboard. Imagine you are an epidemiology analyst deciding which injury mechanism deserves your next round of follow up investigation: falls, or belt contact. This is the actual public application at the address shown in the browser. It opens without signing in. We will turn the overview into a concrete investigation shortlist, inspect the evidence, and test what happens when our filters become too narrow."
+    },
+    {
+      "id": "overview",
+      "action_start": 23.986083507537842,
+      "audio_start": 24.934083461761475,
+      "audio_duration": 25.48140589569161,
+      "metrics": [
+        "5,120",
+        "109",
+        "22.3%"
+      ],
+      "text": "The opening view shows five thousand, one hundred twenty estimated national emergency department visits, from one hundred nine sampled records, with a weighted severe outcome percentage of twenty two point three percent. These are a reviewed subset of visits among older adults that mention a treadmill. Some screened visits were set aside after review. Severe includes transfer, hospital admission, observation, and fatalities recorded in the emergency department. Visits are not unique people, and these estimates do not measure injury risk per treadmill user."
+    },
+    {
+      "id": "comparison",
+      "action_start": 50.851083517074585,
+      "audio_start": 52.18208336830139,
+      "audio_duration": 24.117142857142856,
+      "metrics": [
+        "5,120",
+        "109",
+        "22.3%"
+      ],
+      "text": "The mechanism summary gives us the comparison behind the decision. Fall accounts for about three thousand, one hundred fourteen estimated visits, from sixty five records. Belt contact accounts for about three hundred thirty visits, from nine records. Belt contact has a severe share of thirty one point six percent, compared with twenty eight point three percent for Fall. A higher percentage from such a small group is not enough to rank Belt contact above Fall. We need burden, supporting counts, and the original narratives together."
+    },
+    {
+      "id": "belt",
+      "action_start": 76.72808337211609,
+      "audio_start": 81.06108355522156,
+      "audio_duration": 20.82761904761905,
+      "metrics": [
+        "330",
+        "9",
+        "31.6%"
+      ],
+      "text": "Here is Belt contact selected on its own. The reliability warning is now directly beside the headline. This group falls below both the minimum estimate and sampled record screens. The survey design coefficient of variation is not calculated. The dashboard therefore does not certify that the estimate is statistically reliable. Belt contact remains a useful category to inspect, but its apparent severe share should not become an automatic investigation priority."
+    },
+    {
+      "id": "fall",
+      "action_start": 102.30808353424072,
+      "audio_start": 107.22308349609375,
+      "audio_duration": 17.749115646258502,
+      "metrics": [
+        "3,114",
+        "65",
+        "28.3%"
+      ],
+      "text": "Now I select Fall. Its larger observed burden makes it the stronger starting point for this analyst's follow up shortlist. That is an investigation choice, not a conclusion that a treadmill defect caused these injuries. Mechanism labels come from short, reviewed narratives. They cannot establish exposure, explain every initiating event, or replace a detailed investigation."
+    },
+    {
+      "id": "severe",
+      "action_start": 125.4040834903717,
+      "audio_start": 129.23808336257935,
+      "audio_duration": 16.918956916099773,
+      "metrics": [
+        "883",
+        "18",
+        "100.0%"
+      ],
+      "text": "Adding Severe narrows Fall to eighteen sampled records. The selected headline is now one hundred percent severe because severity is the filter we just applied. It is not the severe percentage for all Fall visits. Notice that the reliability warning also follows this smaller selected population. The app keeps the selected records and the all outcome comparison conceptually separate."
+    },
+    {
+      "id": "baseline",
+      "action_start": 146.58508348464966,
+      "audio_start": 147.71708345413208,
+      "audio_duration": 15.958820861678005,
+      "metrics": [
+        "883",
+        "18",
+        "100.0%"
+      ],
+      "text": "The comparison table makes that distinction explicit. The baseline retains all Fall outcomes, while the selection contains only the severe Fall visits. We can compare the severe burden with the full population instead of mistaking a filtered percentage for a population rate. Keeping that denominator visible matters when an analyst explains why these records were selected."
+    },
+    {
+      "id": "narratives",
+      "action_start": 164.11508345603943,
+      "audio_start": 165.59708333015442,
+      "audio_duration": 17.44857142857143,
+      "metrics": [
+        "883",
+        "18",
+        "100.0%"
+      ],
+      "text": "The selected narrative browser turns the aggregate result into records we can follow up. Here I open the severe Fall narratives. The case identifiers and original descriptions give us circumstances to investigate, rather than a claim about causation. An analyst could ask about loss of balance, the surrounding environment, medical events, and the equipment relationship before drawing a stronger conclusion."
+    },
+    {
+      "id": "empty",
+      "action_start": 183.47908353805542,
+      "audio_start": 186.83008337020874,
+      "audio_duration": 15.365170068027211,
+      "metrics": [
+        "0",
+        "0",
+        "N/A"
+      ],
+      "text": "Typing belt while keeping Fall and Severe produces no matching records. This does not mean there are no belt injuries overall. It means this particular intersection is empty. The message tells us which selection to change and how many records each alternative would restore. That guidance prevents an empty table from looking like a substantive finding."
+    },
+    {
+      "id": "undo",
+      "action_start": 202.64308333396912,
+      "audio_start": 208.12608337402344,
+      "audio_duration": 15.400090702947846,
+      "metrics": [
+        "0",
+        "0",
+        "N/A"
+      ],
+      "text": "I reset the controls twice, and then choose Undo reset. The previous Fall, Severe, and belt combination returns, including the empty result and its recovery guidance. A repeated Reset no longer destroys the saved selection. This lets an analyst explore broadly and still return to the exact question they were examining."
+    },
+    {
+      "id": "entry",
+      "action_start": 223.9590835571289,
+      "audio_start": 230.67308354377747,
+      "audio_duration": 15.749433106575964,
+      "metrics": [
+        "255",
+        "4",
+        "0.0%"
+      ],
+      "text": "Next, I reset and select Entering slash exiting. This is a different question: which narratives describe getting onto or off the equipment? The small group has four sampled records and the warning remains visible. No severe outcomes in this small selection cannot establish that entering or exiting is safe, or that a particular training intervention works."
+    },
+    {
+      "id": "getting",
+      "action_start": 246.85408353805542,
+      "audio_start": 249.9850833415985,
+      "audio_duration": 12.690385487528344,
+      "metrics": [
+        "202",
+        "3",
+        "0.0%"
+      ],
+      "text": "I type getting into the narrative search and apply it. The selected count is three. The controls show that the mechanism is still Entering slash exiting. This is a literal text search, not an automatic classification of every possible way someone might describe mounting or leaving the equipment."
+    },
+    {
+      "id": "got-off",
+      "action_start": 262.6754688291268,
+      "audio_start": 270.0,
+      "audio_duration": 15.109977324263038,
+      "metrics": [
+        "52",
+        "1",
+        "0.0%"
+      ],
+      "text": "I replace the search with got off and apply it. This returns one record. Those two searches must actually be run, because describing them without showing the interaction could hide which population produced the answer. Clearing the search restores all records in the mechanism, so a guessed keyword does not silently define the full investigation."
+    },
+    {
+      "id": "decision",
+      "action_start": 286.0,
+      "audio_start": 294.46106362342834,
+      "audio_duration": 27.385895691609978,
+      "metrics": [
+        "883",
+        "18",
+        "100.0%"
+      ],
+      "text": "Returning to Fall and Severe, my decision is to begin follow up with this severe Fall shortlist. The dashboard has brought the burden comparison, recorded outcomes, and original narrative evidence into one reproducible workflow. The next step is to investigate the circumstances behind these selected visits, review classification boundaries, and consult official surveillance uncertainty measures. It does not justify declaring a defect, prescribing supervision, or estimating personal injury risk. That is the value of this tool: a clearer, inspectable starting point for investigation, with the limits kept in view."
+    }
+  ],
+  "visual_review": {
+    "method": "Decoded final MP4 scene frames at every narration interval; additional before/during/after samples for Reset/Undo and both searches; full-size overview, comparison, narrative and search frames inspected.",
+    "address_bar": "Actual deployed URL readable in native Chrome address bar.",
+    "spoken_numbers": "Opening 5120/109/22.3; comparison Fall 3114/65/28.3 and Belt 330/9/31.6; severe Fall 18/100; Entering/exiting 4; getting 3; got off 1 remain visible during corresponding narration.",
+    "privacy": "Only clean-profile public dashboard Chrome window captured; no personal files, credentials or unrelated tabs visible.",
+    "unintended_freeze": "No missed required transition in inspected action intervals. Static reading view is intentional."
+  },
+  "freeze_detection": {
+    "threshold": "-50 dB pixel change; 45 seconds",
+    "flagged_intervals_seconds": [
+      [
+        0.666667,
+        51.0
+      ],
+      [
+        228.833333,
+        288.583333
+      ]
+    ],
+    "interpretation": "First interval is deliberately stationary opening/definition narration. Second is a false positive for a mostly unchanged layout: decoded action frames show entry count 4, getting count 3 and got off count 1 and actual typing. Native controls and displayed values demonstrably change."
+  },
+  "audio_measurement": {
+    "integrated_loudness_LUFS": -16.5,
+    "loudness_range_LU": 3.8,
+    "true_peak_dBFS": -0.9,
+    "clipping_detected": false
+  }
+}

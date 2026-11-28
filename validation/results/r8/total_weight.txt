@@ -19,4 +19,4 @@ E         Expected: 5119.628 ± 1.0e-08
 tests\test_publisher_results.py:65: AssertionError
 =========================== short test summary info ===========================
 FAILED tests/test_publisher_results.py::test_main_result[total_weight] - Asse...
-1 failed in 1.29s
+1 failed in 0.27s
